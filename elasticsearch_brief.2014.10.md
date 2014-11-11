@@ -32,35 +32,44 @@ Kibana 4无论是在界面的布局，使用配置方法，还是底层绘制图
 在shard recovery, merging, transaction log等多处加入Checksums 验证功能来验证数据是否损坏。
 	* 其他主要更新
 [groovy替换了mvel][5]成为ES默认的脚本语言来提高安全性和运行效率。
-处于安全性考虑，跨域访问改为默认关闭。新增了3种aggregations类型：[filters](http://www.elasticsearch.org/guide/en/elasticsearch/reference/1.4/search-aggregations-bucket-filters-aggregation.html), [children](http://www.elasticsearch.org/guide/en/elasticsearch/reference/1.4/search-aggregations-bucket-children-aggregation.html), [scripted_metric](http://www.elasticsearch.org/guide/en/elasticsearch/reference/1.4/search-aggregations-metrics-scripted-metric-aggregation.html)
-	
-## Elasticsearch Ecosystem Updates
+处于安全性考虑，跨域访问改为默认关闭。新增了3种aggregations类型：[filters](http://www.elasticsearch.org/guide/en/elasticsearch/reference/1.4/search-aggregations-bucket-filters-aggregation.html), [children](http://www.elasticsearch.org/guide/en/elasticsearch/reference/1.4/search-aggregations-bucket-children-aggregation.html), [scripted_metric](http://www.elasticsearch.org/guide/en/elasticsearch/reference/1.4/search-aggregations-metrics-scripted-metric-aggregation.html)。随着ES中集成的Lucene版本的不断更新，以后的ES版本中将逐渐不在支持Lucene 3.x的index,所以ES新增了your_index/_upgrade REST API用以将老旧的index转换为兼容最新Lucene的index.
 
-## Amazing Slides & tutorials &  videos released
+## Elasitcsearch Ecosystem Updates
+*	Elasticsearch Hadoop 2.0.2 and 2.1.Beta2 released[TODO]
 
-##Meetups in China
 
----
+## Amazing Slides & tutorials &  videos
+*	[playing http tricks with nginx][11]
+使用nginx来做es的proxy,提供持久http链接，load balance, security control（basic http auth, role based auth,oauth)功能
+*	[deploying the ELK stack using Docker][12]
+用时下流行的app容器docker部署ELK
+*	[Elasticsearch from the Top Down Tracing a Request Down to the Bits][13]
+深层次讨论了ES集群处理index ,query请求的过程。
+*	[Building Scalable Search from Scratch with ElasticSearch][14]
+
+
+
+## Meetups in China
+*	10月25日，第三届elasticsearch国内开发者交流大会。详细信息：http://www.meetup.com/Elasticsearch-China-Users/events/210253352/。大会PPT下载：http://pan.baidu.com/s/1i3qsoBF
+
+
 [1]:  http://www.elasticsearch.org/blog/kibana-4-beta-1-released/ "Kibana 4 Beta 1 released"
 [2]: http://www.elasticsearch.org/blog/kibana-4-beta-1-1-pointy-needles-blunted/ "kibana 4 beta 1.1: pointy needles blunted "
 [3]: http://www.elasticsearch.org/blog/elasticsearch-1-4-0-beta-released/ "Elasticsearch 1.4.0.Beta1 released"
 [4]: http://www.elasticsearch.org/guide/en/elasticsearch/resiliency/current/index.html "resiliency status"
 [5]: http://www.elasticsearch.org/blog/scripting/ "all about scripting"
-
-
-## information source
-
-### Elasticsearch update
-*   [This week in Elasticsearch October 8, 2014](http://www.elasticsearch.org/blog/2014-10-08-this-week-in-elasticsearch/)
-*   [This week in Elasticsearch October 15, 2014](http://www.elasticsearch.org/blog/2014-10-15-this-week-in-elasticsearch/)
-*   [This Week in ElasticsearchOctober 22, 2014](http://www.elasticsearch.org/blog/2014-10-22-this-week-in-elasticsearch/)
-* [This week in ElasticsearchOctober 29, 2014](http://www.elasticsearch.org/blog/2014-10-29-this-week-in-elasticsearch/)
-
-### Elasticsearch Hadoop
-*   [Elasticsearch Hadoop 2.0.2 and 2.1.Beta2 released]()
+[6]: http://www.elasticsearch.org/blog/elasticsearch-hadoop-2-0-2-and-2-1-beta2/ "Elasticsearch Hadoop 2.0.2 and 2.1.Beta2 released"
+[7]: http://www.elasticsearch.org/blog/2014-10-08-this-week-in-elasticsearch/ "This week in Elasticsearch October 8, 2014"
+[8]: http://www.elasticsearch.org/blog/2014-10-15-this-week-in-elasticsearch/ "This week in Elasticsearch October 15, 2014"
+[9]: http://www.elasticsearch.org/blog/2014-10-22-this-week-in-elasticsearch/ "This Week in ElasticsearchOctober 22, 2014"
+[10]: http://www.elasticsearch.org/blog/2014-10-29-this-week-in-elasticsearch/ "This week in ElasticsearchOctober 29, 2014"
+[11]: http://www.elasticsearch.org/blog/playing-http-tricks-nginx/ "playing http tricks with nginx"
+[12]: https://clusterhq.com/blog/deploying-multi-node-elasticsearch-logstash-kibana-cluster-using-docker/ "deploying the ELK stack using Docker"
+[13]: https://found.no/foundation/elasticsearch-top-down/ "Elasticsearch from the Top Down Tracing a Request Down to the Bits"
+[14]: http://www.airpair.com/elasticsearch/posts/elasticsearch-robust-search-functionality "Building Scalable Search from Scratch with ElasticSearch"
 
 ---
-
+[TODO]
 *   [elasticsearch testing & qa: elasticsearch continuous integration](http://www.elasticsearch.org/blog/elasticsearch-testing-qa-elasticsearch-continuous-integration/)
 *   [elasticsearch testing & qa: testing levels of elasticsearch](http://www.elasticsearch.org/blog/elasticsearch-testing-qa-testing-levels-elasticsearch/)
 *   [elasticsearch testing and qa: increasing coverage by randomizing test runs](http://www.elasticsearch.org/blog/elasticsearch-testing-qa-increasing-coverage-randomizing-test-runs/)
