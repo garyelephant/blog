@@ -50,7 +50,8 @@ Kibana 4无论是在界面的布局，使用配置方法，还是底层绘制图
 
 
 ## Meetups in China
-*	10月25日，第三届elasticsearch国内开发者交流大会。详细信息：http://www.meetup.com/Elasticsearch-China-Users/events/210253352/。大会PPT下载：http://pan.baidu.com/s/1i3qsoBF
+*	10月25日，第三届elasticsearch国内开发者交流大会。详细信息：http://www.meetup.com/Elasticsearch-China-Users/events/210253352/。
+大会PPT下载：http://pan.baidu.com/s/1i3qsoBF
 
 
 [1]:  http://www.elasticsearch.org/blog/kibana-4-beta-1-released/ "Kibana 4 Beta 1 released"
