@@ -26,7 +26,7 @@ Kibana 4无论是在界面的布局，使用配置方法，还是底层绘制图
 增加了对处理单个请求可占用的内存的限制(request circuit breaker)。
 
 	* Better cluster stability through improved discovery algorithms.
-修复了诸多用户在生产环境中遇到的集群不稳定的问题。并在[][]详细列出了用户提交的相关问题及它们的修复进度和在生产环境中保护数据的措施。
+修复了诸多用户在生产环境中遇到的集群不稳定的问题。并在[resiliency status][4]详细列出了用户提交的相关问题及它们的修复进度和在生产环境中保护数据的措施。
 
 	* Better detection of corrupted data through checksums.
 在shard recovery, merging, transaction log等多处加入Checksums 验证功能来验证数据是否损坏。
