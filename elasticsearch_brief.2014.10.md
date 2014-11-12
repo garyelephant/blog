@@ -18,7 +18,7 @@ Kibana 4无论是在界面的布局，使用配置方法，还是底层绘制图
 
 >注意：Kibana 3与Kibana 4的schema不兼容，Kibana 3的配置不能导入到Kibana 4中。Kibana 4需要Elasticsearch的版本 >= 1.4.0
 
-*	Elasticsearch 1.4.0.Beta1 released
+*	 发布了Elasticsearch 1.4.0.Beta1
 这个版本的主要在稳定性和可靠性上做了改进。
 
 	* Better node stability through reduced memory usage.
@@ -35,7 +35,7 @@ Kibana 4无论是在界面的布局，使用配置方法，还是底层绘制图
 处于安全性考虑，跨域访问改为默认关闭。新增了3种aggregations类型：[filters](http://www.elasticsearch.org/guide/en/elasticsearch/reference/1.4/search-aggregations-bucket-filters-aggregation.html), [children](http://www.elasticsearch.org/guide/en/elasticsearch/reference/1.4/search-aggregations-bucket-children-aggregation.html), [scripted_metric](http://www.elasticsearch.org/guide/en/elasticsearch/reference/1.4/search-aggregations-metrics-scripted-metric-aggregation.html)。随着ES中集成的Lucene版本的不断更新，以后的ES版本中将逐渐不在支持Lucene 3.x的index,所以ES新增了your_index/_upgrade REST API用以将老旧的index转换为兼容最新Lucene的index.
 
 ## Elasitcsearch Ecosystem Updates
-*	Elasticsearch Hadoop 2.0.2 and 2.1.Beta2 released[TODO]
+*	发布了Elasticsearch Hadoop 2.0.2 and 2.1.Beta2[TODO]
 
 
 ## Amazing Slides & tutorials &  videos
@@ -44,7 +44,7 @@ Kibana 4无论是在界面的布局，使用配置方法，还是底层绘制图
 *	[deploying the ELK stack using Docker][12]
 用时下流行的app容器docker部署ELK
 *	[Elasticsearch from the Top Down Tracing a Request Down to the Bits][13]
-深层次讨论了ES集群处理index ,query请求的过程。
+从Elasticsearch实现底层讨论了ES集群处理index ,query请求的过程。
 *	[Building Scalable Search from Scratch with ElasticSearch][14]
 
 
@@ -54,7 +54,7 @@ Kibana 4无论是在界面的布局，使用配置方法，还是底层绘制图
 大会PPT下载：http://pan.baidu.com/s/1i3qsoBF
 
 
-[1]:  http://www.elasticsearch.org/blog/kibana-4-beta-1-released/ "Kibana 4 Beta 1 released"
+[1]: http://www.elasticsearch.org/blog/kibana-4-beta-1-released/ "Kibana 4 Beta 1 released"
 [2]: http://www.elasticsearch.org/blog/kibana-4-beta-1-1-pointy-needles-blunted/ "kibana 4 beta 1.1: pointy needles blunted "
 [3]: http://www.elasticsearch.org/blog/elasticsearch-1-4-0-beta-released/ "Elasticsearch 1.4.0.Beta1 released"
 [4]: http://www.elasticsearch.org/guide/en/elasticsearch/resiliency/current/index.html "resiliency status"
