@@ -6,6 +6,14 @@
 *	Amazing Slides写介绍
 *	http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/index-modules-allocation.html#disk
 *	http://www.elasticsearch.org/blog/elasticsearch-1-4-1-released/中的parent/child and nested documents是什么意思
+*	Want to learn more about testing automation for distributed applications? Isabel Drost-Fromm’s latest paper is a great place to start! Isabel will show you how we at Elasticsearch ensure quality checks are run often enough to speed up failure discovery, while still keeping the runtime of the whole test suite low enough for our developers to be able to run the test suite in their local development environment.
+http://www.elasticsearch.org/blog/white-paper-testing-automation-for-distributed-applications/
+*	[Deep dive into Aggregations](https://speakerdeck.com/bleskes/deep-dive-into-aggregations)
+*	[Deep Dive into Faceting](https://speakerdeck.com/bleskes/deep-dive-into-faceting)
+*	http://www.rittmanmead.com/2014/11/analytics-with-kibana-and-elasticsearch-through-hadoop-part-1-introduction/
+*	http://www.rittmanmead.com/2014/11/analytics-with-kibana-and-elasticsearch-through-hadoop-part-2-getting-data-into-elasticsearch/
+*	http://www.rittmanmead.com/2014/11/analytics-with-kibana-and-elasticsearch-through-hadoop-part-3-visualising-the-data-in-kibana/
+
 
 ## Elasticsearch Updates
 *	Elasticsearch 1.4.0发布了，1.4.x中最新最稳定的版本。
@@ -23,10 +31,10 @@
 	*    Flake IDs for auto-generated document IDs, which improve primary key lookup performance.
 	*    Updates which don’t make any change to the document can avoid reindexing the document.
 	*    Functions in the function_score query can be individually tuned with the weight parameter (docs).
+我们在[10月的Es简报中发布了Elasticsearch 1.4.0.Beta1](https://github.com/garyelephant/blog/blob/master/elasticsearch_brief.2014.10.md)中提到了更详细的变化。
 
 *	Elasticsearch 1.3.6发布了，1.3.x中最新最稳定的版本，一堆bug fix，见[release notes](http://www.elasticsearch.org/downloads/1-3-6)。
 
-我们在[10月的Es简报中发布了Elasticsearch 1.4.0.Beta1](https://github.com/garyelephant/blog/blob/master/elasticsearch_brief.2014.10.md)中提到了更详细的变化。
 
 ## Elasticsearch Ecosystem Updates
 *	elasticsearch背后的公司elasticsearch.com即将在年底发布一款重量级产品：[Shield ](http://www.elasticsearch.org/overview/shield/)(elasticsearch的神盾特工局，专门保护elasticsearch的安全)。Shield预计是以elasticsearch插件的方式集成到其中。相信感受过此公司的[Marvel](http://www.elasticsearch.org/overview/marvel/)易用性的用户应该会很期待这款产品。Shield主要提供了4个功能：
@@ -49,9 +57,10 @@
 *	[migrating his Elasticsearch cluster from Canada to France with zero downtime](https://t37.net/migrate-your-es-cluster-from-one-continent-to-another-without-downtime.html)
 *	[Having Fun: Python and Elasticsearch, Part 1](http://bitquabit.com/post/having-fun-python-and-elasticsearch-part-1/)使用python入门Elasticsearch 
 *	[The ELK Stack in a DevOps Environment](https://speakerdeck.com/elasticsearch/the-elk-stack-in-a-devops-environment)里面有一个Best practices值得一看。
+*	[Not all Nodes are Created Equal - Scaling Elasticsearch](https://speakerdeck.com/bleskes/not-all-nodes-are-created-equal-scaling-elasticsearch)扩展Elasticsearch。
 
 ## Meetups in China
-
+*	Nothing
 
 ##References
 1. shield: you know, for security http://www.elasticsearch.org/blog/shield-know-security-coming-soon/ 
@@ -59,29 +68,9 @@
 3. This week in ElasticsearchNovember 5, 2014 http://www.elasticsearch.org/blog/2014-11-05-this-week-in-elasticsearch/
 4. This week in ElasticsearchNovember 12, 2014 http://www.elasticsearch.org/blog/2014-11-12-this-week-in-elasticsearch/
 5. This Week in ElasticsearchNovember 19, 2014 http://www.elasticsearch.org/blog/2014-11-1-this-week-in-elasticsearch/
-6. kibana 4 beta 2: get it now http://www.elasticsearch.org/blog/kibana-4-beta-2-get-now/
-7. elasticsearch 1.4.1 and 1.3.6 released http://www.elasticsearch.org/blog/elasticsearch-1-4-1-released/
-
-
----
-
-ES Updates:
-*	http://www.elasticsearch.org/blog/elasticsearch-1-4-0-released/ "elasticsearch 1.4.0 and 1.3.5 released"
-*	http://www.elasticsearch.org/blog/2014-11-05-this-week-in-elasticsearch/ "This week in ElasticsearchNovember 5, 2014"
-*	http://www.elasticsearch.org/blog/2014-11-12-this-week-in-elasticsearch/ "This week in ElasticsearchNovember 12, 2014"
-*	http://www.elasticsearch.org/blog/2014-11-1-this-week-in-elasticsearch/ "This Week in ElasticsearchNovember 19, 2014"
-*	http://www.elasticsearch.org/blog/2014-11-26-this-week-in-elasticsearch/ "This week in elasticsearchNovember 26, 2014"
-*	http://www.elasticsearch.org/blog/elasticsearch-1-4-1-released/ "http://www.elasticsearch.org/blog/2014-11-26-this-week-in-elasticsearch/"
-*	http://www.elasticsearch.org/blog/making-elasticsearch-groovy-er/ "Making Elasticsearch Groovy-er"
-
-Ecosystem:
-*	http://www.elasticsearch.org/blog/shield-know-security-coming-soon/ "shield: you know, for security (coming soon)"
-*	 http://www.elasticsearch.org/blog/kibana-4-beta-2-get-now/ "Kibana 4 Beta 2: Get it nowNovember 11, 2014"
-*	http://www.elasticsearch.org/blog/elasticsearch-yarn-and-ssl/ "Elasticsearch on YARN and SSL support in Elasticsearch Hadoop"
-
-Amazing tutorials & slides
-*	http://www.elasticsearch.org/blog/white-paper-testing-automation-for-distributed-applications/ "White Paper: Testing Automation for Distributed Applications"
-*	http://www.elasticsearch.org/blog/making-elasticsearch-groovy-er/ "Making Elasticsearch Groovy-er"
+6. This week in elasticsearchNovember 26, 2014 http://www.elasticsearch.org/blog/2014-11-26-this-week-in-elasticsearch/
+7. kibana 4 beta 2: get it now http://www.elasticsearch.org/blog/kibana-4-beta-2-get-now/
+8. elasticsearch 1.4.1 and 1.3.6 released http://www.elasticsearch.org/blog/elasticsearch-1-4-1-released/
 
 
 > Written with [StackEdit](https://stackedit.io/).
