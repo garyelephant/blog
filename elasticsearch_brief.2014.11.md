@@ -4,11 +4,13 @@
 
 ## TODO
 *	Amazing Slides写介绍
-*	
+*	http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/index-modules-allocation.html#disk
+*	http://www.elasticsearch.org/blog/elasticsearch-1-4-1-released/中的parent/child and nested documents是什么意思
 
 ## Elasticsearch Updates
-*	Elasticsearch 1.4.0发布了，最新最稳定的版本。
+*	Elasticsearch 1.4.0发布了，1.4.x中最新最稳定的版本。
 这个版本主要加强了Es的稳定性和可靠性，内存管理更合理，加入数据校验以发现损坏的数据。
+	*    磁盘利用率默认每60s检查一次，磁盘满的日志由`DEBUG`改为`WARN`级别，对由磁盘满触发的shard在node之间的移动做了优化。
 	*    Doc values (fielddata written to disk at index time) greatly reduces heap usage.
 	*    Request circuit breaker to abort search requests which consume too much memory.
 	*    Bloom filters are disabled by default as they are no longer needed for fast indexing.
@@ -22,7 +24,9 @@
 	*    Updates which don’t make any change to the document can avoid reindexing the document.
 	*    Functions in the function_score query can be individually tuned with the weight parameter (docs).
 
-我在[10月的Es简报中发布了Elasticsearch 1.4.0.Beta1](https://github.com/garyelephant/blog/blob/master/elasticsearch_brief.2014.10.md)中提到了更详细的变化。
+*	Elasticsearch 1.3.6发布了，1.3.x中最新最稳定的版本，一堆bug fix，见[release notes](http://www.elasticsearch.org/downloads/1-3-6)。
+
+我们在[10月的Es简报中发布了Elasticsearch 1.4.0.Beta1](https://github.com/garyelephant/blog/blob/master/elasticsearch_brief.2014.10.md)中提到了更详细的变化。
 
 ## Elasticsearch Ecosystem Updates
 *	elasticsearch背后的公司elasticsearch.com即将在年底发布一款重量级产品：[Shield ](http://www.elasticsearch.org/overview/shield/)(elasticsearch的神盾特工局，专门保护elasticsearch的安全)。Shield预计是以elasticsearch插件的方式集成到其中。相信感受过此公司的[Marvel](http://www.elasticsearch.org/overview/marvel/)易用性的用户应该会很期待这款产品。Shield主要提供了4个功能：
@@ -44,6 +48,7 @@
 ## Amazing Slides & tutorials & videos
 *	[migrating his Elasticsearch cluster from Canada to France with zero downtime](https://t37.net/migrate-your-es-cluster-from-one-continent-to-another-without-downtime.html)
 *	[Having Fun: Python and Elasticsearch, Part 1](http://bitquabit.com/post/having-fun-python-and-elasticsearch-part-1/)使用python入门Elasticsearch 
+*	[The ELK Stack in a DevOps Environment](https://speakerdeck.com/elasticsearch/the-elk-stack-in-a-devops-environment)里面有一个Best practices值得一看。
 
 ## Meetups in China
 
@@ -53,7 +58,9 @@
 2. Elasticsearch 1.4.0 and 1.3.5 released http://www.elasticsearch.org/blog/elasticsearch-1-4-0-released/
 3. This week in ElasticsearchNovember 5, 2014 http://www.elasticsearch.org/blog/2014-11-05-this-week-in-elasticsearch/
 4. This week in ElasticsearchNovember 12, 2014 http://www.elasticsearch.org/blog/2014-11-12-this-week-in-elasticsearch/
-5. kibana 4 beta 2: get it now http://www.elasticsearch.org/blog/kibana-4-beta-2-get-now/
+5. This Week in ElasticsearchNovember 19, 2014 http://www.elasticsearch.org/blog/2014-11-1-this-week-in-elasticsearch/
+6. kibana 4 beta 2: get it now http://www.elasticsearch.org/blog/kibana-4-beta-2-get-now/
+7. elasticsearch 1.4.1 and 1.3.6 released http://www.elasticsearch.org/blog/elasticsearch-1-4-1-released/
 
 
 ---
