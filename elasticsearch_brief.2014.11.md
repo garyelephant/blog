@@ -17,7 +17,8 @@
 	*    一次获取index settings, mappings, warmers, aliases的新GET /index API。详见[doc]。(http://www.elasticsearch.org/guide/en/elasticsearch/reference/1.4/indices-get-index.html#indices-get-index)
 >curl -XGET 'http://es_host:9200/your_index/_settings,_mappings, _warmers,_aliases'
 
-	*    使用Flake IDs代替random UUID,提高了indexing效率和primary key查询效率，见这篇介绍[performance considerations for elasticsearch indexing](http://www.elasticsearch.org/blog/performance-considerations-elasticsearch-indexing/)。
+	*    使用Flake IDs代替random UUID,提高了indexing效率和primary key查询效率，见这篇介绍[performance considerations for elasticsearch indexing](http://www.elasticsearch.org/blog/performance-considerations-elasticsearch-indexing/)
+
 
 我们在[10月的Es简报中发布了Elasticsearch 1.4.0.Beta1](https://github.com/garyelephant/blog/blob/master/elasticsearch_brief.2014.10.md)中提到了更详细的变化。
 
