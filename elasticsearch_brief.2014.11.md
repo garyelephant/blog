@@ -45,7 +45,7 @@ curl -XGET 'http://es_host:9200/your_index/_settings,_mappings, _warmers,_aliase
 ## Amazing Slides & tutorials & videos
 *	[migrating his Elasticsearch cluster from Canada to France with zero downtime](https://t37.net/migrate-your-es-cluster-from-one-continent-to-another-without-downtime.html)
 *	[Having Fun: Python and Elasticsearch, Part 1](http://bitquabit.com/post/having-fun-python-and-elasticsearch-part-1/)使用python入门Elasticsearch 
-*	[The ELK Stack in a DevOps Environment](https://speakerdeck.com/elasticsearch/the-elk-stack-in-a-devops-environment)里面有一个Best practices值得一看。
+*	[The ELK Stack in a DevOps Environment](https://speakerdeck.com/elasticsearch/the-elk-stack-in-a-devops-environment)里面有一个在生产环境中Es,Logstash,Kibana配置的Best practices值得一看。
 *	[Not all Nodes are Created Equal - Scaling Elasticsearch](https://speakerdeck.com/bleskes/not-all-nodes-are-created-equal-scaling-elasticsearch)扩展Elasticsearch。
 
 
