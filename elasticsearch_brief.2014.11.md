@@ -2,35 +2,23 @@
 
 ---
 
-## TODO
-*	Amazing Slides写介绍
-*	http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/index-modules-allocation.html#disk
-*	http://www.elasticsearch.org/blog/elasticsearch-1-4-1-released/中的parent/child and nested documents是什么意思
-*	Want to learn more about testing automation for distributed applications? Isabel Drost-Fromm’s latest paper is a great place to start! Isabel will show you how we at Elasticsearch ensure quality checks are run often enough to speed up failure discovery, while still keeping the runtime of the whole test suite low enough for our developers to be able to run the test suite in their local development environment.
-http://www.elasticsearch.org/blog/white-paper-testing-automation-for-distributed-applications/
-*	[Deep dive into Aggregations](https://speakerdeck.com/bleskes/deep-dive-into-aggregations)
-*	[Deep Dive into Faceting](https://speakerdeck.com/bleskes/deep-dive-into-faceting)
-*	http://www.rittmanmead.com/2014/11/analytics-with-kibana-and-elasticsearch-through-hadoop-part-1-introduction/
-*	http://www.rittmanmead.com/2014/11/analytics-with-kibana-and-elasticsearch-through-hadoop-part-2-getting-data-into-elasticsearch/
-*	http://www.rittmanmead.com/2014/11/analytics-with-kibana-and-elasticsearch-through-hadoop-part-3-visualising-the-data-in-kibana/
-
 
 ## Elasticsearch Updates
 *	Elasticsearch 1.4.0发布了，1.4.x中最新最稳定的版本。
-这个版本主要加强了Es的稳定性和可靠性，内存管理更合理，加入数据校验以发现损坏的数据。
+这个版本主要加强了Es的稳定性和可靠性，内存管理更合理，加入数据校验以发现损坏的数据，主要变化如下：
 	*    磁盘利用率默认每60s检查一次，磁盘满的日志由`DEBUG`改为`WARN`级别，对由磁盘满触发的shard在node之间的移动做了优化。
 	*    Doc values把执行sort,aggregations时需要的fielddata写到了磁盘上，解决了默认用 in memory fielddata执行big query超出内存限制或占用过多内存的问题。近期发布的版本对doc values做了巨大的性能改进，根据官方的性能测试，它仅比fielddata慢了约10~25%，并且对于大部分的Queries, sorts, aggregations,scripts几乎感觉不到。
-	*    Request circuit breaker to abort search requests which consume too much memory.
-	*    Bloom filters are disabled by default as they are no longer needed for fast indexing.
-	*    Increased use of checksums to detect data corruption early.
-	*    Groovy replaces MVEL as the default scripting language.
-	*    CORS is disabled by default to prevent XSS attacks.
-	*    Query cache to return aggregation results instantly on shards that have not changes.
-	*    New aggregations: filters (docs), children (docs), and scripted_metric (docs).
-	*    A new GET /index API which returns index settings, mappings, warmers, and aliases in a single request (docs).
-	*    Flake IDs for auto-generated document IDs, which improve primary key lookup performance.
-	*    Updates which don’t make any change to the document can avoid reindexing the document.
-	*    Functions in the function_score query can be individually tuned with the weight parameter (docs).
+	*    通过Request circuit breaker加入了对单个请求的内存使用限制
+	*    大量使用数据校验以检测数据损害
+	*    Groovy替代MVEL成为默认的脚本语言。
+	*    跨域访问（CORS）默认被禁止。
+	*    Shard级别的Query cache使常用的aggregation, suggestions可以立即得到结果。Query cache目前只能用于search_type=count, 没有通过`now`指定时间的query中。
+	*    新加入了3个aggregation类型：[filters (docs)](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-aggregations-bucket-filters-aggregation.html), [children (docs)](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-aggregations-bucket-children-aggregation.html) 以及 [scripted_metric (docs)](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-aggregations-metrics-scripted-metric-aggregation.html).
+	*    一次获取index settings, mappings, warmers, aliases的新GET /index API。详见[doc](http://www.elasticsearch.org/guide/en/elasticsearch/reference/1.4/indices-get-index.html#indices-get-index)
+```
+curl -XGET 'http://es_host:9200/your_index/_settings,_mappings, _warmers,_aliases'
+```
+	*    使用Flake IDs代替random UUID,提高了indexing效率和primary key查询效率，见这篇介绍[performance considerations for elasticsearch indexing](http://www.elasticsearch.org/blog/performance-considerations-elasticsearch-indexing/)。
 
 我们在[10月的Es简报中发布了Elasticsearch 1.4.0.Beta1](https://github.com/garyelephant/blog/blob/master/elasticsearch_brief.2014.10.md)中提到了更详细的变化。
 
@@ -77,6 +65,19 @@ http://www.elasticsearch.org/blog/white-paper-testing-automation-for-distributed
 6. This week in elasticsearchNovember 26, 2014 http://www.elasticsearch.org/blog/2014-11-26-this-week-in-elasticsearch/
 7. kibana 4 beta 2: get it now http://www.elasticsearch.org/blog/kibana-4-beta-2-get-now/
 8. elasticsearch 1.4.1 and 1.3.6 released http://www.elasticsearch.org/blog/elasticsearch-1-4-1-released/
+
+
+## TODO
+*	Amazing Slides写介绍
+*	http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/index-modules-allocation.html#disk
+*	http://www.elasticsearch.org/blog/elasticsearch-1-4-1-released/中的parent/child and nested documents是什么意思
+*	Want to learn more about testing automation for distributed applications? Isabel Drost-Fromm’s latest paper is a great place to start! Isabel will show you how we at Elasticsearch ensure quality checks are run often enough to speed up failure discovery, while still keeping the runtime of the whole test suite low enough for our developers to be able to run the test suite in their local development environment.
+http://www.elasticsearch.org/blog/white-paper-testing-automation-for-distributed-applications/
+*	[Deep dive into Aggregations](https://speakerdeck.com/bleskes/deep-dive-into-aggregations)
+*	[Deep Dive into Faceting](https://speakerdeck.com/bleskes/deep-dive-into-faceting)
+*	http://www.rittmanmead.com/2014/11/analytics-with-kibana-and-elasticsearch-through-hadoop-part-1-introduction/
+*	http://www.rittmanmead.com/2014/11/analytics-with-kibana-and-elasticsearch-through-hadoop-part-2-getting-data-into-elasticsearch/
+*	http://www.rittmanmead.com/2014/11/analytics-with-kibana-and-elasticsearch-through-hadoop-part-3-visualising-the-data-in-kibana/
 
 
 > Written with [StackEdit](https://stackedit.io/).
