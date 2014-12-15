@@ -19,7 +19,7 @@ http://www.elasticsearch.org/blog/white-paper-testing-automation-for-distributed
 *	Elasticsearch 1.4.0发布了，1.4.x中最新最稳定的版本。
 这个版本主要加强了Es的稳定性和可靠性，内存管理更合理，加入数据校验以发现损坏的数据。
 	*    磁盘利用率默认每60s检查一次，磁盘满的日志由`DEBUG`改为`WARN`级别，对由磁盘满触发的shard在node之间的移动做了优化。
-	*    Doc values (fielddata written to disk at index time) greatly reduces heap usage.
+	*    Doc values把执行sort,aggregations时需要的fielddata写到了磁盘上，解决了默认用 in memory fielddata执行big query超出内存限制或占用过多内存的问题。近期发布的版本对doc values做了巨大的性能改进，根据官方的性能测试，它仅比fielddata慢了约10~25%，并且对于大部分的Queries, sorts, aggregations,scripts几乎感觉不到。
 	*    Request circuit breaker to abort search requests which consume too much memory.
 	*    Bloom filters are disabled by default as they are no longer needed for fast indexing.
 	*    Increased use of checksums to detect data corruption early.
@@ -31,6 +31,7 @@ http://www.elasticsearch.org/blog/white-paper-testing-automation-for-distributed
 	*    Flake IDs for auto-generated document IDs, which improve primary key lookup performance.
 	*    Updates which don’t make any change to the document can avoid reindexing the document.
 	*    Functions in the function_score query can be individually tuned with the weight parameter (docs).
+
 我们在[10月的Es简报中发布了Elasticsearch 1.4.0.Beta1](https://github.com/garyelephant/blog/blob/master/elasticsearch_brief.2014.10.md)中提到了更详细的变化。
 
 *	Elasticsearch 1.3.6发布了，1.3.x中最新最稳定的版本，一堆bug fix，见[release notes](http://www.elasticsearch.org/downloads/1-3-6)。
@@ -51,7 +52,7 @@ http://www.elasticsearch.org/blog/white-paper-testing-automation-for-distributed
 ![Kibana4 beta 2 group bar chart](https://github.com/garyelephant/blog/blob/master/images/elasticsearch_brief_2014.11_kibana_group_bar_chart.png)
 	*     朴素的数据表，只展示数据
 ![Kibana4 beta 2 data table](https://github.com/garyelephant/blog/blob/master/images/elasticsearch_brief_2014.11_kibana_data_table.png)
-	*    
+
 
 ## Amazing Slides & tutorials & videos
 *	[migrating his Elasticsearch cluster from Canada to France with zero downtime](https://t37.net/migrate-your-es-cluster-from-one-continent-to-another-without-downtime.html)
@@ -59,8 +60,13 @@ http://www.elasticsearch.org/blog/white-paper-testing-automation-for-distributed
 *	[The ELK Stack in a DevOps Environment](https://speakerdeck.com/elasticsearch/the-elk-stack-in-a-devops-environment)里面有一个Best practices值得一看。
 *	[Not all Nodes are Created Equal - Scaling Elasticsearch](https://speakerdeck.com/bleskes/not-all-nodes-are-created-equal-scaling-elasticsearch)扩展Elasticsearch。
 
+
 ## Meetups in China
 *	Nothing
+
+
+## Glossary 术语解释
+*	fielddata fielddata的实现思路与倒排索引(inverted index)相反，Es使用倒排索引高效的完成search, 使用fielddata高效得完成aggregations,sorting,filter。fielddata的相关介绍[1](http://www.elasticsearch.org/guide/en/elasticsearch/guide/current/fielddata.html), [2](http://www.elasticsearch.org/guide/en/elasticsearch/guide/current/fielddata-intro.html)。
 
 ##References
 1. shield: you know, for security http://www.elasticsearch.org/blog/shield-know-security-coming-soon/ 
