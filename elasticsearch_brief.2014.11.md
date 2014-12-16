@@ -9,7 +9,7 @@
 	*    磁盘利用率默认每60s检查一次，磁盘满的日志由`DEBUG`改为`WARN`级别，对由磁盘满触发的shard在node之间的移动做了优化。
 	*    Doc values把执行sort,aggregations时需要的fielddata写到了磁盘上，解决了默认用 in memory fielddata执行big query超出内存限制或占用过多内存的问题。近期发布的版本对doc values做了巨大的性能改进，根据官方的性能测试，它仅比fielddata慢了约10~25%，并且对于大部分的Queries, sorts, aggregations,scripts几乎感觉不到。
 	*    通过Request circuit breaker加入了对单个请求的内存使用限制
-	*    大量使用数据校验以检测数据损害
+	*    大量使用数据校验以检测数据损坏.
 	*    Groovy替代MVEL成为默认的脚本语言。
 	*    跨域访问（CORS）默认被禁止。
 	*    Shard级别的Query cache使常用的aggregation, suggestions可以立即得到结果。Query cache目前只能用于search_type=count, 没有通过`now`指定时间的query中。
@@ -26,7 +26,8 @@
 
 
 ## Elasticsearch Ecosystem Updates
-*	elasticsearch背后的公司elasticsearch.com即将在年底发布一款重量级产品：[Shield ](http://www.elasticsearch.org/overview/shield/)(elasticsearch的神盾特工局，专门保护elasticsearch的安全)。Shield预计是以elasticsearch插件的方式集成到其中。相信感受过此公司的[Marvel](http://www.elasticsearch.org/overview/marvel/)易用性的用户应该会很期待这款产品。Shield主要提供了4个功能：
+*   Elasticsearch 安全工具Shield即将发布	
+elasticsearch背后的公司elasticsearch.com即将在年底发布一款重量级产品：[Shield ](http://www.elasticsearch.org/overview/shield/)(elasticsearch的神盾特工局，专门保护elasticsearch的安全)。Shield预计是以elasticsearch插件的方式集成到其中。相信感受过此公司的[Marvel](http://www.elasticsearch.org/overview/marvel/)易用性的用户应该会很期待这款产品。Shield主要提供了4个功能：
 	*    基于用户角色对Index读、写、查询的权限控制
 	*    对基于LDAP和Active Directory验证的支持
 	*    使用SSL/TLS对es node之间，client和node之间的传输加密
@@ -68,7 +69,6 @@
 
 
 ## TODO
-*	Amazing Slides写介绍
 *	http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/index-modules-allocation.html#disk
 *	http://www.elasticsearch.org/blog/elasticsearch-1-4-1-released/中的parent/child and nested documents是什么意思
 *	Want to learn more about testing automation for distributed applications? Isabel Drost-Fromm’s latest paper is a great place to start! Isabel will show you how we at Elasticsearch ensure quality checks are run often enough to speed up failure discovery, while still keeping the runtime of the whole test suite low enough for our developers to be able to run the test suite in their local development environment.
