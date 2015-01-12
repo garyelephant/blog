@@ -21,10 +21,17 @@
 这里的logstash的documents比logstash.net的更详尽，以后logstash.net的documents也会逐渐停止更新。
 
 ## Elasticsearch Ecosystem Updates
+*	NEST 1.3.0 发布了elasticsearch 的.net client, see [release note](https://github.com/elasticsearch/elasticsearch-net/releases/tag/1.3.0)
 
 
 ## Amazing Slides & tutorials & videos
-
+*	setting up and using Kibana 4 Beta
+http://amsterdam.luminis.eu/2014/12/01/experiment-with-the-kibana-4-beta/#more-76
+*	[Video]Short and sweet: Demo of Weave to tie together Elasticsearch, Docker, and Apache Spark
+https://www.youtube.com/watch?v=BSY9rnK9QBs&list=UUmIz9ew1lA3-XDy5FqY-mrA
+*	At last week’s Elasticsearch meetup in Chicago, Dan Crumb (of our lovely meetup host, Vodori) gave a demonstration using Docker and Fig to easily run Elasticsearch in containers on a laptop. He’s now [shared the code and the how-to](https://github.com/vodori/es-fig-docker/) behind his demonstration, and [video](http://vimeo.com/113497975) is available from the meetup, as well.
+*	Gert Leenders shared some in-depth tips on the [optimization of relevance scores in Elasticsearch](https://www.voxxed.com/blog/2014/12/advanced-scoring-elasticsearch/), including how boosting works, as well as boosting by date and by popularity.
+*	Vadiraj Joish has a tutorial explaining the fundamentals of Logstash, as well as how to install and configure [Logstash on Linux with Elasticsearch, Redis, and Nginx](http://www.thegeekstuff.com/2014/12/logstash-setup).ELK入门。
 
 ## Meetups in China
 
