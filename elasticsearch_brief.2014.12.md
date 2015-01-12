@@ -3,8 +3,22 @@
 ---
 
 ## Elasticsearch Updates
-*   Elasticsearch, Logstash, Kibana, Marvel的官方documents, tutorial现在都统一放在了这里：http://www.elasticsearch.org/guide/。
-logstash的documents比logstash.net的更详尽，预计以后logstash.net的documents也会逐渐停止更新。
+*	Elasticsearch 1.4.2发布了
+	一些改进和bug fix，下载地址:[Elasticsearch 1.4.2 Download](http://www.elasticsearch.org/downloads/1-4-2)
+	*    bug fix:
+		*    If a node holding a primary shard was restarted while a replica shard was still recovering from the primary, it could delete the transaction log on the primary, resulting in data loss.
+		*    he ScriptService can deadlock entire nodes if the script index is recovering.
+		*    Forcefully releasing the Index Writer lock can cause shard corruption. 
+	*    enhancement 
+		*   The disk allocation decider, which makes decisions about shard allocation based on free disk space, is now significantly faster and improves recovery speed after a cluster restart.
+		*    Snapshots made to a shared file system are much faster than before. 
+		*     Unnecessary cluster state updates have been reduced, which reduces network traffic and speeds up recovery.
+		*     The index stats API shouldn’t be blocked by shard recovery.
+
+*	Elasticsearch 1.3.7发布了
+一些改进和bug fix，下载地址:[Elasticsearch 1.3.7 Download](http://www.elasticsearch.org/downloads/1-3-7)
+*   Elasticsearch, Logstash, Kibana, Marvel的官方documents, tutorial现在都统一放在了这里：http://www.elasticsearch.org/guide/。以后看docs统统到这里！
+这里的logstash的documents比logstash.net的更详尽，以后logstash.net的documents也会逐渐停止更新。
 
 ## Elasticsearch Ecosystem Updates
 
