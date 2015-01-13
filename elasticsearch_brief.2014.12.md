@@ -4,7 +4,7 @@
 
 ## Elasticsearch Updates
 *	Elasticsearch 1.4.2发布了
-	一些改进和bug fix，下载地址:[Elasticsearch 1.4.2 Download](http://www.elasticsearch.org/downloads/1-4-2)
+	改进和bug fix，下载地址:[Elasticsearch 1.4.2 Download](http://www.elasticsearch.org/downloads/1-4-2)
 	*    bug fix:
 		*    If a node holding a primary shard was restarted while a replica shard was still recovering from the primary, it could delete the transaction log on the primary, resulting in data loss.
 		*    he ScriptService can deadlock entire nodes if the script index is recovering.
@@ -16,19 +16,39 @@
 		*     The index stats API shouldn’t be blocked by shard recovery.
 
 *	Elasticsearch 1.3.7发布了
-一些改进和bug fix，下载地址:[Elasticsearch 1.3.7 Download](http://www.elasticsearch.org/downloads/1-3-7)
+改进和bug fix，下载地址:[Elasticsearch 1.3.7 Download](http://www.elasticsearch.org/downloads/1-3-7)
 
 *   Elasticsearch, Logstash, Kibana, Marvel的官方documents, tutorial现在都统一放在了这里：http://www.elasticsearch.org/guide/。以后看docs统统到这里！
 这里的logstash的documents比logstash.net的更详尽，以后logstash.net的documents也会逐渐停止更新。
 
 
 ## Elasticsearch Ecosystem Updates
-*	The first beta release of Logstash 1.5发布了
-相比1.4.x最大的变化是
+*	 Logstash 1.5.0 Beta 1发布了
+1.5.0主要的变化是：
+	 *    plugin management：插件与Logstash主程序分离了，使用 rubygems.org来发布插件，另外附带一个plugin命令来管理插件。所以现在Logstash与Elasitcsearch的插件管理方式相似了。
+	 *    performance improvements：grok filter的正则匹配做了优化，如官方测试了一下COMBINEDAPACHELOG，相比1.4.2,性能近乎提高了1倍。json的序列化与反序列化性能提升超过了1倍。
+	 *     Apache Kafka integration：增加了对kafka input,output的支持.
+	 *     improved security：We have improved the security of the Elasticsearch output, input, and filter by adding authentication and transport encryption support.
+	 *     bug fixes and enhancements:
+		*    Allow storing ‘metadata’ to an event which is not sent/encoded on output. This eliminates the need for intermediate fields for example, while using date filter.([#1834](https://github.com/elasticsearch/logstash/issues/1834), [#LOGSTASH-1798](https://logstash.jira.com/browse/LOGSTASH-1798))
+		*     Filters that generated events (multiline, clone, split, metrics) now propagate those events correctly to future conditionals ([#1431](https://github.com/elasticsearch/logstash/issues/1431))
+		*     Elasticsearch output: Logstash will not create a `message.raw `field by default now. Message field is `not_analyzed` by Elasticsearch and adding a multi-field was essentially doubling the disk space required, with no benefit
 
-链接见[Logstash 1.5](http://www.elasticsearch.org/blog/logstash-1-5-0-beta1-released/),[all changes to the plugins system](http://www.elasticsearch.org/blog/plugin-ecosystem-changes/)
+ ```
+ 安装kafka input插件：
+ $LS_HOME/bin/plugin install logstash-input-kafka
+ 安装kafka output插件：
+ $LS_HOME/bin/plugin install logstash-output-kafka
+ ```
 
 *	 Kibana 4 Beta3 发布了
+	*    interactive charts and dashboards
+	*     scripted fields
+	*     highlighting and a new format for _source
+	*     hit links
+	*     metric visualization
+
+
 链接见[ Kibana 4 Beta3 ](http://www.elasticsearch.org/blog/kibana-4-beta-3-now-more-filtery/)
 
 *	NEST 1.3.0 发布了elasticsearch 的.net client, see [release note](https://github.com/elasticsearch/elasticsearch-net/releases/tag/1.3.0)
@@ -44,6 +64,10 @@
 
 
 ## Amazing Slides & tutorials & videos
+*	exciting logstash plugin ecosystem changes
+这篇blog讲了logstash 1.5.x的插件管理方式及开发方式。
+http://www.elasticsearch.org/blog/plugin-ecosystem-changes/
+
 *	Maintaining performance in distributed systems by Elasticsearch Inc
 https://speakerdeck.com/elasticsearch/maintaining-performance-in-distributed-systems
 
