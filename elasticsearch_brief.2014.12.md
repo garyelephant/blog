@@ -45,22 +45,22 @@
 *	 Kibana 4 Beta3 发布了
 	*    interactive charts and dashboards
 `Dashboard` Tab上添加了`filter`，条形图，饼图上的元素都可以点击来创建`filter`，`filter`的操控性比kibana3 更好。
-![interactive charts and dashboards](http://www.elasticsearch.org/content/uploads/2014/12/Screen-Shot-2014-12-15-at-12.28.30-PM-1024x693.png)
+![interactive charts and dashboards](images/elasticsearch_brief_2014.12_interactive_charts_and_dashboards.png)
 
 	*     scripted fields
 用户可用脚本对若干field的值进行计算或字符串操作，并将结果输出到另外的field中。这个field是`scripted field`，可以像普通field一样在kibana中使用它。因为`scripted field`不存储在elasticsearch中，所以不能对其进行搜索。
-![scripted fields](http://www.elasticsearch.org/content/uploads/2014/12/Screen-Shot-2014-12-15-at-1.06.51-PM.png)
+![scripted fields](images/elasticsearch_brief_2014.12_scripted_fields.png)
 
 	*     highlighting and a new format for _source
 在搜索的结果数据中，关键词被高亮，显得更突出。`_source`的展现方式也更加人性化。
-![highlighting and a new format for _source](http://www.elasticsearch.org/content/uploads/2014/12/Screen-Shot-2014-12-16-at-11.16.17-AM-1024x730.png)
+![highlighting and a new format for _source](images/elasticsearch_brief_2014.12_highlighting.png)
 
 	*     hit links
 看上图，如果要分享一条数据给其他人，可以点右侧的`Link to....`。以前只能分享整个`dashboard`的链接，现在可以分享单条数据的链接，但这个有啥用呢？我觉得倒不如能分享单个图表更有意义，像`keen.io`提供的api那样，方便把某个图表嵌入到任意页面中。
 
 	*     metric visualization
 新增了`metric`类型，就是一个图表中只有一个大大的数字。
-![metric visualization](http://www.elasticsearch.org/content/uploads/2014/12/Screen-Shot-2014-12-16-at-11.16.59-AM.png)
+![metric visualization](images/elasticsearch_brief_2014.12_metric_visualization.png)
 
 
 *	NEST 1.3.0 发布了elasticsearch 的.net client, see [release note](https://github.com/elasticsearch/elasticsearch-net/releases/tag/1.3.0)
