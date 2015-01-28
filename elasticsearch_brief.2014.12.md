@@ -21,13 +21,17 @@
 ## Elasticsearch Ecosystem Updates
 *	 Logstash 1.5.0 Beta 1发布了
 1.5.0主要的变化是：
+
 	 *    插件管理：插件与Logstash主程序分离了，使用 rubygems.org来发布插件，另外附带一个plugin命令来管理插件。所以现在Logstash与Elasitcsearch的插件管理方式相似了。
+
 	 *    性能提升：grok filter的正则匹配做了优化，如官方测试了一下COMBINEDAPACHELOG，相比1.4.2,性能近乎提高了1倍。json的序列化与反序列化性能提升超过了1倍。
+
 	 *     Apache Kafka：增加了对最近很火的分布式消息系统kafka input,output的支持.
+
 	 *     安全性：elasticsearch input, filter, output插件增加了验证和传输层的加密支持。(这是为Elasticsearch.com公司的另一款即将发布的安全产品Shield做准备的)transport encryption support.
+
 	 *     改进和bug fix:
 		*    允许为event包含`metadata`,它不会被logstash output插件输出，这个新功能避免了在event上生成临时的`field`.([#1834](https://github.com/elasticsearch/logstash/issues/1834), [#LOGSTASH-1798](https://logstash.jira.com/browse/LOGSTASH-1798))
-		*     Filters that generated events (multiline, clone, split, metrics) now propagate those events correctly to future conditionals ([#1431](https://github.com/elasticsearch/logstash/issues/1431))
 		*     Logstash默认去掉了`message.raw `。
 
  ```
