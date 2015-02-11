@@ -78,6 +78,9 @@ https://speakerdeck.com/elasticsearch/node-discovery-in-cloud-environment
 *	Lucene’s handling of deleted documentsJanuary 30, 2015
 http://www.elasticsearch.org/blog/lucenes-handling-of-deleted-documents/
 
+*	Numeric Aggregations: An Exploration of UK Housing DataJanuary 29, 2015
+http://www.elasticsearch.org/blog/numeric-aggregations-an-exploration-of-uk-housing-data/
+
 
 ## Meetups in China
 *	Nothing
