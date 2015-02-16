@@ -12,6 +12,8 @@
 
 
 ## Elasticsearch Ecosystem Updates
+*	kibana4源码库merge了nodejs分支，从此kibana4的server端从JRuby改向nodejs了。(借用微博id:@argv的总结)
+
 *	NEST & Elasticsearch .NET 1.4.
 https://www.elasticsearch.org/blog/nest-1-4-released/
 NEST 1.3到1.4的主要变化是bug fix和提供elasticsearch 1.4新增的功能，如 filters, children ,scripted metric aggregations。
