@@ -28,6 +28,11 @@ http://www.elasticsearch.org/blog/intro-to-aggregations/
 
 *	Zachary Tong介绍Aggregations的第二篇，使用嵌套的aggregations满足多维度，复杂的分析需求。
 http://www.elasticsearch.org/blog/intro-to-aggregations-pt-2-sub-aggregations/
+>经常给群里人说Elasticsearch的nested aggs非常灵活，但是大多数人想不到怎么用。今天正好有人问到一个问题，怎么查主要url的UV？这就是个nested aggs需求~ (微博id: @argv)
+>![nested aggs-1](http://ww1.sinaimg.cn/bmiddle/3dbd9afajw1ep5edr3rdzj20gb0klacz.jpg)
+
+>![nested aggs-2](http://ww2.sinaimg.cn/bmiddle/3dbd9afajw1ep5ee5bf20j207v06zjrp.jpg)
+
 
 *	William Durand gave a presentation on deploying a web application stack with Docker at the Clermont’ech API Hour in France last month. His follow-up blog post summarizes how he does the monitoring for that infrastructure – with the ELK stack, of course! – and includes some best practices for deploying the ELK stack with Docker.
 http://williamdurand.fr/2014/12/17/elasticsearch-logstash-kibana-with-docker/
