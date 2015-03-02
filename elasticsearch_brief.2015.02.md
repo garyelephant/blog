@@ -17,9 +17,9 @@
 
 	*    可以分享某个`Visualization`(图表)的链接，或者把它嵌入到其他页面中。
 
-	*     `Dashboard`中，可以自由得拖曳、放大、缩小图表
+	*    `Dashboard`中，可以自由得拖曳、放大、缩小图表
 
-	*     可以跨index
+	*    可以跨index
 
 	*     search, filter, 图表的参数可以通过url指定。
 
