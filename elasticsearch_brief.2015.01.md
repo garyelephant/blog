@@ -26,37 +26,28 @@ http://www.elasticsearch.org/blog/intro-to-aggregations/
 *	Zachary Tong介绍Aggregations的第二篇，使用嵌套的aggregations满足多维度，复杂的分析需求。
 http://www.elasticsearch.org/blog/intro-to-aggregations-pt-2-sub-aggregations/
 
+*	Numeric Aggregations: An Exploration of UK Housing Data
+本月介绍Aggregations的第三篇
+http://www.elasticsearch.org/blog/numeric-aggregations-an-exploration-of-uk-housing-data/
 
-*	William Durand gave a presentation on deploying a web application stack with Docker at the Clermont’ech API Hour in France last month. His follow-up blog post summarizes how he does the monitoring for that infrastructure – with the ELK stack, of course! – and includes some best practices for deploying the ELK stack with Docker.
+*	使用Docker部署ELK
 http://williamdurand.fr/2014/12/17/elasticsearch-logstash-kibana-with-docker/
 
-*	[video]Bhaskar Karambelkar of Verizon shared his tips on scaling Elasticsearch for production-scale data at the Washington, D.C. meetup on December 11.
-http://pdl.vimeocdn.com/25240/756/322885542.mp4?token2=1423638543_1d903dc4e351379797caab75dc0a1d83&aksessionid=1d21f8f223594ab4
-
-*	Google Compute Engine发布了Getting started with click-to-deploy Elasticsearch
-https://cloud.google.com/solutions/elasticsearch/click-to-deploy
-
-*	This great post from Njal Karevoll at Found is perfect for those of you getting started with Elasticsearch — giving an overview of the different client types available, and how to choose which to pick.
+*   如何选择es client. PS: found.no的blog是我常去的地方。
 https://www.found.no/foundation/interfacing-elasticsearch-picking-client/
 
-*	[video]At one the December gathering of the Elasticsearch London MeetUp group, Ian Plosker – CTO & Co-founder at Orchestrate.io – shared some great real-world lessons in his talk “Schemalessness Gone Wrong: Improving Elasticsearch with ‘Tuplewise Transform’”
-http://pdl.vimeocdn.com/52957/092/317986514.mp4?token2=1423636182_132dac3a0f2134d94dd55cdee572dbcb&aksessionid=9863655acfe61d87
-
-*	We love sharing our user’s success stories. Check out this post from the folks at TrackJS on how the scaled up their Elasticsearch infrastructure, ‘on a budget‘. You might also want to register for our upcoming webcast where the TrackJS will folks will give you even more detail on scaling Elasticsearch, fast!, for fun and profit.
-The fine folks at TrackJS authored an in-depth guest blog post on their Elasticsearch use case, which is of particular interest given their resource constraints. Check out the article for more information, and details on how to register for our upcoming webcast with the TrackJS team.
-http://www.elasticsearch.org/blog/scaling-trackjs-with-elasticsearch-for-fun-and-profit/
-
-*	Nikos Fertakis shared an article on how Skroutz – a Greek price comparison website serving up details on more than 7.5M products – uses ELK to make their customers’ lives better. The entire deep dive is quite useful, but the infrastructure architecture bits and their use of scripted aggregations is particularly interesting.
+*	一个希腊的一个价格比较网站（Skroutz.gr）如何使用Elasticsearch作为分析平台
 http://engineering.skroutz.gr/blog/elk-at-skroutz/
 
-*	Node Discovery in Cloud Environment
-https://speakerdeck.com/elasticsearch/node-discovery-in-cloud-environment
-
-*	Lucene’s handling of deleted documentsJanuary 30, 2015
+*	Lucene’s handling of deleted documents
+介绍Lucene中的deleted documents
 http://www.elasticsearch.org/blog/lucenes-handling-of-deleted-documents/
 
-*	Numeric Aggregations: An Exploration of UK Housing DataJanuary 29, 2015
-http://www.elasticsearch.org/blog/numeric-aggregations-an-exploration-of-uk-housing-data/
+*	[video] Bhaskar Karambelkar of Verizon shared his tips on scaling Elasticsearch for production-scale data at the Washington, D.C. meetup on December 11.
+http://pdl.vimeocdn.com/25240/756/322885542.mp4?token2=1423638543_1d903dc4e351379797caab75dc0a1d83&aksessionid=1d21f8f223594ab4
+
+*	[video] At one the December gathering of the Elasticsearch London MeetUp group, Ian Plosker – CTO & Co-founder at Orchestrate.io – shared some great real-world lessons in his talk “Schemalessness Gone Wrong: Improving Elasticsearch with ‘Tuplewise Transform’”
+http://pdl.vimeocdn.com/52957/092/317986514.mp4?token2=1423636182_132dac3a0f2134d94dd55cdee572dbcb&aksessionid=9863655acfe61d87
 
 
 ## Meetups in China
