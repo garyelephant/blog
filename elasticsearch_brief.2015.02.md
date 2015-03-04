@@ -7,6 +7,8 @@
 
 
 ## Elasticsearch Ecosystem Updates
+> Kibana 4是本月的主题！！
+
 *	kibana 4
 专门花了2小时时间去研究了一下kibana4相对kibana3的变化，界面较3有较大改动，据说越来越像`splunk` ? 互相借鉴嘛，取长补短，挺好的。我总结了下自己觉得眼前一亮的功能：
 	*    在`Discover` Tab中搜索数据，被搜索到的字段值自动高亮显示。
@@ -47,6 +49,53 @@ http://marcobonzanini.com/2015/02/09/phrase-match-and-proximity-search-in-elasti
 
 *	Alexander Reelsen’s quick introduction to Elasticsearch’s percolator, showcasing the potential of performing document enrichment before indexing
 https://speakerdeck.com/elasticsearch/using-the-percolator-for-simple-classification
+
+*	If you’re using Apache Hadoop and Spark, you won’t want to miss this post from Avi Levi on using the ELK stack for setting up a central logging infrastructure.
+http://tech-stories.com/2015/02/12/setting-up-a-central-logging-infrastructure-for-hadoop-and-spark/
+
+*	Interested in alerting for your website? Elasticsearch’s Percolator feature is your friend! Fabio Ponciroli wrote up how he and his colleagues added this functionality to their infrastructure at their company’s recent hack day.
+http://http//techblog.net-a-porter.com/2015/02/perl-and-the-elasticsearch-percolator/
+
+*	Elasticsearch, Logstash and Kibana on Docker
+http://raulcd.com/elasticsearch-logstash-and-kibana-on-docker.html
+
+*	As part of our ongoing guest blogger series, Oliver Eilhard shared the story of how Elasticsearch made his auto racing team faster. (We’re also always on the look out for amazing posts like Oliver’s, so if you enjoyed the piece and are inspired to share your story, please email us at stories@elasticsearch.com.)
+http://www.elasticsearch.org/blog/how-elasticsearch-made-us-faster-literally/
+
+*	Alex Brasetvik authored a blog post on common use cases for Elasticsearch. Excellent resource if you’re just starting out using it.
+https://www.found.no/foundation/uses-of-elasticsearch/
+
+*	Javier Ray from Tryolabs published a deep dive on Elasticsearch Analyzers as part of the lead up to Elastic{ON}. (And many thanks to Tryolabs for sponsoring our first ever User Conference!
+http://blog.tryolabs.com/2015/02/25/elasticsearch-analyzers-or-how-i-learned-to-stop-worrying-and-love-custom-filters/
+
+*    Ed King authored a great in-depth tutorial on integrating the ELK stack with Cloud Foundry.
+http://www.cloudcredo.com/how-to-integrate-elasticsearch-logstash-and-kibana-elk-with-cloud-foundry/
+
+*	The Luminis Engineering team authored a lovely how to on using the ELK stack to detect potential attacks on your WordPress blogs. Great step by step how to, including all needed configs for Logstash (v 1.5).
+http://amsterdam.luminis.eu/2015/02/24/finding-your-blog-abusers-using-kibana-4-and-logstash-1-5/
+
+*	Data Exploration with Elasticsearch
+http://www.slideshare.net/astensby/data-exploration-with-elasticsearch?ref=http://www.elasticsearch.org/blog/2015-02-25-this-week-in-elasticsearch/
+
+*	An introduction to Logstash and its ecosystem.
+https://speakerdeck.com/purbon/logstash-the-shipper-with-a-moustasche
+
+*	Pablo Figue’s presentation from last week’s Elasticsearch Berlin User Group meeting
+https://speakerdeck.com/pfigue/how-do-we-use-logstash
+
+*	https://relayr.io/ 物联网网站？
+
+*	https://www.found.no/documentation/tutorials/using-java-transport/
+Found.no开发的安全插件：Authentication，SSL encryption，Cluster handshake
+
+*	https://speakerdeck.com/willdurand/docker-ceci-nest-pas-une-introduction-apihour-number-12
+
+*	https://www.found.no/documentation/security/security-checklist/
+
+*	https://www.found.no/documentation/security/access-control/
+
+Understanding the Memory Pressure Indicator
+*	https://www.found.no/foundation/memory-pressure/
 
 ## Meetups in China
 
