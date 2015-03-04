@@ -4,14 +4,11 @@
 
 ## Elasticsearch Updates
 这个月没什么大变化。
-*	Dependencies: Upgrade to lucene-5.1.0-snapshot-1652032 ([#9318](https://github.com/elasticsearch/elasticsearch/pull/9318), 2.0.0)
-
-*	Lucene: Expose auto-IO-throttle from Lucene’s ConcurrentMergeScheduler ([#9243](https://github.com/elasticsearch/elasticsearch/pull/9243), 2.0.0)
-
-*	The [release branch for Lucene 5.0](https://svn.apache.org/repos/asf/lucene/dev/branches/lucene_solr_5_0/) was recently cut, and the committer team is busy preparing an RC and release. If you’re interested in all the new features upcoming in the 5.0 release, our very own [Mike McCandless has you covered](http://blog.mikemccandless.com/2014/11/apache-lucene-500-is-coming.html) or simply check out the [changes list](https://svn.apache.org/repos/asf/lucene/dev/branches/lucene_solr_5_0/lucene/CHANGES.txt).
-
+*	Lucene版本更新到了5.1.0
 
 ## Elasticsearch Ecosystem Updates
+*	Lucene 5.0 即将发布，主要变化是保护index防止其损坏，减少对JVM Heap的占用。Lucene的核心开发者写了篇相关的博文:[Apache Lucene™ 5.0.0 is coming!](http://blog.mikemccandless.com/2014/11/apache-lucene-500-is-coming.html)
+
 *	kibana4源码库merge了nodejs分支，从此kibana4的server端从JRuby改向nodejs了。(借用微博id:@argv的总结)
 
 *	NEST & Elasticsearch .NET 1.4.
@@ -28,10 +25,6 @@ http://www.elasticsearch.org/blog/intro-to-aggregations/
 
 *	Zachary Tong介绍Aggregations的第二篇，使用嵌套的aggregations满足多维度，复杂的分析需求。
 http://www.elasticsearch.org/blog/intro-to-aggregations-pt-2-sub-aggregations/
->经常给群里人说Elasticsearch的nested aggs非常灵活，但是大多数人想不到怎么用。今天正好有人问到一个问题，怎么查主要url的UV？这就是个nested aggs需求~ (微博id: @argv)
->![nested aggs-1](http://ww1.sinaimg.cn/bmiddle/3dbd9afajw1ep5edr3rdzj20gb0klacz.jpg)
-
->![nested aggs-2](http://ww2.sinaimg.cn/bmiddle/3dbd9afajw1ep5ee5bf20j207v06zjrp.jpg)
 
 
 *	William Durand gave a presentation on deploying a web application stack with Docker at the Clermont’ech API Hour in France last month. His follow-up blog post summarizes how he does the monitoring for that infrastructure – with the ELK stack, of course! – and includes some best practices for deploying the ELK stack with Docker.
