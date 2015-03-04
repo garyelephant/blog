@@ -26,7 +26,27 @@
 每当我想到elasticsearch,kibana,logstash的时候，总会不由得发出感叹：“像这种盈利性公司主导的开源社会，他们做的开源产品简直太棒了！”
 
 ## Amazing Slides & tutorials & videos
+*	Florian Hopf authored an article on Fixing Elasticsearch Allocation Issues he encountered while working with 350 Logstash indices on his laptop. Nice post on the process of debugging, how the Cluster Stats API can make your life easier.
+http://blog.florian-hopf.de/2015/02/fixing-elasticsearch-allocation-issues.html
 
+*	Steve Elliott with the LateRooms engineering team wrote up a how to on analyzing URLs to enrich your logs for users of Logstash 1.4.x. Offers great tips on using the Grok and Translate plugins, amongst other useful bits. If you enjoyed Steve’s post, you may also want to take a look at how LateRooms uses the full ELK stack to drive data driven decision making for every department at their company. That’s right, Data Driven Managering.
+http://engineering.laterooms.com/enriching-logs-with-logstash/
+http://engineering.laterooms.com/elks-in-laterooms/
+
+*	Nick Canzoneri with Postmark published an article about how they’ve revisited their Elasticsearch architecture to handle the ever increasing volumes of data that come with scaling your business. Even better, he’s offered to answer your scaling questions if you leave comments on his post. Excellent overview of architectural considerations from a long time happy user.
+http://blog.postmarkapp.com/post/109309498178/were-doubling-down-on-elasticsearch
+
+*	Capacity Planning and Custom Setups Suitable for Large Elasticsearch Deployments
+https://speakerdeck.com/elasticsearch/not-all-nodes-are-created-equal-scaling-elasticsearch-1
+
+*	Christoffer Vig from our partner firm, Comperio, shared an awesome walk through post on analytics with Elasticsearch and Kibana 4. In his post, you’ll learn all about how to use the two together to gain valuable insights, such as “Which Belgian Beer gives you the most value for the money?”
+http://blog.comperiosearch.com/blog/2015/02/09/kibana-4-beer-analytics-engine/
+
+*	Marco Bonzanini shared an article exploring some options to improve the results of Elasticsearch queries with multiple terms. Amongst other use cases in this post, you’ll learn about phrase-based matches and phrase matches with slop for proximity search.
+http://marcobonzanini.com/2015/02/09/phrase-match-and-proximity-search-in-elasticsearch/
+
+*	Alexander Reelsen’s quick introduction to Elasticsearch’s percolator, showcasing the potential of performing document enrichment before indexing
+https://speakerdeck.com/elasticsearch/using-the-percolator-for-simple-classification
 
 ## Meetups in China
 
@@ -44,7 +64,7 @@ http://www.elasticsearch.org/blog/2015-02-18-this-week-in-elasticsearch/
 4.	This Week in ElasticsearchFebruary 25, 2015
 http://www.elasticsearch.org/blog/2015-02-25-this-week-in-elasticsearch/
 
-5.	Elasticsearch 1.4.3 and 1.3.8 releasedFebruary 11, 2015
+5.	Elasticsearch 1.4.3 and 1.3.8 released February 11, 2015
 http://www.elasticsearch.org/blog/elasticsearch-1-4-3-and-1-3-8-released/
 
 6.	elasticsearch 1.4.4 and 1.3.9 released
