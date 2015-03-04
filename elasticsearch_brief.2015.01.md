@@ -4,6 +4,7 @@
 
 ## Elasticsearch Updates
 这个月没什么大变化。
+
 *	Lucene版本更新到了5.1.0
 
 ## Elasticsearch Ecosystem Updates
@@ -43,11 +44,8 @@ http://engineering.skroutz.gr/blog/elk-at-skroutz/
 介绍Lucene中的deleted documents
 http://www.elasticsearch.org/blog/lucenes-handling-of-deleted-documents/
 
-*	[video] Bhaskar Karambelkar of Verizon shared his tips on scaling Elasticsearch for production-scale data at the Washington, D.C. meetup on December 11.
-http://pdl.vimeocdn.com/25240/756/322885542.mp4?token2=1423638543_1d903dc4e351379797caab75dc0a1d83&aksessionid=1d21f8f223594ab4
-
-*	[video] At one the December gathering of the Elasticsearch London MeetUp group, Ian Plosker – CTO & Co-founder at Orchestrate.io – shared some great real-world lessons in his talk “Schemalessness Gone Wrong: Improving Elasticsearch with ‘Tuplewise Transform’”
-http://pdl.vimeocdn.com/52957/092/317986514.mp4?token2=1423636182_132dac3a0f2134d94dd55cdee572dbcb&aksessionid=9863655acfe61d87
+*	[video] Scaling Elasticsearch in a Production System
+http://www.elasticsearch.org/videos/washington-d-c-meetup-december-11-2014/
 
 
 ## Meetups in China
