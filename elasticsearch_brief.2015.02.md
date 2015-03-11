@@ -4,7 +4,17 @@
 ---
 
 ## Elasticsearch Updates
+*	Elasticsearch 1.4.3 and 1.3.8 released
+	*    Security:Disable dynamic Groovy scripting by marking Groovy as not sandboxed. [#9655](https://github.com/elastic/elasticsearch/issues/9655)
+	*     Discovery: publishing timeout to log at WARN and indicate pending nodes [#9551](http://github.com/elasticsearch/elasticsearch/issues/9551)
+	*     THESE RELEASES FIX A VULNERABILITY IN SCRIPTING. WE ADVISE ALL USERS TO UPGRADE.
+	*    Groovy scripting vulnerability found
+现在的问题：Elasticsearch versions 1.3.0-1.3.7 and 1.4.0-1.4.2，The vulnerability allows an attacker to construct Groovy scripts that escape the sandbox and execute shell commands as the user running the Elasticsearch Java VM.Versions 1.3.8 and 1.4.3 disable sandboxing for Groovy by default. As a consequence, dynamic script execution is disabled for Groovy.In the meantime, you can still use Groovy scripts by saving them as files in the config/scripts directory on every data node. See [Running scripts without dynamic scripting](http://www.elasticsearch.org/blog/running-groovy-scripts-without-dynamic-scripting/) for more information about how to do this.
+将来的计划：
+Unfortunately, after discussing the issue with the Groovy team, we have come to the conclusion that the Groovy language is too dynamic to be properly contained by a sandbox. This leaves us with the [Lucene Expressions language](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/modules-scripting.html#_lucene_expressions_scripts) as the only dynamic scripting language available by default. While Expressions are fast, they are currently very limited: they operate only on numeric fields and don't support loops.We will be investigating extending Expressions to become a more powerful (but safe!) mini-language, that will support at least the most common use cases that our script users have today.
 
+
+release not & download: https://www.elastic.co/downloads/past-releases/1-4-3 , https://www.elastic.co/downloads/past-releases/1-3-8
 
 ## Elasticsearch Ecosystem Updates
 > Kibana 4是本月的主题！！
@@ -113,7 +123,7 @@ http://www.elasticsearch.org/blog/2015-02-18-this-week-in-elasticsearch/
 4.	This Week in ElasticsearchFebruary 25, 2015
 http://www.elasticsearch.org/blog/2015-02-25-this-week-in-elasticsearch/
 
-5.	Elasticsearch 1.4.3 and 1.3.8 released February 11, 2015
+5.	Elasticsearch 1.4.3 and 1.3.8 released
 http://www.elasticsearch.org/blog/elasticsearch-1-4-3-and-1-3-8-released/
 
 6.	elasticsearch 1.4.4 and 1.3.9 released
@@ -134,7 +144,7 @@ http://www.elasticsearch.org/blog/kibana-4-for-investigating-pacs-super-pacs-and
 11.	Running Groovy Scripts without Dynamic ScriptingFebruary 11, 2015
 http://www.elasticsearch.org/blog/running-groovy-scripts-without-dynamic-scripting/
 
-12.	Shield 1.0.1 releasedFebruary 13, 2015
+12.	Shield 1.0.1 released
 http://www.elasticsearch.org/blog/shield-1-0-1-released/
 
 13.	Elasticsearch Puppet module 0.9.0 released
