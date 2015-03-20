@@ -108,5 +108,9 @@ $ logger 'hello world'
 4.	http://www.rsyslog.com/newbie-guide-to-rsyslog/
 5.	http://www.rsyslog.com/doc/master/configuration/modules/omkafka.html
 
+---
+
+转载本文请注明作者和出处[Gary的影响力]http://garyelephant.me，请勿用于任何商业用途！
+Author: Gary Gao( garygaowork[at]gmail.com) 关注互联网、分布式、高性能、NoSQL
 
 > Written with [StackEdit](https://stackedit.io/).
