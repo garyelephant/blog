@@ -70,6 +70,9 @@ echo "Executable: " $(which rsyslogd)
 
 ```
 
+我在Github上托管了相关代码：
+https://github.com/garyelephant/rsyslog-scripts
+
 omkafka插件的详细文档见：
 http://www.rsyslog.com/doc/master/configuration/modules/omkafka.html
 
