@@ -77,7 +77,29 @@ omelasticsearch插件的详细文档见：
 http://www.rsyslog.com/doc/v8-stable/configuration/modules/omelasticsearch.html
 
 ## 配置示例：
+```
+# /etc/rsyslog.conf
+# load required module
+# `imuxsock` provides support for local system logging (e.g. via logger command)
+module(load="imuxsock") 
+module(load="omkafka")
+module(load="omelasticsearch")
 
+# push to kafka
+action(type="omkafka" topic="your_topic" broker="your_kafka_broker_host_or_ip")
+
+# or you can push to elasticsearch
+action(type="omelasticsearch" server="your_elasticsearch_host_or_ip" searchIndex="your_elasticsearch_index" searchType="your_elasticsearch_index_type" )
+```
+
+启动 rsyslog
+```
+rsyslogd -n
+```
+在另一个终端用`logger`向rsyslog写数据
+```
+$ logger 'hello world'
+```
 
 ## References:
 1.	http://www.rsyslog.com/doc/master/installation/install_from_source.html
