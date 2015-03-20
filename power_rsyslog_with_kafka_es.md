@@ -1,10 +1,13 @@
+# Tutorial: 使用rsyslog向kafka, elasticsearch推送日志
+
+> 本文介绍了一种简单易行的使用rsyslog向kafka,elasticsearch推送日志的方法；rsyslog的omkafka插件的安装、使用方法；rsyslog的omelasticsearch插件的安装、使用方法。
+
+Kafka是一种开源的分布式消息系统，项目主页：kafka.apache.org
+elasticsearch是一种开源的分布式搜索引擎，项目主页：elastic.co
+
+rsyslog使用omkafka向kafka推送日志，使用omelasticsearch向elasticsearch推送日志。这两个插件默认编译选项是关闭的，没有被编译到rsyslog中。下面介绍了具体的安装方法：
 
 ```
-## Install rsyslog with omkafka.
-## omkafka enables rsyslog to push logs to kafka, a distributed message system.
-## see http://www.rsyslog.com/doc/master/configuration/modules/omkafka.html
-## This installation use yum to manage packages.
-
 ## add rsyslog repo
 WORK_DIR=$(pwd)
 cd /etc/yum.repos.d
@@ -36,6 +39,9 @@ yum install -y liblogging-devel
 ## install rsyslog denpendency: rst2man
 yum install -y python-docutils
 
+## install libcurl for omelasticsearch
+yum install -y libcurl-devel
+
 ## install librdkafka for omkafka
 wget https://github.com/edenhill/librdkafka/archive/0.8.5.tar.gz -O librdkafka-0.8.5.tar.gz
 tar zxvf librdkafka-0.8.5.tar.gz
@@ -52,7 +58,7 @@ export PKG_CONFIG_PATH=/usr/lib64/pkgconfig:/lib64/pkgconfig/
 old_executable_path=$(which rsyslogd)
 executable_dir=$(dirname "$old_executable_path")
 cd rsyslog-8.8.0
-./configure --sbindir=$executable_dir --libdir=/usr/lib64 --enable-omkafka
+./configure --sbindir=$executable_dir --libdir=/usr/lib64 --enable-omkafka --enable-elasticsearch
 make
 make install
 
@@ -62,12 +68,23 @@ echo "Old rsyslogd version: "$old_rsyslog_ver
 echo "New rsyslogd version: "$new_rsyslog_ver
 echo "Executable: " $(which rsyslogd)
 
-## References:
-## http://www.rsyslog.com/doc/master/installation/install_from_source.html
-## http://bigbo.github.io/pages/2015/01/21/syslog_kafka/
-## http://blog.oldzee.com/?tag=rsyslog
-## http://www.rsyslog.com/newbie-guide-to-rsyslog/
-## http://www.rsyslog.com/doc/master/configuration/modules/omkafka.html
 ```
+
+omkafka插件的详细文档见：
+http://www.rsyslog.com/doc/master/configuration/modules/omkafka.html
+
+omelasticsearch插件的详细文档见：
+http://www.rsyslog.com/doc/v8-stable/configuration/modules/omelasticsearch.html
+
+## 配置示例：
+
+
+## References:
+1.	http://www.rsyslog.com/doc/master/installation/install_from_source.html
+2.	http://bigbo.github.io/pages/2015/01/21/syslog_kafka/
+3.	http://blog.oldzee.com/?tag=rsyslog
+4.	http://www.rsyslog.com/newbie-guide-to-rsyslog/
+5.	http://www.rsyslog.com/doc/master/configuration/modules/omkafka.html
+
 
 > Written with [StackEdit](https://stackedit.io/).
