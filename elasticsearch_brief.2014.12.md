@@ -40,6 +40,8 @@
  $LS_HOME/bin/plugin install logstash-input-kafka
  安装kafka output插件：
  $LS_HOME/bin/plugin install logstash-output-kafka
+ 或者到https://rubygems.org/中搜索logstash-input-kafka(或者logstash-output-kafka), 点"Download"下载`gem` 文件，再
+  $LS_HOME/bin/plugin install your_gem_file_path
  ```
 
 *	 Kibana 4 Beta3 发布了
