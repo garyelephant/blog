@@ -21,4 +21,13 @@ http://www.tutorialspoint.com/index.htm
 *	linux commands
 	*	diff -urN
 
+* iaas, paas,saas举例
+
+* stackoverflow
+
+* stackshare.io
+
+*  producthunt.com
+
+
 > Written with [StackEdit](https://stackedit.io/).
