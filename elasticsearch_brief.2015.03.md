@@ -5,6 +5,8 @@
 ## Elasticsearch Updates
 *	Elasticsearch 1.5.0 正式版发布了
 
+*	考虑到Elasticsearch集群的稳定性，Elasticsearch的Rivers 功能将在elasticsearch 1.5.0后列入丢弃名单，在2.0后相关代码极有可能被完全移除。对应的river plugins 也不再支持。相信很多river plugins会逐渐演化成logstash input plugin。
+
 ## Elasticsearch Ecosystem Updates
 *	elastic.co 收购了`Found.no`，一个圈内很有名的提供hosted elasticsearch 的saas服务公司。
 
