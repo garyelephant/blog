@@ -12,30 +12,17 @@
 *	virtualenv(python)
 *	vagrant
 *	axel
-```
-# install axel on mac(OSX)
-brew install axel
-# install on Debian/Ubuntu
-apt-get install axel
-# install on Fedora/RedHat/Centos
-yum install axel
-# or install it from source
-cd ~/Download wget
-http://alioth.debian.org/frs/download.php/3015/axel-2.4.tar.gz tar zxvf
-axel-2.4.tar.gz && cd axel-2.4 ./configure && make sudo make install
-# http://www.linuxjournal.com/content/speed-your-downloads-axel
-```
-
 *	regular expression
 发明正则表达式的人是神吗？
 
 *	online coding
+nitrous.io
 http://www.tutorialspoint.com/index.htm
 
 *	linux commands
 	*	diff -urN
 
-*  iaas, paas,saas举例
+* iaas, paas,saas举例
 
 * stackoverflow
 
