@@ -16,7 +16,8 @@
 发明正则表达式的人是神吗？
 
 *	online coding
-nitrous.io
+nitrous.io真是相当的好用！我已成为它的付费会员。
+
 http://www.tutorialspoint.com/index.htm
 
 *	linux commands
