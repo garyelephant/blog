@@ -17,6 +17,9 @@
 
 *	online coding
 nitrous.io真是相当的好用！我已成为它的付费会员。
+nitrous.io技巧：
+[Copy/Paste within the Web IDE](http://help.nitrous.io/faq-copy-paste/)
+[keyboard shortcut](http://help.nitrous.io/ide-shortcuts/)
 
 http://www.tutorialspoint.com/index.htm
 
