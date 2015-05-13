@@ -4,6 +4,11 @@
 *	application level:是否要在query请求所占的资源上做一些限制
 *	application level:是否考虑配置routing
 
+## 假设
+*	hardware 假设
+*	index/query rate假设
+*	elasticsearch用户运行elasticsearch
+
 ## hardware Level
 这个暂时不考虑了
 
@@ -18,18 +23,36 @@ $ sudo swapoff -a
 *    Max Open File Descriptors 设置为32k~64k
 ```
 # max open file descriptors
-echo "root      hard    nofile      50000" >> /etc/security/limits.conf
-echo "root      soft    nofile      50000" >> /etc/security/limits.conf
+$ cp /etc/security/limits.conf /etc/security/limits.conf.bak
+
+$ cat /etc/security/limits.conf | grep -v "elasticsearch" > /tmp/system_limits.conf
+
+$ echo "root      hard    nofile      50000" >> /tmp/system_limits.conf
+
+$ echo "root      soft    nofile      50000" >> /tmp/system_limits.conf
+
+$ mv /tmp/system_limits.conf /etc/security/limits.conf
 ```
 
 *    configure the maximum map count
 
  set it permanently by modifying vm.max_map_count setting in your /etc/sysctl.conf.[2][2]
  
- ```
- # virtual Memory
-echo "vm.max_map_count=262144" >> /etc/sysctl.conf
- ```
+```
+# virtual Memory
+$ cp /etc/sysctl.conf /etc/sysctl.conf.bak
+
+$ cat /etc/sysctl.conf | grep -v "vm.max_map_count" > /tmp/system_sysctl.conf
+
+$ echo "vm.max_map_count=262144" >> /tmp/system_sysctl.conf
+
+$ mv /tmp/system_sysctl.conf /etc/sysctl.conf
+```
+
+或者临时修改？[\[7\]][7]
+```
+sysctl -w vm.max_map_count=262144
+```
 
 
 ## Application Level
@@ -117,11 +140,11 @@ put /_cluster/settings
          "indices.store.throttle.max_bytes_per_sec":"20mb",
          "indices.breaker.fielddata.limit":"60%",
          "indices.breaker.request.limit":"40%",
-         "indices.breaker.total.limit":"70%",
+         "indices.breaker.total.limit":"70%"
      }
 }
 ```
-上面的都是默认值。如果日志中常出现`index throttled`~~并且磁盘IO不高~~ `"indices.store.throttle.max_bytes_per_sec"`可以更大；`如果日志中经常出现`Java Heap OutOfMemory`, 可以减小"indices.breaker.fielddata.limit"`,`"indices.breaker.request.limit"`,`"indices.breaker.total.limit"`的值。
+上面的都是默认值。如果日志中常出现`index throttled`~~并且磁盘IO不高~~ `"indices.store.throttle.max_bytes_per_sec"`可以更大；如果日志中经常出现`java.lang.OutOfMemoryError`, 可以减小"indices.breaker.fielddata.limit"`,`"indices.breaker.request.limit"`,`"indices.breaker.total.limit"`的值。
 
 >**TIP**: In [Fielddata Size](http://www.elastic.co/guide/en/elasticsearch/guide/master/_limiting_memory_usage.html#fielddata-size), we spoke about adding a limit to the size of fielddata, to ensure that old unused fielddata can be evicted. The relationship between indices.fielddata.cache.size and indices.breaker.fielddata.limit is an important one. If the circuit-breaker limit is lower than the cache size, no data will ever be evicted. In order for it to work properly, the circuit breaker limit must be higher than the cache size.
 
@@ -131,7 +154,7 @@ PUT /_cluster/settings -d '{
     "transient" : {
         "cluster.routing.allocation.disk.threshold_enabled" : true,
         "cluster.routing.allocation.disk.watermark.low" : "85%",
-        "cluster.routing.allocation.disk.watermark.high" : "90%",
+        "cluster.routing.allocation.disk.watermark.high" : "90%"
     }
 }'
 ```
@@ -311,6 +334,8 @@ PUT _template/base
 [5]: https://www.loggly.com/blog/nine-tips-configuring-elasticsearch-for-high-performance/ "9 Tips on ElasticSearch Configuration for High Performance"
 
 [6]: http://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-allocation.html#disk "Disk-based Shard Allocation"
+
+[7]: http://stackoverflow.com/questions/11683850/how-much-memory-could-vm-use-in-linux "how much memory could vm use in linux"
 
 ---
 
