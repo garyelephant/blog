@@ -72,7 +72,8 @@ put _cluster/settings
 
 利用好不同template之间的order关系
 默认所有field都是not_analyzed
-默认numeric, date, string(not_analyzed), geo_point类型的field都使用doc_values形式的fielddata
+默认numeric, date, string(not_analyzed), geo_point类型的field都使用[doc_values][4] 形式的fielddata
+Doc values can be enabled for numeric, date, Boolean, binary, and geo-point fields, and for not_analyzed string fields. They do not currently work with analyzed string fields. Doc values are enabled per field in the field mapping, which means that you can combine in-memory fielddata with doc values.
 
 *    安装监控工具
 
@@ -229,6 +230,8 @@ PUT _template/base
 [2]: http://www.elastic.co/guide/en/elasticsearch/guide/current/_file_descriptors_and_mmap.html "file descriptors and mmap"
 
 [3]: http://www.elastic.co/guide/en/elasticsearch/guide/current/_important_configuration_changes.html#_recovery_settings "recovery settings"
+
+[4]: http://www.elastic.co/guide/en/elasticsearch/guide/current/doc-values.html#_enabling_doc_values "Enabling Doc Values"
 
 ---
 
