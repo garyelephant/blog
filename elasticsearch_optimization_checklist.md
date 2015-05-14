@@ -10,7 +10,8 @@
 *	elasticsearch用户运行elasticsearch
 
 ## hardware Level
-这个暂时不考虑了
+
+见 [Elasticsearch Hardware Recommendation][9]。
 
 
 ## System Level
@@ -56,6 +57,9 @@ sysctl -w vm.max_map_count=262144
 
 
 ## Application Level
+*	JVM
+见 [Java Virtual Machine][10]。
+
 *    ES_HEAP_SIZE=Xg
 Ensure that the min (Xms) and max (Xmx) sizes are the same to prevent the heap from resizing at runtime, a very costly process.
 
@@ -144,7 +148,7 @@ put /_cluster/settings
      }
 }
 ```
-上面的都是默认值。如果日志中常出现`index throttled`~~并且磁盘IO不高~~ `"indices.store.throttle.max_bytes_per_sec"`可以更大；如果日志中经常出现`java.lang.OutOfMemoryError`, 可以减小"indices.breaker.fielddata.limit"`,`"indices.breaker.request.limit"`,`"indices.breaker.total.limit"`的值。
+上面的都是默认值。如果日志中常出现`[your_index_name]... now throttling indexing: numMergesInFlight=6, maxNumMerges=5`~~并且磁盘IO不高~~ `"indices.store.throttle.max_bytes_per_sec"`可以更大；如果日志中经常出现`java.lang.OutOfMemoryError`, 可以减小"indices.breaker.fielddata.limit"`,`"indices.breaker.request.limit"`,`"indices.breaker.total.limit"`的值。
 
 >**TIP**: In [Fielddata Size](http://www.elastic.co/guide/en/elasticsearch/guide/master/_limiting_memory_usage.html#fielddata-size), we spoke about adding a limit to the size of fielddata, to ensure that old unused fielddata can be evicted. The relationship between indices.fielddata.cache.size and indices.breaker.fielddata.limit is an important one. If the circuit-breaker limit is lower than the cache size, no data will ever be evicted. In order for it to work properly, the circuit breaker limit must be higher than the cache size.
 
@@ -336,6 +340,12 @@ PUT _template/base
 [6]: http://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-allocation.html#disk "Disk-based Shard Allocation"
 
 [7]: http://stackoverflow.com/questions/11683850/how-much-memory-could-vm-use-in-linux "how much memory could vm use in linux"
+
+[8]: http://www.elastic.co/guide/en/elasticsearch/guide/current/deploy.html "Production Deployment"
+
+[9]:  http://www.elastic.co/guide/en/elasticsearch/guide/current/hardware.html "Elasticsearch Hardware"
+
+[10]: http://www.elastic.co/guide/en/elasticsearch/guide/current/_java_virtual_machine.html "Java Virtual Machine"
 
 ---
 
