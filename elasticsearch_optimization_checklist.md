@@ -370,6 +370,8 @@ PUT _template/base
 
 [10]: http://www.elastic.co/guide/en/elasticsearch/guide/current/_java_virtual_machine.html "Java Virtual Machine"
 
+[11]: https://www.elastic.co/blog/performance-considerations-elasticsearch-indexing "Performance Considerations for Elasticsearch Indexing"
+
 ---
 
 > Written with [StackEdit](https://stackedit.io/).
