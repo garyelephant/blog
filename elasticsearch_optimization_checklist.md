@@ -173,6 +173,16 @@ put /_cluster/settings
 ```
 上面的都是默认值。如果日志中常出现`[your_index_name]... now throttling indexing: numMergesInFlight=6, maxNumMerges=5`~~并且磁盘IO不高~~ `"indices.store.throttle.max_bytes_per_sec"`可以更大；如果日志中经常出现`java.lang.OutOfMemoryError`, 可以减小"indices.breaker.fielddata.limit"`,`"indices.breaker.request.limit"`,`"indices.breaker.total.limit"`的值。
 
+如果fielddata需要占用的JVM heap size超过了限定值，请求会被中断`（Q:请求中断后，什么返回？）`，如下日志所示：
+```
+[2015-05-27 20:16:44,767][WARN ][indices.breaker          ] [10.19.0.84] [FIELDDATA] New used memory 4848575200 [4.5gb] from field [http_request.raw] would be larger t
+han configured breaker: 4831838208 [4.5gb], breaking
+[2015-05-27 20:16:44,911][WARN ][indices.breaker          ] [10.19.0.84] [FIELDDATA] New used memory 4833426184 [4.5gb] from field [host.raw] would be larger than conf
+igured breaker: 4831838208 [4.5gb], breaking
+[2015-05-27 20:16:44,914][WARN ][indices.breaker          ] [10.19.0.84] [FIELDDATA] New used memory 4833425505 [4.5gb] from field [domain.raw] would be larger than co
+nfigured breaker: 4831838208 [4.5gb], breaking
+```
+
 >**TIP**: In [Fielddata Size](http://www.elastic.co/guide/en/elasticsearch/guide/master/_limiting_memory_usage.html#fielddata-size), we spoke about adding a limit to the size of fielddata, to ensure that old unused fielddata can be evicted. The relationship between indices.fielddata.cache.size and indices.breaker.fielddata.limit is an important one. If the circuit-breaker limit is lower than the cache size, no data will ever be evicted. In order for it to work properly, the circuit breaker limit must be higher than the cache size.
 
 *	disk based allocation strategy[\[6\]][6]
