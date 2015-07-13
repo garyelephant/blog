@@ -1,19 +1,5 @@
 # Elasticsearch Optimization Checklist
 
-## TODO
-*	application level:是否要在query请求所占的资源上做一些限制
-*	application level:是否考虑配置routing
-*	elasticsearch.yml
-discovery.zen.ping.timeout: 100s ?
-indices.memory.index_buffer_size: 30%
-indices.memory.min_shard_index_buffer_size: 12mb
-indices.memory.min_index_buffer_size: 96mb
-index.refresh_interval: 120s
-index.translog.flush_threshold_ops: 5000
-threadpool.bulk.queue_size: 1000
-
-*	修改logstash output template (order,...),禁止影响自定义的
-
 ## 假设
 *	hardware 假设
 *	index/query rate假设
