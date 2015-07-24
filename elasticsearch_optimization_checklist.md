@@ -11,11 +11,19 @@
 
 
 ## System Level
-*    switch off swap [1][1]
+*    adjust vm.swappiness [1][1]
 
 ```
+# 这是永久修改
+$ echo "vm.swappiness = 1" >> /etc/sysctl.conf
+
+# 这是临时修改，服务器重启后失效
+$ sysctl vm.swappiness=1
 $ sudo swapoff -a
+$ sudo swapon -a
 ```
+
+> A swappiness of 1 is better than 0, since on some kernel versions a swappiness of 0 can invoke the OOM-killer.
 
 *    Max Open File Descriptors 设置为32k~64k
 ```
