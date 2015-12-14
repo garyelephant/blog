@@ -1,7 +1,12 @@
 
 ## 未完成、计划中的Blog
 
-* [git使用方法]()
+* [我们在构建实时日志检索分析系统这些年踩过哪些坑？]()
+
+Elasticsearch, Logstash, Kibana, Kafka相关的坑。
+链接我之前的博文及slides.com的slide
+
+* [磨刀不误砍柴工系列之-git使用技巧]()
 
 * [Elasticsearch使用技巧]()
 
@@ -26,4 +31,10 @@
 ## 待开源项目
 
 * logstash conf generator
+
+* logstash-filter-geoip2
+
+* elasticsearch_aggregator
+
+
 
