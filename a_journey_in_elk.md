@@ -21,6 +21,7 @@ logstash
 Elasticsearch
 
 *	search slowlog, indexing slowlog
+两个es cluster,一个业务cluster, 一个监控cluster写slowlog
 
 *	search优化
 search原理后续整理
