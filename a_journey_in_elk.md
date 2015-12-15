@@ -3,11 +3,15 @@
 ---
 ## TODO
 
+自动化工具salt
+
 kafka读写message：
 
 *	partition均匀写
 *	consumer僵死(logstash)
 *	kafka监控
+
+任务调度系统（celery）
 
 logstash
 
@@ -17,7 +21,7 @@ Elasticsearch 非实时数据的聚合思路：
 
 *	非实时的需求-报表需求
 *	elasticsearch aggs, 优点(适合经常变化，不固定的聚合需求，用query+aggs很容易满足)，存在的问题：多层aggs, 非实时的聚合，CPU瓶颈。
-*	logstash, logstash-filter-metric  优点，局限性(只能满足很少的需求)
+*	logstash, 通过mutate做字段连接, logstash-filter-metric做event count  优点，局限性(只能满足很少的需求)
 *	elasticsearch_aggregator 优点，局限性
 *	spark 优点，局限性
 
@@ -40,6 +44,15 @@ Docker化：
 
 *	吞吐量，延时，丢失率
 
+---
+
+## 思考-分享什么？
+
+*	分享我们的技术栈
+
+*	分享我们踩过的坑
+
+*	分享我们开源的软件	
 
 
 > Written with [StackEdit](https://stackedit.io/).
