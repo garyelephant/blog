@@ -17,6 +17,13 @@ logstash
 
 *	用logstash满足各种各样的用户日志归一化需求
 
+
+Elasticsearch
+
+*	使用script做计算
+
+*	curator好工具
+
 Elasticsearch 非实时数据的聚合思路：
 
 *	非实时的需求-报表需求
@@ -24,6 +31,13 @@ Elasticsearch 非实时数据的聚合思路：
 *	logstash, 通过mutate做字段连接, logstash-filter-metric做event count  优点，局限性(只能满足很少的需求)
 *	elasticsearch_aggregator 优点，局限性
 *	spark 优点，局限性
+
+
+业务数据监控：
+
+*	elastalert
+
+*	使用机器学习更准确的监控数据趋势变化
 
 Docker化：
 
@@ -46,13 +60,21 @@ Docker化：
 
 ---
 
-## 思考-分享什么？
+### 思考-分享什么？
 
 *	分享我们的技术栈
 
 *	分享我们踩过的坑
 
-*	分享我们开源的软件	
+*	分享我们开源的软件
+
+### 我的观点
+
+*	未来的机器学习必定是简单易用的，人人都有权利使用机器学习
+
+*	Dcos是未来的data center，
+
+*	容器化是未来云计算的趋势，分享我之前的博文。
 
 
 > Written with [StackEdit](https://stackedit.io/).
