@@ -20,6 +20,9 @@ logstash
 
 Elasticsearch
 
+*	数据重复写入导致计算结果不正确的问题
+数据为什么会重复写入
+
 *	search slowlog, indexing slowlog
 两个es cluster,一个业务cluster, 一个监控cluster写slowlog
 
@@ -92,6 +95,11 @@ Docker化：
 *	容器化是未来云计算的趋势，分享我之前的博文。
 
 ---
+
+### References
+
+1.	我的trello里面的elk优化记录
+
 
 ## Appendix A 一个延时较短的aggs示例
 每天index大小:40million左右docs, 单份数据: 20GB, aggs平均延时:1.03s
