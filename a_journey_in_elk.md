@@ -56,6 +56,8 @@ Elasticsearch 非实时数据的聚合思路：
 *	elastalert
 
 *	使用机器学习更准确的监控数据趋势变化
+https://plot.ly/python/polynomial-fits/
+
 
 Docker化：
 
