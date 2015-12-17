@@ -1,6 +1,10 @@
 
 ## 未完成、计划中的Blog
 
+* [斯坦福(Standford University)上学记:MOOC,梦想,视野,坚持]()
+
+记一次coursera.org学习Andrew Ng Machine Learning的经历。
+
 * [我们在构建实时日志检索分析系统这些年踩过哪些坑？]()
 
 Elasticsearch, Logstash, Kibana, Kafka相关的坑。
