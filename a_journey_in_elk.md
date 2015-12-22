@@ -23,6 +23,15 @@ Elasticsearch
 *	数据重复写入导致计算结果不正确的问题
 数据为什么会重复写入
 
+*	如何用aggregations: aggs非常灵活，几乎能满足所有聚合需求，但是它不适合对大量docs做聚合。
+我们的集群对num_doc:12亿，primary总共1.5T, mappings中有100+ fields的3个index做aggs时，整个集群的负载非常高, 其他的query执行延时也很长，indexing 也受到严重影响。例如做基于时间的数据聚合，如果涉及的docs非常多，可以缩短时间段，如从最近几天缩短到最近几小时，甚至几分钟，这样aggs执行非常快，消耗的CPU也很少。对于大量的离线聚合需求，如出一个星期的报表，如果数据量巨大，还是请出hadoop, spark这些吧。如果需要数据可视化，可以把离线job的结果再写回es，用kibana做可视化。
+
+同时我们在elasticsearch官网看到这么一张图，它聚合了最近2天的数据却非常快，原因是数据量只有2千多条。
+
+![Figure 39. Kibana—a real time analytics dashboard built with aggregations](https://www.elastic.co/guide/en/elasticsearch/guide/current/images/elas_29in03.png)
+
+图片来源：https://www.elastic.co/guide/en/elasticsearch/guide/current/_the_sky_8217_s_the_limit.html
+
 *	search slowlog, indexing slowlog
 两个es cluster,一个业务cluster, 一个监控cluster写slowlog
 
@@ -47,6 +56,8 @@ Elasticsearch 非实时数据的聚合思路：
 *	logstash, 通过mutate做字段连接, logstash-filter-metric做event count  优点，局限性(只能满足很少的需求)
 
 *	elasticsearch_aggregator 优点，局限性
+
+这个project为海量数据的非实时聚合提供了一种可能性，功能虽然有限，但能一定程度上免去了hadoop, spark生态系统的学习成本。我们开源出来就是希望和你一起打磨这款产品，褒扬协助也好，辱骂唾弃也罢，我们请你给个态度。
 
 *	spark 优点，局限性
 
