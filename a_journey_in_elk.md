@@ -24,6 +24,8 @@ Elasticsearch
 数据为什么会重复写入
 
 *	如何用aggregations: aggs非常灵活，几乎能满足所有聚合需求，但是它不适合对大量docs做聚合。
+迄今为止，elasticsearch 的aggregations是我最喜欢的数据操作的API，kibana是我最喜欢的数据可视化方案，它们两个的组合也释放了无穷的魅力，但是aggregations确实不适合对大量docs做聚合。
+
 我们的集群对num_doc:12亿，primary总共1.5T, mappings中有100+ fields的3个index做aggs时，整个集群的负载非常高, 其他的query执行延时也很长，indexing 也受到严重影响。例如做基于时间的数据聚合，如果涉及的docs非常多，可以缩短时间段，如从最近几天缩短到最近几小时，甚至几分钟，这样aggs执行非常快，消耗的CPU也很少。对于大量的离线聚合需求，如出一个星期的报表，如果数据量巨大，还是请出hadoop, spark这些吧。如果需要数据可视化，可以把离线job的结果再写回es，用kibana做可视化。
 
 同时我们在elasticsearch官网看到这么一张图，它聚合了最近2天的数据却非常快，原因是数据量只有2千多条。
