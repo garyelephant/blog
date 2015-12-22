@@ -115,6 +115,9 @@ Docker化：
 
 1.	我的trello里面的elk优化记录
 
+2.	Understanding the Trade-offs of percentiles aggs
+https://www.elastic.co/guide/en/elasticsearch/guide/current/percentiles.html#_understanding_the_trade_offs_2
+
 
 ## Appendix A 一个延时较短的aggs示例
 每天index大小:40million左右docs, 单份数据: 20GB, aggs平均延时:1.03s
