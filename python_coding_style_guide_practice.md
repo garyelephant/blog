@@ -1,7 +1,5 @@
 # python coding style guide 的落地实践
 
-> 本文我想表达的是：机器和人各有所长，适合机器做程序化、自动化的事无须人代劳，例如我下面要介绍的使用flake8 对python代码做 coding style 检查。
-
 ## PEP8 & Flake8
 
 PEP 8: https://www.python.org/dev/peps/pep-0008/
@@ -47,6 +45,10 @@ flake8 --show-source --import-order-style=google <project_dir_or_py_file>
 ## vcs hook
 
 ## 自动化测试
+
+---
+
+> 本文我想表达的是：机器和人各有所长，适合机器做程序化、自动化的事无须人代劳，例如我下面要介绍的使用flake8 对python代码做 coding style 检查。
 
 
 > Written with [StackEdit](https://stackedit.io/).
