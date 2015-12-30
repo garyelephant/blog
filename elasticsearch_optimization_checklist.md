@@ -84,7 +84,9 @@ OpenJDK 64-Bit Server VM (build 24.45-b08, mixed mode)
 	*    Don’t Cross 32 GB!
 
 
-*   enable mlockall (elasticsearch.yml)
+*   enable mlockall (elasticsearch.yml)[12][12]
+
+Try to lock the process address space into RAM, preventing any Elasticsearch memory from being swapped out. 
 
 ```
 bootstrap.mlockall: true
@@ -375,6 +377,8 @@ PUT _template/base
 [10]: http://www.elastic.co/guide/en/elasticsearch/guide/current/_java_virtual_machine.html "Java Virtual Machine"
 
 [11]: https://www.elastic.co/blog/performance-considerations-elasticsearch-indexing "Performance Considerations for Elasticsearch Indexing"
+
+[12]: https://www.elastic.co/guide/en/elasticsearch/reference/current/setup-configuration.html "Elasticsearch setup-configuration"
 
 ---
 
