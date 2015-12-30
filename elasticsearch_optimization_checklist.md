@@ -88,6 +88,15 @@ OpenJDK 64-Bit Server VM (build 24.45-b08, mixed mode)
 
 Try to lock the process address space into RAM, preventing any Elasticsearch memory from being swapped out. 
 
+Increase RLIMIT_MEMLOCK to prevent failing to lock memory, these can be adjusted by modifying /etc/security/limits.conf, for example:
+```
+# allow user 'elasticsearch' mlockall
+elasticsearch soft memlock unlimited
+elasticsearch hard memlock unlimited
+```
+
+then in elasticsearch.yml:
+
 ```
 bootstrap.mlockall: true
 ```
