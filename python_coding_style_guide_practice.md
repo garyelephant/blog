@@ -2,6 +2,10 @@
 
 ---
 
+> 机器和人各有所长，如coding style检查这种可自动化的工作理应交给机器去完成，故发此文普及coding style检查的自动化，帮助你在几分钟内实现coding style的自动化检查。
+
+---
+
 ## 1.有哪些著名的Python Coding Style Guide
 
 *	PEP8
@@ -133,11 +137,6 @@ max-complexity = 10
 
 ### 2.5 flake8高级用法 - VCS Hook
 
-
-
----
-
-> 本文我想表达的是：机器和人各有所长，如coding style检查这种可自动化的工作理应交给机器去完成，故发此文普及coding style检查的自动化。
 
 ---
 
