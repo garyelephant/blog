@@ -24,6 +24,7 @@ Google内部广泛使用Python作为开发语言，此Coding Style 在坊间流�
 安装flake8，同时安装一些有用的插件。
 
 *	pep8-nameing
+https://github.com/PyCQA/pep8-naming
 命名检查
 
 *	flake8-import-order
@@ -31,38 +32,60 @@ https://github.com/public/flake8-import-order
 import 顺序检查，可以有两种风格顺序检查cryptography, google, 本文后面将做具体介绍。
 
 *	flake8-todo
+https://github.com/schlamar/flake8-todo
 检查代码中的todo
 
-*  flake8-respect-noqa
-包含了如下内容的源代码在执行检查时将被忽略。
-```
-# flake8: noqa
-```
+*	flake8-quotes
+https://github.com/zheller/flake8-quotes/
+
 
 具体安装命令如下：
 
 ```
-pip install flake8
-pip install pep8-naming
-pip install flake8-import-order
-pip install flake8-todo
-pip install flake8-respect-noqa
+$ pip install flake8
+$ pip install pep8-naming
+$ pip install flake8-import-order
+$ pip install flake8-todo
+$ pip install flake8-quotes
 ```
 
 检查安装了哪些插件： 
 ```
 $ flake8 --version
 # 输出如下内容，显示了已安装的插件：
-2.5.1 (pep8: 1.5.7, import-order: 0.6.1, flake8-respect-noqa: 0.2, naming: 0.3.3, pyflakes: 1.0.0, mccabe: 0.3.1, flake8-todo: 0.4) CPython 2.6.6 on Linux
+2.5.1 (pep8: 1.5.7, import-order: 0.6.1, naming: 0.3.3, pyflakes: 1.0.0, mccabe: 0.3.1, flake8-todo: 0.4, flake8_quotes: 0.1.1) CPython 2.6.6 on Linux
 ```
 
 ### 2.2 用Flake8检查Python Codes
 
+例如如下代码：
 ```
-flake8 --first --show-source --import-order-style=google <project_dir_or_py_file>
+# test.py
+# some codes
 ```
 
-常用的options有：
+执行检查命令：
+```
+$ flake8 --first --show-source --import-order-style=google test.py
+```
+
+输出结果如下：
+```
+# flake8 output
+```
+
+以上错误码分别是：
+```
+# meanings of error codes
+```
+
+除此之外，flake8也可以递归得检查某个目录中的代码：
+
+```
+$ flake8 --first --show-source your_project_dir
+```
+
+flake8常用的options有：
 
 *	--show-source
 show source code for each error
@@ -79,18 +102,22 @@ print total number of errors and warnings to standard error and set exit code to
 *	--help
 get help
 
-例如如下代码：
-```
-# test.py
-# some codes
-```
+### 2.3 Flake8 Warning / Error codes 列表
 
-执行`flake8 --first --show-source --import-order-style=google test.py`输出结果如下：
-```
-# flake8 output
-```
+| Codes | Notes | Link |
+| ------ | ------ | ------ |
+| E***/W*** | pep8 errors and warnings | http://pep8.readthedocs.org/en/latest/intro.html#error-codes |
+| F*** | PyFlakes codes (see below) | https://flake8.readthedocs.org/en/latest/warnings.html |
+| C9** | McCabe complexity, 目前只有C901 | https://github.com/PyCQA/mccabe |
+| N8** | PEP-8 naming conventions | https://github.com/PyCQA/pep8-naming#plugin-for-flake8 |
+| I*** | checks the ordering of your imports | https://github.com/public/flake8-import-order#warnings |
+| T*** | 目前只有T000检查代码中是否包含TODO, FIXME | https://github.com/schlamar/flake8-todo |
+| Q*** | 目前有Q000代表单双引号使用错误 | https://github.com/zheller/flake8-quotes/ |
 
-### 2.3 Flake8的个性化配置
+随着新的flake8 plugin的集成，还可能有其他的codes。
+
+
+### 2.4 Flake8的个性化配置
 
 根据需要，flake8的配置可以是全局的(对所有project有效)，也可以是分project的。这里仅举例说明全局配置方法，分project配置请见[flake8 Per Project Configuration](https://flake8.readthedocs.org/en/latest/config.html#per-project)。
 
@@ -103,6 +130,10 @@ exclude = .tox,*.egg
 max-line-length = 120
 max-complexity = 10
 ```
+
+### 2.5 flake8高级用法 - VCS Hook
+
+
 
 ---
 
