@@ -118,7 +118,7 @@ get help
 | T*** | 目前只有T000检查代码中是否包含TODO, FIXME | https://github.com/schlamar/flake8-todo |
 | Q*** | 目前有Q000代表单双引号使用错误 | https://github.com/zheller/flake8-quotes/ |
 
-随着新的flake8 plugin的集成，还可能有其他的codes。
+随着新的flake8 plugin的集成，还可能有其他的codes，如果你的项目有特殊的代码检查需求，也可开发自己的plugin。
 
 
 ### 2.4 Flake8的个性化配置
