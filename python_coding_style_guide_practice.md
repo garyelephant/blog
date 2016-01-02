@@ -155,12 +155,12 @@ get help
 | Codes | Notes | Link |
 | ------ | ------ | ------ |
 | E\*\*\*/W\*\*\* | pep8 errors and warnings | http://pep8.readthedocs.org/en/latest/intro.html#error-codes |
-| F*** | PyFlakes codes (see below) | https://flake8.readthedocs.org/en/latest/warnings.html |
-| C9** | McCabe complexity, 目前只有C901 | https://github.com/PyCQA/mccabe |
-| N8** | PEP-8 naming conventions | https://github.com/PyCQA/pep8-naming#plugin-for-flake8 |
-| I*** | checks the ordering of your imports | https://github.com/public/flake8-import-order#warnings |
-| T*** | 目前只有T000检查代码中是否包含TODO, FIXME | https://github.com/schlamar/flake8-todo |
-| Q*** | 目前有Q000代表单双引号使用错误 | https://github.com/zheller/flake8-quotes/ |
+| F\*\*\* | PyFlakes codes (see below) | https://flake8.readthedocs.org/en/latest/warnings.html |
+| C9\*\* | McCabe complexity, 目前只有C901 | https://github.com/PyCQA/mccabe |
+| N8\*\* | PEP-8 naming conventions | https://github.com/PyCQA/pep8-naming#plugin-for-flake8 |
+| I\*\*\* | checks the ordering of your imports | https://github.com/public/flake8-import-order#warnings |
+| T\*\*\* | 目前只有T000检查代码中是否包含TODO, FIXME | https://github.com/schlamar/flake8-todo |
+| Q\*\*\* | 目前有Q000代表单双引号使用错误 | https://github.com/zheller/flake8-quotes/ |
 
 随着新的flake8 plugin的集成，还可能有其他的codes，如果你的项目有特殊的代码检查需求，也可开发自己的plugin。
 
