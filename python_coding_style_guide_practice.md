@@ -65,28 +65,61 @@ $ flake8 --version
 例如如下代码：
 ```
 # test.py
-# some codes
+
+from order import place_order
+import os, sys
+
+class website_api(object):
+    def __init__(self):
+        self.user_name = ''
+        self.Gender = 'male'
+        #comment in wrong ident
+        self.active =False
+
+    def login(self, Person):
+        self.user_name=Person.user_name
+        not_used_var = 0
+        return True
+
+    def Logout(self):
+        self.active =False
+
+    def place_order(self):
+        place_order()
+
+def action():
+    Client_a = website_api()
+    Client_a.login()
+    Client_a.place_order()
+    Client_a.Logout()
 ```
 
 执行检查命令：
 ```
-$ flake8 --first --show-source --import-order-style=google test.py
+$ flake8 --first --import-order-style=google test.py
 ```
 
-输出结果如下：
+输出结果如下，你可以根据错误码来修正代码，如其中的`N802`的意思是function name不应该包含大写英文字母。
+
 ```
 # flake8 output
-```
-
-以上错误码分别是：
-```
-# meanings of error codes
+test.py:2:1: F401 'sys' imported but unused
+test.py:2:1: I100 Imports statements are in the wrong order. from os, sys should be before from order
+test.py:2:1: I201 Missing newline before sections or imports.
+test.py:2:10: E401 multiple imports on one line
+test.py:4:7: N801 class names should use CapWords convention
+test.py:8:9: E265 block comment should start with '# '
+test.py:9:22: E225 missing whitespace around operator
+test.py:11:9: N803 argument name should be lowercase
+test.py:13:9: F841 local variable 'not_used_var' is assigned to but never used
+test.py:16:9: N802 function name should be lowercase
+test.py:23:5: N806 variable in function should be lowercase
 ```
 
 除此之外，flake8也可以递归得检查某个目录中的代码：
 
 ```
-$ flake8 --first --show-source your_project_dir
+$ flake8 your_project_dir
 ```
 
 flake8常用的options有：
@@ -132,8 +165,10 @@ get help
 ignore = E201,E202,E302
 exclude = .tox,*.egg
 max-line-length = 120
-max-complexity = 10
 ```
+
+以上配置的意思是flake8不检查E201, E202, E302这三个错误，不检查.tox,*.egg文件，允许的最长单行代码长度为120个字符。
+
 
 ### 2.5 flake8高级用法 - VCS Hook
 
@@ -160,8 +195,6 @@ https://flake8.readthedocs.org/en/latest/warnings.html
 ---
 
 ## TODO
-
-*	flake8 test code
 
 *	解释import-order的两个选项
 
