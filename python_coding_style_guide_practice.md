@@ -170,7 +170,15 @@ max-line-length = 120
 以上配置的意思是flake8不检查E201, E202, E302这三个错误，不检查.tox,*.egg文件，允许的最长单行代码长度为120个字符。
 
 
-### 2.5 flake8高级用法 - VCS Hook
+### 2.5 Flake8高级用法 - Git Commit Hook
+
+flake8可结合Git实现`commit`时检查coding style的目的，如果flake8报错，则无法`commit`。
+
+在python project的根目录下执行如下命令安装git pre-commit hook。
+```
+$ flake8 --install-hook
+$ git config flake8.strict true
+```
 
 
 ---
@@ -192,10 +200,7 @@ https://flake8.readthedocs.org
 5.	Warning / Error codes of flake8
 https://flake8.readthedocs.org/en/latest/warnings.html
 
+
 ---
-
-## TODO
-
-*	vcs hook
 
 > Written with [StackEdit](https://stackedit.io/).
