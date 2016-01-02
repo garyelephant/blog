@@ -11,11 +11,13 @@
 *	PEP8
 
 https://www.python.org/dev/peps/pep-0008/
+
 发明Python语言丰碑人物Guido van Rossum的亲自写的Coding Style, 知名度5颗星，可操作性5颗星。
 
 * Google Python Coding Style Guide
 
 http://google-styleguide.googlecode.com/svn/trunk/pyguide.html
+
 Google内部广泛使用Python作为开发语言，此Coding Style 在坊间流传很广，知名度5颗星，可操作性5颗星。值得一提的是Guido也曾经在Google工作过一段时间。
 
 
@@ -28,20 +30,24 @@ Google内部广泛使用Python作为开发语言，此Coding Style 在坊间流�
 安装flake8，同时安装一些有用的插件。
 
 *	pep8-nameing
+
 https://github.com/PyCQA/pep8-naming
 命名检查
 
 *	flake8-import-order
+
 https://github.com/public/flake8-import-order
 import 顺序检查，可以有两种风格顺序检查cryptography, google。如`google`的意思是import顺序是（1）标准库（2）第三方库（3）本地项目库。代码检查时可以通过`--import-order-style=google`来指定。
 
 *	flake8-todo
+
 https://github.com/schlamar/flake8-todo
-检查代码中的todo
+检查代码中的todo。
 
 *	flake8-quotes
-https://github.com/zheller/flake8-quotes/
 
+https://github.com/zheller/flake8-quotes/
+检查单双引号的使用是否正确。
 
 具体安装命令如下：
 
@@ -125,25 +131,30 @@ $ flake8 your_project_dir
 flake8常用的options有：
 
 *	--show-source
+
 show source code for each error
 
 *	--first
+
 show first occurrence of each error
 
 *	--import-order-style=google
+
 import order style to follow
 
 *	--count
+
 print total number of errors and warnings to standard error and set exit code to 1 if total is not null
 
 *	--help
+
 get help
 
 ### 2.3 Flake8 Warning / Error codes 列表
 
 | Codes | Notes | Link |
 | ------ | ------ | ------ |
-| E***/W*** | pep8 errors and warnings | http://pep8.readthedocs.org/en/latest/intro.html#error-codes |
+| E\*\*\*/W\*\*\* | pep8 errors and warnings | http://pep8.readthedocs.org/en/latest/intro.html#error-codes |
 | F*** | PyFlakes codes (see below) | https://flake8.readthedocs.org/en/latest/warnings.html |
 | C9** | McCabe complexity, 目前只有C901 | https://github.com/PyCQA/mccabe |
 | N8** | PEP-8 naming conventions | https://github.com/PyCQA/pep8-naming#plugin-for-flake8 |
