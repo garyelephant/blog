@@ -8,6 +8,7 @@ markdown syntax is tested in [StackEdit](https://stackedit.io/)
 
 Contents
 ---
+* [python coding style guide 的落地实践](./python_coding_style_guide_practice.md) 2016-01-02
 * [为什么容器技术将主宰世界](./container_will_rule_the_world.md) 2015-11-04
 * [Better ELK,新浪实时日志分析服务进化](./better_elk_in_sina.md) 2015-08-11
 * [Tutorial: 使用rsyslog向kafka, elasticsearch推送日志](./power_rsyslog_with_kafka_es.md)
