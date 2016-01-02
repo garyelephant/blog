@@ -33,7 +33,7 @@ https://github.com/PyCQA/pep8-naming
 
 *	flake8-import-order
 https://github.com/public/flake8-import-order
-import 顺序检查，可以有两种风格顺序检查cryptography, google, 本文后面将做具体介绍。
+import 顺序检查，可以有两种风格顺序检查cryptography, google。如`google`的意思是import顺序是（1）标准库（2）第三方库（3）本地项目库。代码检查时可以通过`--import-order-style=google`来指定。
 
 *	flake8-todo
 https://github.com/schlamar/flake8-todo
@@ -195,8 +195,6 @@ https://flake8.readthedocs.org/en/latest/warnings.html
 ---
 
 ## TODO
-
-*	解释import-order的两个选项
 
 *	vcs hook
 
