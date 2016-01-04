@@ -49,6 +49,13 @@ Elasticsearch
 
 图片来源：https://www.elastic.co/guide/en/elasticsearch/guide/current/_the_sky_8217_s_the_limit.html
 
+*	目前有3个方案，防止集群因aggs不可用：
+（1）es集群中增加client node, client node 前面放置nginx，由nginx负责自动禁掉可能导致集群不可用的aggs request。这些request的特征是aggs的嵌套层数较多且包含percentile_ranks等aggs，涉及的docs数较多。
+工作中涉及 A. 上线elasticsearch client node, B. nginx学习和上线, C. 用Lua以nginx module的形式开发一个禁掉aggs request的业务逻辑
+（2）人为禁止耗资源的aggs的使用，但不好限制。
+（3）挖掘数据较多的index的用户需求，使用elasticsearch数据聚合工具预先聚合数据，就像现在的监控屏幕上的数据一样。
+
+
 *	search slowlog, indexing slowlog
 两个es cluster,一个业务cluster, 一个监控cluster写slowlog
 
