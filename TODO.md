@@ -5,6 +5,8 @@
 
 记一次coursera.org学习Andrew Ng Machine Learning的经历。
 
+pip install coursera-dl, https://github.com/dgorissen/coursera-dl
+
 * [我们在构建实时日志检索分析系统这些年踩过哪些坑？]()
 
 Elasticsearch, Logstash, Kibana, Kafka相关的坑。
