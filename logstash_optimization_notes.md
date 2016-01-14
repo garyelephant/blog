@@ -12,33 +12,14 @@
 
 ---
 
+## logstash 配置常用技巧汇总
+
+*	logstash-filter-grok使用技巧
+
+---
+
 0. 基本的配置方法，一定要先掌握这个
 https://www.elastic.co/guide/en/logstash/current/configuration.html
-
-1.      logstash中判断某字段是否存在
-input{
-        stdin {
-        }
-}
-
-filter {
-        grok {
-                match => [ "message", "%{NUMBER:status} %{WORD:method}", "message", "%{NUMBER:status}" ]
-        }
-        # 如果没有method,则增加一个新的field "haha"
-        if ![method] {
-                mutate {
-                        add_field => { "haha" => "xixi" }
-                }
-        }
-}
-
-output {
-        stdout { codec => rubydebug }
-}
-
-2.      
-logstash配置注意事项：LS有自己默认生成的field,如：@timestamp,host,@version等，使用grok时，如果pattern中有与上相同的field，结果变成了在这个field上追加值了，如下："host" => [[0]"localhost.localdomain",[1] "ww1.sinaimg.cn" ]
 
 3.
 regex 中的(pattern)?表示这个pattern可能出现也可能不出现。
