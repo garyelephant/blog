@@ -64,6 +64,8 @@ $ sysctl -a|grep vm.max_map_count
 vm.max_map_count = 262144
 ```
 
+这里有一个[使用salt批量做system level调优的脚本](./resources/elasticsearch/init_os.sls)，可以直接使用
+
 ## Application Level
 *	JVM
 见 [Java Virtual Machine][10]。
