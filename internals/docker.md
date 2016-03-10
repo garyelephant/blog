@@ -4,6 +4,10 @@
 
 https://www.digitalocean.com/community/tutorials/how-to-limit-resources-using-cgroups-on-centos-6
 
+*    Resource management in Docker
+
+https://goldmann.pl/blog/2014/09/11/resource-management-in-docker/
+
 *    Docker基础技术：Linux CGroup
 
 http://coolshell.cn/articles/17049.html
