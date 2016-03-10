@@ -43,3 +43,28 @@ http://coolshell.cn/articles/17200.html
 *    10张图带你深入理解Docker容器和镜像
 
 http://dockone.io/article/783
+
+
+---
+
+Docker 中常见的 Runtime constraints on resources 可以参考：
+
+https://docs.docker.com/engine/reference/run/
+
+```
+$ docker run --help | grep -C 5 "cpu"
+--cpu-shares=0                  CPU shares (relative weight)
+--cpu-period=0                  Limit CPU CFS (Completely Fair Scheduler) period
+--cpu-quota=0                   Limit CPU CFS (Completely Fair Scheduler) quota
+--cpuset-cpus=                  CPUs in which to allow execution (0-3, 0,1)
+--cpuset-mems=                  MEMs in which to allow execution (0-3, 0,1)
+```
+
+```
+$ docker run --help | grep -C 5 "memory"
+--kernel-memory=                Kernel memory limit
+-m, --memory=                   Memory limit
+--memory-reservation=           Memory soft limit
+--memory-swap=                  Total memory (memory + swap), '-1' to disable swap
+--memory-swappiness=-1          Tuning container memory swappiness (0 to 100)
+```
