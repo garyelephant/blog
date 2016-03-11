@@ -32,6 +32,7 @@ logstash
 
 *	用logstash满足各种各样的用户日志归一化需求
 
+*	logstash with cgroups
 
 Elasticsearch
 
@@ -84,6 +85,9 @@ Elasticsearch 非实时数据的聚合思路：
 这个project为海量数据的非实时聚合提供了一种可能性，功能虽然有限，但能一定程度上免去了hadoop, spark生态系统的学习成本。我们开源出来就是希望和你一起打磨这款产品，褒扬协助也好，辱骂唾弃也罢，我们请你给个态度。
 
 *	spark 优点，局限性
+
+
+*	ELK on Mesos
 
 
 业务数据监控：
