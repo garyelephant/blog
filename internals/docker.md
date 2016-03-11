@@ -24,9 +24,9 @@ http://www.ibm.com/developerworks/cn/linux/1506_cgroup/index.html
 
 http://www.cnblogs.com/yanghuahui/p/3751826.html
 
-*    cgroup介绍、安装和配置文件解析
+*    Red Hat Enterprise Linux 6 Resource Management Guide (Cgroups)
 
-http://blog.chinaunix.net/uid-20940095-id-3294134.html
+https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Resource_Management_Guide/index.html
 
 *    Docker基础技术：Linux Namespace（上）
 
