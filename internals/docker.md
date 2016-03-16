@@ -48,6 +48,21 @@ http://coolshell.cn/articles/17200.html
 
 http://dockone.io/article/783
 
+---
+
+### Docker 性能开销测试
+
+*    Measuring Docker IO overhead
+
+https://www.percona.com/blog/2016/02/11/measuring-docker-io-overhead/
+
+*    Measuring Percona Server Docker CPU/network overhead
+
+https://www.percona.com/blog/2016/02/05/measuring-docker-cpu-network-overhead/
+
+*    An Updated Performance Comparison of Virtual Machines and Linux Containers
+
+http://domino.research.ibm.com/library/cyberdig.nsf/papers/0929052195DD819C85257D2300681E7B/$File/rc25482.pdf
 
 ---
 
