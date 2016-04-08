@@ -56,5 +56,11 @@ Elasticsearch, Logstash, Kibana, Kafka相关的坑。
 
 * elasticsearch_aggregator
 
+* Elasticsearch Index Management
+
+* Spark ETL
+
+* 超级简单易用的可视化方案
+
 
 
