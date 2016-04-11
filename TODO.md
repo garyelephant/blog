@@ -3,6 +3,10 @@
 
 * 拒绝假大空，一步步教你实现基于Paxos的分布式存储系统(与徐凯文合作)
 
+* ELK in docker on mesos
+
+可以分享经验，也可以step by step tutorial。
+
 * 上线mesos生产环境前必须清楚的10个问题
 
 * 大数据的禅修
