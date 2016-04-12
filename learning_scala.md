@@ -823,12 +823,6 @@ def smaller[T](a: T, b: T)(implicit order: T => Ordered[T]) = if (a < b) a else 
 ```
 
 
-
-
-## 待理解
-
-> TODO: 柯里化，匿名函数，模式匹配case class
-
 ---
 
 ## Q & A
