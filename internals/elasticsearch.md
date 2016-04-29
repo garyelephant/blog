@@ -1,5 +1,9 @@
 ## Elasticsearch 核心原理
 
+* Elasticsearch Indexing Under the Hood
+
+http://www.slideshare.net/GauravKukal/elastic-search-indexing-internals
+
 * forfuture1978的博客对Lucene有深入的展开
 
 http://www.cnblogs.com/forfuture1978/
