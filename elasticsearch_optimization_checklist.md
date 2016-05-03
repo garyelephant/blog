@@ -5,6 +5,11 @@
 *	index/query rate假设
 *	elasticsearch用户运行elasticsearch
 
+## 优化目标
+
+*    Indexing
+*    Searching
+
 ## Architecture Level
 
 to be continued.
