@@ -5,7 +5,11 @@
 *	index/query rate假设
 *	elasticsearch用户运行elasticsearch
 
-## hardware Level
+## Architecture Level
+
+to be continued.
+
+## Hardware Level
 
 见 [Elasticsearch Hardware Recommendation][9]。
 
@@ -231,6 +235,10 @@ GET /_nodes/process可以看到
 "max_file_descriptors": 64000, 
 "mlockall": true 
 ```
+
+## Index Level
+
+to be continued.
 
 ---
 ## Appendix A Base Template
