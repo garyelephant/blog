@@ -380,6 +380,58 @@ PUT _template/base
 ```
 
 ---
+
+## References
+
+1.    Elasticsearch Indexing Under the Hood
+http://www.slideshare.net/GauravKukal/elastic-search-indexing-internals
+
+2.    lucene深入分析博客
+http://www.cnblogs.com/forfuture1978/
+
+3.    Elasticsearch Refresh Interval vs Indexing Performance
+https://sematext.com/blog/2013/07/08/elasticsearch-refresh-interval-vs-indexing-performance/
+
+4.    Elasticsearch Translog
+https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-translog.html
+
+5.    Tuning data ingestion performance for Elasticsearch on Azure
+https://azure.microsoft.com/en-us/documentation/articles/guidance-elasticsearch-tuning-data-ingestion-performance/
+
+6.    Tuning data aggregation and query performance with Elasticsearch on Azure
+https://azure.microsoft.com/en-us/documentation/articles/guidance-elasticsearch-tuning-data-aggregation-and-query-performance/
+
+7.    ElasticSearch Performance Tips
+http://shzhangji.com/blog/2015/04/28/elasticsearch-performance-tips/
+
+8.    Heap: Sizing and Swapping
+https://www.elastic.co/guide/en/elasticsearch/guide/current/heap-sizing.html
+
+9.    Faster bulk indexing in Elasticsearch
+http://www.flax.co.uk/blog/2015/09/28/faster-bulk-indexing-in-elasticsearch/
+
+9.    Performance Considerations for Elasticsearch Indexing
+https://www.elastic.co/blog/performance-considerations-elasticsearch-indexing
+
+10.    Indexing Performance Tips
+https://www.elastic.co/guide/en/elasticsearch/guide/current/indexing-performance.html
+
+11.    Announcing Rally: Our benchmarking tool for Elasticsearch
+https://www.elastic.co/blog/announcing-rally-benchmarking-for-elasticsearch
+
+12.    Elasticsearch Indexing Performance Cheatsheet
+https://blog.codecentric.de/en/2014/05/elasticsearch-indexing-performance-cheatsheet/
+
+13.    Optimizing Elasticsearch: How Many Shards per Index?
+https://qbox.io/blog/optimizing-elasticsearch-how-many-shards-per-index
+
+14.    Performance Considerations for Elasticsearch 2.0 Indexing
+https://www.elastic.co/blog/performance-indexing-2-0
+
+15.    Write Consistency
+https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html#bulk-consistency
+
+---
 [1]: http://www.elastic.co/guide/en/elasticsearch/guide/current/heap-sizing.html#_swapping_is_the_death_of_performance "swapping is the death of performance"
 
 [2]: http://www.elastic.co/guide/en/elasticsearch/guide/current/_file_descriptors_and_mmap.html "file descriptors and mmap"
