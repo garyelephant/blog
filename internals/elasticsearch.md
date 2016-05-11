@@ -4,6 +4,10 @@
 
 http://www.slideshare.net/GauravKukal/elastic-search-indexing-internals
 
+* Translog
+
+https://www.elastic.co/guide/en/elasticsearch/reference/2.3/index-modules-translog.html
+
 * forfuture1978的博客对Lucene有深入的展开
 
 http://www.cnblogs.com/forfuture1978/
