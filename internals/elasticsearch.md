@@ -12,6 +12,10 @@ https://www.elastic.co/guide/en/elasticsearch/reference/2.3/index-modules-transl
 
 http://www.cnblogs.com/forfuture1978/
 
+* Lucene: The Good Parts
+
+http://blog.parsely.com/post/1691/lucene/
+
 * Lucene学习总结之一：全文检索的基本原理
 
 http://www.cnblogs.com/forfuture1978/archive/2009/12/14/1623594.html
