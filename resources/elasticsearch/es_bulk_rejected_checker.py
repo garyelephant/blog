@@ -1,11 +1,21 @@
 # pip install requests
 
-import requests
+import sys
 import time
+import requests
+
+if len(sys.argv) != 3:
+    print "usage: python", sys.argv[0], "es_host check_interval_in_seconds"
+    print "\t for example: python", sys.argv[0], "10.148.18.110:9200 5"
+    sys.exit(1)
+
+es_host = sys.argv[1]
+check_interval = float(sys.argv[2])
+
 
 last_rejected = {}
 while True:
-    resp = requests.get('http://10.148.18.110:9200/_nodes/stats/thread_pool')
+    resp = requests.get('http://{es_host}/_nodes/stats/thread_pool'.format(es_host=es_host))
     stats = resp.json()
     for nodeid, nodeinfo in stats['nodes'].items():
         name = nodeinfo['name']
@@ -18,4 +28,4 @@ while True:
         last_rejected[name] = rejected
 
     print "--------\n"
-    time.sleep(5)
+    time.sleep(check_interval)
