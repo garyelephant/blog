@@ -1,3 +1,7 @@
+"""
+pip install kafka-python
+"""
+
 import sys
 from kafka import KafkaConsumer, TopicPartition
 from kafka.structs import OffsetAndMetadata
