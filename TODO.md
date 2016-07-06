@@ -1,6 +1,8 @@
 
 ## 未完成、计划中的Blog
 
+* [Building Realtime Log search and analysis system with Elasticsearch and Spark](./building_bigdata_log_with_es_spark.md)
+
 * 拒绝假大空，一步步教你实现基于Paxos的分布式存储系统(与徐凯文合作)
 
 * ELK in docker on mesos
