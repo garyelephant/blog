@@ -8,8 +8,8 @@ os_limits:
     - name: |
         cp /etc/security/limits.conf /etc/security/limits.conf.bak
         cat /etc/security/limits.conf | grep -v "elasticsearch" > /tmp/system_limits.conf
-        echo "elasticsearch      hard    nofile      50000" >> /tmp/system_limits.conf
-        echo "elasticsearch      soft    nofile      50000" >> /tmp/system_limits.conf
+        echo "elasticsearch      hard    nofile      80000" >> /tmp/system_limits.conf
+        echo "elasticsearch      soft    nofile      80000" >> /tmp/system_limits.conf
         echo "elasticsearch soft memlock unlimited" >> /tmp/system_limits.conf
         echo "elasticsearch hard memlock unlimited" >> /tmp/system_limits.conf
         mv /tmp/system_limits.conf /etc/security/limits.conf
