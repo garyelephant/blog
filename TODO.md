@@ -1,6 +1,12 @@
 
 ## 未完成、计划中的Blog
 
+* [Things You Must Know from HR](./things_you_must_know_from_hr.md)，薪资，职位，职级，期权.
+
+* [磨刀不误砍柴工系列之-git使用技巧]()
+
+* [Elasticsearch使用技巧]()
+
 * [Building Realtime Log search and analysis system with Elasticsearch and Spark](./building_bigdata_log_with_es_spark.md)
 
 * 拒绝假大空，一步步教你实现基于Paxos的分布式存储系统(与徐凯文合作)
@@ -32,13 +38,7 @@ pip install coursera-dl, https://github.com/dgorissen/coursera-dl
 Elasticsearch, Logstash, Kibana, Kafka相关的坑。
 链接我之前的博文及slides.com的slide
 
-* [磨刀不误砍柴工系列之-git使用技巧]()
-
-* [Elasticsearch使用技巧]()
-
 * [logstash使用技巧]()
-
-* [我为什么加入xx,又为什么离开它]()
 
 * [什么是互联网思维]()
 
@@ -50,15 +50,11 @@ Elasticsearch, Logstash, Kibana, Kafka相关的坑。
 
 *	[My Productivity Tools](./my_productivity_tools.md)
 
-*	[Things You Must Know from HR](./things_you_must_know_from_hr.md)
-
 > Written with [StackEdit](https://stackedit.io/).
 
 ## 待开源项目
 
 * logstash conf generator
-
-* logstash-filter-geoip2
 
 * elasticsearch_aggregator
 
