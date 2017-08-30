@@ -16,6 +16,18 @@
 
 ---
 
+## 基础：计算
+
+cgroups
+
+## 基础：存储
+
+Raid
+
+## 基础：网络
+
+SDN
+
 ## 编程语言
 
 ### Java
@@ -66,14 +78,14 @@ CAP, MapReduce, MPP, Paxos, 2PC, 3PC，MVCC
 
 数据仓库：Hive
 
+文件格式：Parquet, Carbondata, Lucene, Arrow, mmdb
+
 计算：Spark, Presto
 
 NoSQL: HBase
 
-资源管理调度：Yarn
+资源管理调度：Yarn(资源隔离方法，调度策略，HA)
 
-文件格式：Parquet, Carbondata, Lucene, Arrow, mmdb
-
-存储：HDFS
+存储：HDFS(namenode HA, fsimage)
 
 分布式一致性：Zookeeper
