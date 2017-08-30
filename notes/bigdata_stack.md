@@ -42,6 +42,9 @@ Java高并发程序的实现方法
 
 反射和依赖注入
 
+Java8 Stream 并行计算实现的原理
+http://lvheyang.com/?p=87
+
 ### Python
 
 Python并发模型，GIL
