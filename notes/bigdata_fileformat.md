@@ -77,9 +77,48 @@ Dictionary encoding:
 
 无论是行式存储还是列式存储，都可以在将过滤条件在读取一条记录之后执行以判断该记录是否需要返回给调用者，在Parquet做了更进一步的优化，优化的方法时对每一个Row Group的每一个Column Chunk在存储的时候都计算对应的统计信息，包括该Column Chunk的最大值、最小值和空值个数。通过这些统计值和该列的过滤条件可以判断该Row Group是否需要扫描。另外Parquet未来还会增加诸如Bloom Filter和Index等优化数据，更加有效的完成谓词下推。
 
+7. 索引
+
+Parquet支持row group level的min/max索引，支持谓词下推并直接根据meta信息过滤row group。在row level上，parquet亦支持谓词下推，但是需要先读取并解析命中的dimension列，然后决定是否过滤此行数据。
+
+## Carbondata
+
+CarbonData file format is a columnar store in HDFS, it has many features that a modern columnar format has, such as splittable, compression schema ,complex data type etc, and CarbonData has following unique features:
+
+* Stores data along with index: it can significantly accelerate query performance and reduces the I/O scans and CPU resources, where there are filters in the query. CarbonData index consists of multiple level of indices, a processing framework can leverage this index to reduce the task it needs to schedule and process, and it can also do skip scan in more finer grain unit (called blocklet) in task side scanning instead of scanning the whole file.
+
+* Operable encoded data :Through supporting efficient compression and global encoding schemes, can query on compressed/encoded data, the data can be converted just before returning the results to the users, which is "late materialized".
+
+* Supports for various use cases with one single Data format : like interactive OLAP-style query, Sequential Access (big scan), Random Access (narrow scan).
+
+1. 文件格式：
+
+我们最感兴趣的索引相关内容，在文件格式中没有体现。
+
+https://github.com/apache/carbondata/blob/master/docs/file-structure-of-carbondata.md
+
+2. 索引：
+
+Carbondata支持File level和blocklet level上的min/max索引，以及row level上的invert index索引。在carbondata默认的spark sql引擎上，不同level的索引起作用的方式不同：
+File level索引用于在driver进行过滤，减少executor的负载
+blocklet level索引在executor的task中起作用
+Row level索引（invert index）在executor端读取数据时过滤数据。    
+相比parquet和orc，carbondata的过滤层次更丰富，粒度也更细，能更有效的过滤数据。
+Carbondata采用MDK（multi-dimension keys）对多列进行排序，同时跨多个文件范围内进行排序，以此来提高索引的效率。
+MDK计算原理如图3所示，根据create table时声明Column的顺序，先按照首列排序，然后在首列相同值的范围内排序第二列，以此类推。在获得MDK排序后，再计算各个维度的反向索引，并压缩存储。
+
+## Lucene
+
+1. 倒排索引原理
+
+2. 文件格式
+
+3. doc values
+
 ---
 
-Q&A:
+## Q&A:
+
 1. parquet 如何存储嵌套结构？
 2. parquet 中每个row group中所有row的顺序是如何决定的？
 3. parquet 用到的 Nested record shredding/assembly • Algorithm borrowed from Google Dremel's column IO 是啥？
@@ -104,3 +143,5 @@ https://github.com/QiangCai/carbondata_guide
 https://github.com/zzboy/lucene
 https://github.com/apache/arrow
 https://www.quora.com/How-will-Googles-Dremel-change-future-Hadoop-releases
+
+https://mp.weixin.qq.com/s/XFjUdVvbD-RMWAvJID0zmA
