@@ -4,7 +4,7 @@
 
 大数据与分布式系统重要理论：CAP, MapReduce, MPP, Paxos, 2PC, 3PC，MVCC
 
-架构知识：数据仓库，流式计算，多维查询，搜索，日志收集，OLAP，OLTP
+架构知识：数据仓库，流式计算，多维查询，搜索，日志收集，OLAP，OLTP，分布式锁和主从选举
 
 设计模式：
 
@@ -70,7 +70,7 @@ HashMap, LinkedHashMap, skipList
 
 ## 架构知识
 
-数据仓库，流式计算，多维查询，搜索，日志收集，OLAP，OLTP
+数据仓库，流式计算，多维查询，搜索，日志收集，OLAP，OLTP，分布式锁和主从选举
 
 ## 大数据与分布式系统重要理论
 
@@ -100,4 +100,4 @@ NoSQL: HBase
 
 存储：HDFS(namenode HA, fsimage)
 
-分布式一致性：Zookeeper
+分布式一致性：Zookeeper，分布式锁和主从选举
