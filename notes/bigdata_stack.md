@@ -33,28 +33,39 @@ SDN
 ### Java
 
 JVM进程、线程模型
+
 jdk常用数据结构的实现方式
+
 GC原理及调优
+
 Java高并发程序的实现方法
+
 反射和依赖注入
 
 ### Python
 
 Python并发模型，GIL
+
 GC原理及调优
+
 常用数据结构的实现方式
 
 ## 数据结构与算法
 
 排序算法
+
 树的数据结构与常用算法（重点红黑树、BTree）
+
 图的数据结构与常用算法
+
 HashMap, LinkedHashMap, skipList
+
 大数据算法
 
 ## 设计模式
 
 常用设计模式
+
 如何用java，python实现常用设计模式
 
 ## 架构知识
