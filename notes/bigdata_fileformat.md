@@ -85,6 +85,8 @@ Parquet支持row group level的min/max索引，支持谓词下推并直接根据
 
 ## Carbondata
 
+![carbondata-file-format](./bigdata_fileformat_images/carbondata-file-format.png)
+
 CarbonData file format is a columnar store in HDFS, it has many features that a modern columnar format has, such as splittable, compression schema ,complex data type etc, and CarbonData has following unique features:
 
 * Stores data along with index: it can significantly accelerate query performance and reduces the I/O scans and CPU resources, where there are filters in the query. CarbonData index consists of multiple level of indices, a processing framework can leverage this index to reduce the task it needs to schedule and process, and it can also do skip scan in more finer grain unit (called blocklet) in task side scanning instead of scanning the whole file.
