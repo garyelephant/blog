@@ -28,6 +28,8 @@ Raid
 
 SDN
 
+VLAN: http://network.51cto.com/art/201409/450885_all.htm
+
 ## 编程语言
 
 ### Java
@@ -77,30 +79,56 @@ HashMap, LinkedHashMap, skipList
 
 ## 大数据与分布式系统重要理论
 
-CAP, MapReduce, MPP, Paxos, 2PC, 3PC，MVCC
+CAP, MapReduce, MPP, Paxos, 2PC, 3PC，MVCC, WAL(Write ahead log)
 
 ## 大数据技术栈
 
-待定：mapd,neo4j
+> 待定：mapd,neo4j
 
-数据库：mysql，mongodb
+> 数据库：mysql，mongodb
 
-数据传输：Flume, Logstash
+Q1: MySQL 不同引擎的区别？
 
-消息队列：Kafka
+Q2: MySQL, Mongodb 索引的原理？
 
-搜索，多维分析：Elasticsearch
+Q3: MySQL, Mongodb 如何实现HA ?
 
-数据仓库：Hive
+> 数据传输：Flume, Logstash
 
-文件格式：Parquet, Carbondata, Lucene, Arrow, mmdb
+> 消息队列：Kafka
 
-计算：Spark, Presto
+> 搜索，多维分析：Elasticsearch
 
-NoSQL: HBase
+> 数据仓库：Hive
 
-资源管理调度：Yarn(资源隔离方法，调度策略，HA)
+> 文件格式：Parquet, Carbondata, Lucene, Arrow, mmdb
 
-存储：HDFS(namenode HA, fsimage)
+Q1: 画出完整的Parquet文件格式?
 
-分布式一致性：Zookeeper，分布式锁和主从选举
+Q2: 画出完整的Lucene文件格式?
+
+> 计算：Spark, Presto
+
+> NoSQL: HBase
+
+> 资源管理调度：Yarn(资源隔离方法，调度策略，HA)
+
+Q1: Yarn各节点的角色及功能？
+
+Q2: Yarn如何做资源隔离？
+
+Q3: Yarn如何做资源调度，有哪些调度算法？
+
+Q4: Yarn如何做HA?
+
+> 存储：HDFS(namenode HA, fsimage)
+
+Q1: Hdfs各节点的角色及功能？
+
+Q2: Hdfs File的文件组成？
+
+Q3: Hdfs 上传下载文件的交互流程？
+
+Q4: Yarn如何做HA?
+
+> 分布式一致性：Zookeeper，分布式锁和主从选举
