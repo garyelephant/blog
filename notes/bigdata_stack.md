@@ -8,7 +8,7 @@
 
 设计模式：
 
-数据结构与算法：排序、树、图基础算法，红黑树，BTree, HashMap, LinkedHashMap, skipList, 大数据算法
+数据结构与算法：排序、树、图基础算法，红黑树，BTree, skipList, HashMap, LinkedHashMap, 大数据算法
 
 编程语言：Java, Python
 
@@ -59,11 +59,11 @@ GC原理及调优
 
 排序算法
 
-树的数据结构与常用算法（重点红黑树、BTree）
+树的数据结构与常用算法（重点红黑树、BTree, skipList）
 
 图的数据结构与常用算法
 
-HashMap, LinkedHashMap, skipList
+HashMap, LinkedHashMap
 
 大数据算法
 

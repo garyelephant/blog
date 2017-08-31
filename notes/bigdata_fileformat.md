@@ -108,6 +108,8 @@ https://github.com/apache/carbondata/blob/master/docs/file-structure-of-carbonda
 
 [Spark Summit 上关于索引的详细介绍](https://www.slideshare.net/SparkSummit/apache-carbondata-an-indexed-columnar-file-format-for-interactive-query-with-spark-sql-spark-summit-east-talk-by-jacky-li-and-jihong-ma)
 
+column chunk 可以以倒排索引的方式存储数据，索引即数据，数据即索引。
+
 Carbondata支持File level和blocklet level上的min/max索引，以及row level上的invert index索引。在carbondata默认的spark sql引擎上，不同level的索引起作用的方式不同：
 File level索引用于在driver进行过滤，减少executor的负载
 blocklet level索引在executor的task中起作用
@@ -120,9 +122,21 @@ MDK计算原理如图3所示，根据create table时声明Column的顺序，先�
 
 1. 倒排索引原理
 
-2. 文件格式
+Lucene 使用SkipList而不是Btree实现inverted index.
 
-3. doc values
+https://stackoverflow.com/questions/2602253/how-does-lucene-index-documents
+
+Term Dictionary, Document Frequency, Posting List:
+
+http://alexbenedetti.blogspot.hk/2015/07/exploring-solr-internals-lucene.html
+
+2. Lucene Index 读写流程
+
+![lucene1](./bigdata_fileformat_images/lucene1)
+
+3. 文件格式
+
+4. doc values
 
 ---
 
@@ -132,6 +146,7 @@ MDK计算原理如图3所示，根据create table时声明Column的顺序，先�
 2. parquet 中每个row group中所有row的顺序是如何决定的？
 3. parquet 用到的 Nested record shredding/assembly • Algorithm borrowed from Google Dremel's column IO 是啥？
 4. parquet Repetition levels, Definition levels和values是什么？
+5. Parquet, Carbondata 如何实现更新和删除？
 
 ---
 
@@ -155,3 +170,10 @@ https://www.quora.com/How-will-Googles-Dremel-change-future-Hadoop-releases
 
 https://mp.weixin.qq.com/s/XFjUdVvbD-RMWAvJID0zmA
 http://carbondata.apache.org/file-structure-of-carbondata.html
+https://www.slideshare.net/SparkSummit/apache-carbondata-an-indexed-columnar-file-format-for-interactive-query-with-spark-sql-spark-summit-east-talk-by-jacky-li-and-jihong-ma
+
+https://stackoverflow.com/questions/256511/skip-list-vs-binary-tree/28270537#28270537
+https://www.slideshare.net/Kozovaya/solr-for-provectus
+https://stackoverflow.com/questions/2602253/how-does-lucene-index-documents
+http://alexbenedetti.blogspot.hk/2015/07/exploring-solr-internals-lucene.html
+https://www.slideshare.net/gamgoster/architecture-and-implementation-of-apache-lucene-13105167
