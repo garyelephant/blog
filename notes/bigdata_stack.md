@@ -109,6 +109,10 @@ Q2: 画出完整的Lucene文件格式?
 
 > 计算：Spark, Presto
 
+Q1: Spark Join 优化?
+
+A1: https://www.slideshare.net/databricks/optimizing-apache-spark-sql-joins
+
 > NoSQL: HBase
 
 > 资源管理调度：Yarn(资源隔离方法，调度策略，HA)

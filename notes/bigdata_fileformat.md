@@ -87,6 +87,8 @@ Parquet支持row group level的min/max索引，支持谓词下推并直接根据
 
 ![carbondata-file-format](./bigdata_fileformat_images/carbondata-file-format.png)
 
+详见[Carbondata File Format](https://github.com/HuaweiBigData/carbondata/wiki/CarbonData-File-Structure-and-Format)
+
 CarbonData file format is a columnar store in HDFS, it has many features that a modern columnar format has, such as splittable, compression schema ,complex data type etc, and CarbonData has following unique features:
 
 * Stores data along with index: it can significantly accelerate query performance and reduces the I/O scans and CPU resources, where there are filters in the query. CarbonData index consists of multiple level of indices, a processing framework can leverage this index to reduce the task it needs to schedule and process, and it can also do skip scan in more finer grain unit (called blocklet) in task side scanning instead of scanning the whole file.
@@ -102,6 +104,9 @@ CarbonData file format is a columnar store in HDFS, it has many features that a 
 https://github.com/apache/carbondata/blob/master/docs/file-structure-of-carbondata.md
 
 2. 索引：
+
+
+[Spark Summit 上关于索引的详细介绍](https://www.slideshare.net/SparkSummit/apache-carbondata-an-indexed-columnar-file-format-for-interactive-query-with-spark-sql-spark-summit-east-talk-by-jacky-li-and-jihong-ma)
 
 Carbondata支持File level和blocklet level上的min/max索引，以及row level上的invert index索引。在carbondata默认的spark sql引擎上，不同level的索引起作用的方式不同：
 File level索引用于在driver进行过滤，减少executor的负载
@@ -149,3 +154,4 @@ https://github.com/apache/arrow
 https://www.quora.com/How-will-Googles-Dremel-change-future-Hadoop-releases
 
 https://mp.weixin.qq.com/s/XFjUdVvbD-RMWAvJID0zmA
+http://carbondata.apache.org/file-structure-of-carbondata.html
