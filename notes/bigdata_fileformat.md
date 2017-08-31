@@ -11,6 +11,8 @@
 
 ## Parquet核心知识
 
+![parquet-file-format](./bigdata_fileformat_images/parquet-file-format.png)
+
 1. 列和行的存储方式
 
 Row group:
