@@ -132,21 +132,66 @@ http://alexbenedetti.blogspot.hk/2015/07/exploring-solr-internals-lucene.html
 
 2. Lucene Index 读写流程
 
-![lucene1](./bigdata_fileformat_images/lucene1)
+![lucene1](./bigdata_fileformat_images/lucene1.png)
 
 3. 文件格式
 
-4. doc values
+Lucene的索引结构是有层次结构的，主要分以下几个层次：
+
+* 索引(Index)：
+
+在Lucene中一个索引是放在一个文件夹中的。
+如上图，同一文件夹中的所有的文件构成一个Lucene索引。
+
+* 段(Segment)：
+
+一个索引可以包含多个段，段与段之间是独立的，添加新文档可以生成新的段，不同的段可以合并。
+如上图，具有相同前缀文件的属同一个段，图中共两个段 "_0" 和 "_1"。
+segments.gen和segments_5是段的元数据文件，也即它们保存了段的属性信息。
+
+* 文档(Document)：
+
+文档是我们建索引的基本单位，不同的文档是保存在不同的段中的，一个段可以包含多篇文档。
+新添加的文档是单独保存在一个新生成的段中，随着段的合并，不同的文档合并到同一个段中。
+
+* 域(Field)：
+
+一篇文档包含不同类型的信息，可以分开索引，比如标题，时间，正文，作者等，都可以保存在不同的域里。
+不同域的索引方式可以不同，在真正解析域的存储的时候，我们会详细解读。
+
+* 词(Term)：
+
+词是索引的最小单位，是经过词法分析和语言处理后的字符串。
+
+4. Lucene Document Delete
+
+.del文件用于标记segment中被删除的文档，且此文件只有当segment中存在被删除的文档时才会出现。
+在.del文件中，用一个bit标记一个文件，计数时既计bit的数量(BitCount)又记所占用的Byte数量(ByteCount).标记被删除文件的方法有两种，
+一种是用一个bit对应一个文件，当某bit置1时表示对应的文件被删除，涉及到的bit全部被存储，这种方法被称为Bits format(Bits 格式)；
+另一种方法是对第一种方法表示的结果采用另一种方式存储，在删除文件数量较少的情况下可以减少存储空间，它只存储非0的Byte(字节)以及该Byte号(是第几个Byte)，
+不存储为0的Byte，这种方法被称为DGaps format(DGaps 格式)，具体机构示意图如下所示。
+
+![lucene1](./bigdata_fileformat_images/lucene2.jpg)
+
+http://www.cnblogs.com/zhouqing/archive/2012/11/25/2776366.html
+
+5. 列式存储与聚合：Doc values/ Facets
 
 ---
 
 ## Q&A:
 
 1. parquet 如何存储嵌套结构？
+
 2. parquet 中每个row group中所有row的顺序是如何决定的？
+
 3. parquet 用到的 Nested record shredding/assembly • Algorithm borrowed from Google Dremel's column IO 是啥？
+
 4. parquet Repetition levels, Definition levels和values是什么？
-5. Parquet, Carbondata 如何实现更新和删除？
+
+5. Parquet, Carbondata, Lucene 如何实现更新和删除？
+
+Carbondata, Lucene 实现Delete的方式与类似，Parquet不直接支持Delete.
 
 ---
 
@@ -177,3 +222,6 @@ https://www.slideshare.net/Kozovaya/solr-for-provectus
 https://stackoverflow.com/questions/2602253/how-does-lucene-index-documents
 http://alexbenedetti.blogspot.hk/2015/07/exploring-solr-internals-lucene.html
 https://www.slideshare.net/gamgoster/architecture-and-implementation-of-apache-lucene-13105167
+https://berlinbuzzwords.de/15/session/algorithms-and-data-structures-power-lucene-and-elasticsearch
+http://www.cnblogs.com/forfuture1978
+http://www.cnblogs.com/forfuture1978/archive/2009/12/14/1623597.html
