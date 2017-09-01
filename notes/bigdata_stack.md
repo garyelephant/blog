@@ -107,6 +107,8 @@ Q1: 画出完整的Parquet文件格式?
 
 Q2: 画出完整的Lucene文件格式?
 
+文件格式相关的笔记见[列式存储文件笔记](./bigdata_fileformat.md)
+
 > 计算：Spark
 
 Q1: RDD是什么？
