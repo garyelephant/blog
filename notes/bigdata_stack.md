@@ -10,7 +10,7 @@
 
 数据结构与算法：排序、树、图基础算法，红黑树，BTree, skipList, HashMap, LinkedHashMap, 大数据算法
 
-编程语言：Java, Python
+编程语言：Java, Scala, Python
 
 纬度划分：计算，存储，网络
 
@@ -36,7 +36,9 @@ VLAN: http://network.51cto.com/art/201409/450885_all.htm
 
 JVM进程、线程模型
 
-jdk常用数据结构的实现方式
+线程同步和线程安全（重点ExecutorService）
+
+jdk常用数据结构的实现方式(重点ArrayList, LinkedList, HashMap, ConcurrentHashMap)
 
 GC原理及调优
 
@@ -47,6 +49,7 @@ Java高并发程序的实现方法
 Java8 Stream 并行计算实现的原理
 http://lvheyang.com/?p=87
 
+
 ### Python
 
 Python并发模型，GIL
@@ -54,6 +57,10 @@ Python并发模型，GIL
 GC原理及调优
 
 常用数据结构的实现方式
+
+### Scala
+
+Q1: class vs object vs trait ?
 
 ## 数据结构与算法
 
@@ -120,17 +127,21 @@ Q2: 任务的调度？如何做容错（失败的任务和执行慢的任务）�
 
 A2: 计算与数据就近原则。在作业中如果某个任务执行缓慢，系统会在其他节点上执行该任务的副本，与MapReduce推测执行做法类似，取最先得到的结果作为最终的结果。
 
+Job中的Stage是通过DAGScheduler划分的，一次shuffle（宽依赖）划分2个stage，
+
 Q3: 什么是DAG ? 
 
 Q4: Job/Stage/Task的并行执行关系？
 
 一个Action生成一个Job，一次shuffle划分2个stage，task根据RDD Partition 一一对应生成。
 
+同一个Job中的不同Stage不能并行，同一个Stage中的不同Task可以并行。Task是执行的最小单元。
+
 Q5: Spark vs MapReduce
 
 A5: 内存迭代计算，任务依赖关系用DAG表示，支持map，reduce以外更丰富的算子。
 
-Q6: Spark 如何做内存管理？
+Q6: Spark 如何做存储（内存/磁盘）管理？
 
 Q7: Spark SQL 长短作业的公平调度？
 
@@ -141,6 +152,21 @@ Q9: Spark Join 优化?
 A9: https://www.slideshare.net/databricks/optimizing-apache-spark-sql-joins
 
 Q10: 如何存储和调度非常大（内存不够）的RDD？
+
+Q11: Spark 消息通信原理？
+
+A11: (1) Spark 运行时消息通信：用户提交应用程序时，应用程序的SparkContext会向Master发送应用注册消息，并由Master给该应用分配Executor,
+Executor启动后，Executor会向SparkContext发送注册成功消息；当SparkContext的RDD触发action操作后，将创建RDD的DAG，通过DAGScheduler划分Stage,
+并将Stage转化为TaskSet;接着由TaskScheduler向注册的Executor发送执行消息，Executor接收到任务消息后启动并运行；最后当所有任务运行完，
+由Driver处理结果并回收资源。
+
+Q12: Spark代码中，哪部分是在Driver端执行的？哪部分是在Executor端执行的？
+
+Q13: RDD vs DataFrame vs DataSet ?
+
+A13: 底层计算优化(catalyst)：结构化的数据计算，DataFrame/DataSet比RDD高很多。类型安全
+
+Q14: Spark SQL 原理（执行流程，逻辑计划，物理计划，优化器）？
 
 > 计算：Presto
 
@@ -162,8 +188,18 @@ Q1: Hdfs各节点的角色及功能？
 
 Q2: Hdfs File的文件组成？
 
-Q3: Hdfs 上传下载文件的交互流程？
+Q3: Hdfs 文件读写的交互流程？
 
-Q4: Yarn如何做HA?
+Q4: HDFS 如何做HA?
+
+https://www.ibm.com/developerworks/cn/opensource/os-cn-hadoop-name-node/
+
+Q5: Hdfs文件block的放置策略？
+
+A5: 相同rack 2个，其他rack 1个
+
+Q6: Rack 感知？
+
+A6: 在core-site.xml中配置`net.topology.script.file.name`，指定rack感知脚本.
 
 > 分布式一致性：Zookeeper，分布式锁和主从选举
