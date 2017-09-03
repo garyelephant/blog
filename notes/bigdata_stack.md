@@ -66,13 +66,17 @@ Q1: class vs object vs trait ?
 
 排序算法
 
-树的数据结构与常用算法（重点红黑树、BTree, skipList）
+SkipList
+
+树的数据结构与常用算法（重点红黑树、BTree）
 
 图的数据结构与常用算法
 
 HashMap, LinkedHashMap
 
 大数据算法
+
+详见[数据结构与算法笔记](./data-structure-algorithms.md)
 
 ## 设计模式
 
@@ -97,6 +101,8 @@ CAP, MapReduce, MPP, Paxos, 2PC, 3PC，MVCC, WAL(Write ahead log)
 Q1: MySQL 不同引擎的区别？
 
 Q2: MySQL, Mongodb 索引的原理？
+
+A2: 详见[MySQL索引背后的数据结构及算法原理](http://blog.codinglabs.org/articles/theory-of-mysql-index.html)
 
 Q3: MySQL, Mongodb 如何实现HA ?
 
