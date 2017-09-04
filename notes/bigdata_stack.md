@@ -106,7 +106,9 @@ A2: 详见[MySQL索引背后的数据结构及算法原理](http://blog.codingla
 
 B+树的实现细节是什么样的？B-树和B+树有什么区别？联合索引在B+树中如何存储？
 
-Q3: MySQL, Mongodb 如何实现HA ?
+Q3: MySQL中，什么样的查询会用到索引？
+
+Q4: MySQL, Mongodb 如何实现HA ?
 
 > 数据传输：Flume, Logstash
 
