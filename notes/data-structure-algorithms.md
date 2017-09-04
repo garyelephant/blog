@@ -214,3 +214,5 @@ MySQL索引背后的数据结构及算法原理: http://blog.codinglabs.org/arti
 B-树介绍：http://blog.jobbole.com/111757/
 
 B+树介绍：https://news.uc.cn/a_1850348189949560112/
+
+跳跃表介绍：[skip list](https://mp.weixin.qq.com/s?__biz=MzI1MTIzMzI2MA==&mid=2650561205&idx=1&sn=3c4feb6339e00e13bdd8cc6a11eb0304&chksm=f1feec36c689652085b1b89acd6ca07316140f1c7478249e4b251c204b6cf3a5bb276b0275be&mpshare=1&scene=1&srcid=0904pLvcmy82FprCyqoITvU5&key=d2b0a23c03ba1cca0bc31a5bef3f27951e06b5b7f2aca039bcee229c1a2192c653a91b43f0d37778de79d054cf58b4e63e268a9c29e5c3e5a1d0ec7d29e85bef03616e84ce6de0f02d61525400e7e688&ascene=0&uin=MjA2MzUyNzU1&devicetype=iMac+MacBookPro12%2C1+OSX+OSX+10.12+build(16A323)&version=12020610&nettype=WIFI&fontScale=100&pass_ticket=4uLYrrD8gEYAFhX2ivqVhTdw3HNghKI9atVLuHREo50%3D)
