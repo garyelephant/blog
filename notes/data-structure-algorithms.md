@@ -156,7 +156,7 @@ B-树是一种多路平衡查找树，它的每个节点最多包含m个孩子�
 
 ```
 
-![sort-overview](./data-structure-algorithms_imagesb+tree1.png)
+![b+tree](./data-structure-algorithms_images/b+tree1.png)
 
 B+树的优势：
 
