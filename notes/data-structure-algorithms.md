@@ -116,18 +116,88 @@ Q5: 跳跃表的生产环境应用？
 
 A5: Redis SortedSet, Lucene
 
+Q6: 跳跃表的Java实现？
 
-## 树的数据结构与常用算法（重点红黑树、BTree, skipList）
 
-树的遍历：前序，中序，后序
+## 树的数据结构与常用算法（重点红黑树、B-Tree）
 
-二叉查找树和查找算法
+### 树的遍历：前序，中序，后序
+
+### 二叉查找树和查找算法
+
+### B-树和B+树
+
+> B-树就是B树，中间的横线不是减号
+
+B-树是一种多路平衡查找树，它的每个节点最多包含m个孩子，m被称为B树的阶。m的大小取决于磁盘页的大小。
+
+一个m阶的B-树具有如下几个特征：
+
+```
+1.根结点至少有两个子女。
+
+2.每个中间节点都包含k-1个元素和k个孩子，其中 m/2 <= k <= m
+
+3.每一个叶子节点都包含k-1个元素，其中 m/2 <= k <= m
+
+4.所有的叶子结点都位于同一层。
+
+5.每个节点中的元素从小到大排列，节点当中k-1个元素正好是k个孩子包含的元素的值域分划。
+```
+
+一个m阶的B+树具有如下几个特征：
+
+```
+1.有k个子树的中间节点包含有k个元素（B树中是k-1个元素），每个元素不保存数据，只用来索引，所有数据都保存在叶子节点。
+
+2.所有的叶子结点中包含了全部元素的信息，及指向含这些元素记录的指针，且叶子结点本身依关键字的大小自小而大顺序链接。
+
+3.所有的中间节点元素都同时存在于子节点，在子节点元素中是最大（或最小）元素。
+
+```
+
+![sort-overview](./data-structure-algorithms_imagesb+tree1.png)
+
+B+树的优势：
+
+```
+
+1.单一节点存储更多的元素，使得查询的IO次数更少。
+
+2.所有查询都要查找到叶子节点，查询性能稳定。
+
+3.所有叶子节点形成有序链表，便于范围查询。
+
+```
+
+
+
+FAQ：
+
+Q1: B+树的实现细节是什么样的？
+
+Q2: B-树和B+树有什么区别？
+
+Q3: MySQL 联合索引在B+树中如何存储？
+
+Q4: 已经有了二叉查找树，为什么还需要B-/B+树？
+
+Q5: B-/B+树？为什么适合做数据库，文件系统的索引结构？
+
+Q6: B-/B+树？如何实现插入，查找，删除？
+
+Q7: B-/B+树的Java 实现？
+
+
+### 红黑树
+
 
 ## 哈希表：HashMap, LinkedHashMap
 
 ## 大数据算法
 
 ## 图的数据结构与常用算法
+
 
 ## References
 
@@ -137,6 +207,10 @@ http://www.runoob.com/w3cnote/sort-algorithm-summary.html
 http://blog.csdn.net/hguisu/article/details/7776091
 http://www.cnblogs.com/maybe2030/p/4715035.html
 
-MySQL索引背后的数据结构及算法原理:
+MySQL索引背后的数据结构及算法原理: http://blog.codinglabs.org/articles/theory-of-mysql-index.html
 
-http://blog.codinglabs.org/articles/theory-of-mysql-index.html
+算法的可视化：https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
+
+B-树介绍：http://blog.jobbole.com/111757/
+
+B+树介绍：https://news.uc.cn/a_1850348189949560112/

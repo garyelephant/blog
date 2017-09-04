@@ -36,7 +36,7 @@ VLAN: http://network.51cto.com/art/201409/450885_all.htm
 
 JVM进程、线程模型
 
-线程同步和线程安全（重点ExecutorService）
+线程同步和线程安全（重点ExecutorService, Future）
 
 jdk常用数据结构的实现方式(重点ArrayList, LinkedList, HashMap, ConcurrentHashMap)
 
@@ -103,6 +103,8 @@ Q1: MySQL 不同引擎的区别？
 Q2: MySQL, Mongodb 索引的原理？
 
 A2: 详见[MySQL索引背后的数据结构及算法原理](http://blog.codinglabs.org/articles/theory-of-mysql-index.html)
+
+B+树的实现细节是什么样的？B-树和B+树有什么区别？联合索引在B+树中如何存储？
 
 Q3: MySQL, Mongodb 如何实现HA ?
 
