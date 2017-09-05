@@ -4,11 +4,13 @@
 
 大数据与分布式系统重要理论：CAP, MapReduce, MPP, Paxos, 2PC, 3PC，MVCC
 
-架构知识：数据仓库，流式计算，多维查询，搜索，日志收集，OLAP，OLTP，分布式锁和主从选举
+架构知识：数据仓库，流式计算，多维查询，搜索，日志收集，OLAP，OLTP，分布式锁和主从选举, Lambda
 
 设计模式：
 
 数据结构与算法：排序、树、图基础算法，红黑树，BTree, skipList, HashMap, LinkedHashMap, 大数据算法
+
+并发模型：actor, reactor, I/O多路复用（I/O Multiplexing）机制(select, epoll)
 
 编程语言：Java, Scala, Python
 
@@ -49,6 +51,8 @@ Java高并发程序的实现方法
 Java8 Stream 并行计算实现的原理
 http://lvheyang.com/?p=87
 
+如何实现无锁的链表(CAS)
+
 
 ### Python
 
@@ -60,7 +64,7 @@ GC原理及调优
 
 ### Scala
 
-Q1: class vs object vs trait ?
+Q1: class vs object vs trait vs case class?
 
 ## 数据结构与算法
 
@@ -190,6 +194,14 @@ Q13: RDD vs DataFrame vs DataSet ?
 A13: 底层计算优化(catalyst)：结构化的数据计算，DataFrame/DataSet比RDD高很多。类型安全
 
 Q14: Spark SQL 原理（执行流程，逻辑计划，物理计划，优化器）？
+
+Catalyst优化：优化处理查询语句的整个过程，包括解析、绑定、优化、物理计划等，主要由关系代数（relation algebra）、表达式（expression）以及查询优化（query optimization）组成。
+
+Q15: Spark如何支持exactly-once的数据处理？
+
+输入时记录offset, 输出时，确保是幂等或者支持事务。
+
+幂等：输出多次，结果相同，比如生成文件覆盖上次生成的文件。
 
 > 计算：Presto
 
