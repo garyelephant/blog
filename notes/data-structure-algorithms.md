@@ -238,7 +238,8 @@ Q7: B-/B+树的Java 实现？
 
 Q8: 为什么B-/B+树比二分查找树，红黑树更适合做数据库/文件系统索引？为什么B+树比B-树更适合？
 
-A8: 用B树的原因：虽然时间复杂度都是O(logN)，但是索引往往过大，不可能全部加载到内存，考虑到磁盘IO性能，需要尽量减少查找树的层数并利用磁盘读取局部性原理，减少IO。
+A8: 用B树的原因：虽然时间复杂度都是O(logN)，但是索引往往过大，不可能全部加载到内存，往往是查找索引的过程中，将索引逐步加载到内存中。
+考虑到磁盘IO性能，需要尽量减少查找树的层数并利用磁盘读取局部性,预加载原理（一个b-tree节点内的所有元素存储在同一个Page中，操作系统按page加载数据），减少IO。
 用B+树的原因：
 
 (1) B+-tree的磁盘读写代价更低 B+-tree的内部结点并没有指向关键字具体信息的指针。因此其内部结点相对B 树更小。
@@ -246,6 +247,18 @@ A8: 用B树的原因：虽然时间复杂度都是O(logN)，但是索引往往�
 一次性读入内存中的需要查找的关键字也就越多。相对来说IO读写次数也就降低了。
 
 (2)叶子连成了链表, 便于范围查找.
+
+Q9: Skip List vs B-/B+ Tree ?
+
+A9: 
+
+```
+(1) Skip List 虽然无法利用局部性原理，但是如果全在内存中，像寻找下一个节点的随机访问还是很快的。
+
+(2) Skip List 比B-/B+树占用更多空间？TODO
+
+(3) Skip List 没有像B-/B+树那样复杂的多节点分裂、合并过程，消耗CPU更少，并发时也不需要大范围加锁（并且现在已经实现了lockfree的skip list）。
+```
 
 
 ### 红黑树
@@ -278,3 +291,5 @@ B+树介绍：https://news.uc.cn/a_1850348189949560112/
 跳跃表介绍：[skip list](https://mp.weixin.qq.com/s?__biz=MzI1MTIzMzI2MA==&mid=2650561205&idx=1&sn=3c4feb6339e00e13bdd8cc6a11eb0304&chksm=f1feec36c689652085b1b89acd6ca07316140f1c7478249e4b251c204b6cf3a5bb276b0275be&mpshare=1&scene=1&srcid=0904pLvcmy82FprCyqoITvU5&key=d2b0a23c03ba1cca0bc31a5bef3f27951e06b5b7f2aca039bcee229c1a2192c653a91b43f0d37778de79d054cf58b4e63e268a9c29e5c3e5a1d0ec7d29e85bef03616e84ce6de0f02d61525400e7e688&ascene=0&uin=MjA2MzUyNzU1&devicetype=iMac+MacBookPro12%2C1+OSX+OSX+10.12+build(16A323)&version=12020610&nettype=WIFI&fontScale=100&pass_ticket=4uLYrrD8gEYAFhX2ivqVhTdw3HNghKI9atVLuHREo50%3D)
 
 Java实现的各种算法： https://github.com/garyelephant/java-algorithms-implementation
+
+The Story Behind MemSQL’s Skiplist Indexes： http://blog.memsql.com/the-story-behind-memsqls-skiplist-indexes/

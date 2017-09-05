@@ -119,7 +119,9 @@ InnoDB的辅助索引data域存储相应记录主键的值而不是地址。换�
 
 Q3: MySQL中，什么样的查询会用到索引？
 
-Q4: MySQL, Mongodb 如何实现HA ?
+Q4: 为什么Mysql用的是B+tree, Mongodb用的是B-tree, Lucene用的是SkipList ?
+
+Q5: MySQL, Mongodb 如何实现HA ?
 
 > 数据传输：Flume, Logstash
 
