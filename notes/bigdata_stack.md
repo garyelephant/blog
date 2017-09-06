@@ -283,7 +283,30 @@ A6: spark JVM 内存模型：
     
     * memory needed for running executor itself and not strictly related to Spark
 
-Q7: Spark SQL 长短作业的公平调度？
+Q7: Spark 调度策略？
+
+Spark 的调度分为应用间调度：不同的Spark App之间的调度，调度的对象是spark app, 例如在Yarn上有FIFO, Fair两种；应用内调度的对象是Spark Job, 也分为FIFO, Fair两种。
+
+对于应用内的Fair模式的调度，支持按照自定义的多个`pool`来区分调度，pool有3个重要的参数`schedulingMode`, `weight`, `minShare`, 
+具体含义见[Spark Job Scheduling](http://spark.apache.org/docs/latest/job-scheduling.html#scheduling-within-an-application)
+
+Spark应用内（同一个sparkContext），可以配置一个应用内的多个`TaskSetManager`间调度为FIFO还是FAIR。以Spark的Thrift Server为例，
+考虑一个问题，用户a的作业很大，需要处理上T的数据，且SQL也非常复杂，而用户b的作业很简单，可能只是Select查看前面几条数据而已。
+由于用户a、b都在同一个SparkContext里，所以其调度完全由Spark决定；如果按先入先出的原则，可能用户b要等好一会，
+才能从用户a的牙缝里扣出一点计算资源完成自己的这个作业，这样对用户b就不是那么友好了。
+
+比较好的做法是配置Spark应用内各个TaskSetManager的调度算法为`Fair`，不需要等待用户a的资源，用户b的作业可以尽快得到执行。
+这里需要注意，FIFO并不是说用户b只能等待用户a所有Task执行完毕才能执行，而只是执行的很迟，并且不可预料。
+从实测情况来看，配置为FIFO，用户b完成时间不一定，一般是4-6s左右；而配置为FAIR，用户b完成时间几乎是不变的，几百毫秒。
+
+应用内调度的配置项在
+```
+{spark_base_dir}/conf/spark_default.conf：spark.scheduler.mode FAIR。
+```
+
+参考：http://spark.apache.org/docs/latest/job-scheduling.html#scheduling-within-an-application
+
+参考：https://ieevee.com/tech/2016/07/11/spark-scheduler.html#
 
 Q8: Shuffle 原理和优化？
 
@@ -403,9 +426,22 @@ Q1: Yarn各节点的角色及功能？
 
 Q2: Yarn如何做资源隔离？
 
-Q3: Yarn如何做资源调度，有哪些调度算法？
+Q3: Vcore vs cores ?
 
-Q4: Yarn如何做HA?
+Q4: Yarn如何做资源调度，有哪些调度算法, 如何配置？Yarn队列的作用？
+
+可以分两层，第一小层是YARN的队列，第二小层是队列内的调度。Spark作业提交到不同的队列，通过设置不同队列的minishare、weight等，来实现不同作业调度的优先级，
+这一点Spark应用跟其他跑在YARN上的应用并无二致，统一由YARN公平调度。比较好的做法是每个用户单独一个队列，这种配置FAIR调度就是针对用户的了，
+可以防止恶意用户提交大量作业导致拖垮所有人的问题。这个配置在hadoop的yarn-site.xml里。
+
+```
+<property>
+    <name>yarn.resourcemanager.scheduler.class</name>
+    <value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.fair.FairScheduler</value>
+</property>
+```
+
+Q5: Yarn如何做HA?
 
 > 存储：HDFS(namenode HA, fsimage)
 
