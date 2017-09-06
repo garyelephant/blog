@@ -160,9 +160,51 @@ Q1: RDD是什么？
 A1: RDD是分布式的数据集。RDD划分成多个Partition分布到集群中，分区的多少涉及对这个RDD进行并行计算的粒度。RDD依赖关系，分两种：窄依赖(Narrow Dependencies)和宽依赖(Wide Dependencies)。
 窄依赖是指每个父RDD都之多被一个RDD的分区使用，而宽依赖是多个子RDD的分区依赖一个父RDD的分区。例如map，filter操作是窄依赖，而join，groupbykey是宽依赖。
 
-Q2: 任务的调度？什么是DAG ?
+`TODO:` RDD的每个Partition 有副本？
+
+Q2: 任务的调度？什么是DAG ? Spark DAG 的详细结构？
+
+```
+核心：DAGScheduler, TaskScheduler
+```
+
+![spark DAGScheduler](./bigdata_stack_images/spark-dagscheduler.png)
  
 Q3: 如何做容错（失败的任务和执行慢的任务）？
+
+两种容错方式：Checkpoint , Lineage
+
+![spark rdd dependencies](./bigdata_stack_images/spark-rdd-dependencies.jpg)
+
+```
+RDD 的容错机制：
+
+RDD的基本容错语义。
+* 一个RDD是不可变的、确定可重复计算的、分布式数据集。每个RDD记住一个确定性操作的谱系(lineage)，这个谱系用在容错的输入数据集上来创建该RDD。
+* 如果任何一个RDD的分区因为节点故障而丢失，这个分区可以通过操作谱系从源容错的数据集中重新计算得到。
+* 假定所有的RDD transformations是确定的，那么最终转换的数据是一样的，不论Spark机器中发生何种错误。
+
+RDDs track the graph of transformations that built them (their lineage) to rebuild lost data
+	
+通过判断DAG中lineage的长度和是否存在宽依赖，来确定RDD的分区丢失后重算的代价。
+http://blog.csdn.net/jasonding1354/article/details/46882585
+```
+
+```
+TODO: 根据lineage计算，那么最原始的数据源会一直保存在Spark内存中？（问题是计算RDD的数据源怎么来的？）
+
+Spark does not replicate data in hdfs.
+
+Spark arranges the operations in DAG graph.Spark builds RDD lineage. If a RDD is lost they can be rebuilt with the help of lineage graph. 
+So there is no need of data replication as the RDDS can be recalculated from the lineage graph.
+
+However if we persist RDDS with replicated storage levels(such as MEMORY_ONLY_2, MEMORY_AND_DISK_2) then the data may be replicated across nodes.
+
+另外见我在stackoverflow comment中的疑问？
+https://stackoverflow.com/questions/31624622/is-there-a-way-to-change-the-replication-factor-of-rdds-in-spark
+```
+
+![rdd fault tolerate](./bigdata_stack_images/rdd-fault-tolerate.png)
     
     
 ```
@@ -238,7 +280,7 @@ A9: https://www.slideshare.net/databricks/optimizing-apache-spark-sql-joins
 Q10: 如何存储和调度非常大（内存不够）的RDD？
 
 ```
-LRU cache ?
+TODO: LRU cache ? 当内存不够时，Spark如何决定RDD的哪个部分，最近最少使用？ 
 ```
 
 Q11: Spark 消息通信原理？
