@@ -350,6 +350,19 @@ Catalyst优化：优化处理查询语句的整个过程，包括解析、绑定
 
 ![spark sql catalyst](./bigdata_stack_images/spark-sql-catalyst.png)
 
+具体的原理，见databricks官方博客的详细描述 [Deep Dive into Spark SQL’s Catalyst Optimizer](https://databricks.com/blog/2015/04/13/deep-dive-into-spark-sqls-catalyst-optimizer.html)
+
+```
+Analysis: 解析表的基本信息(字段名、类型），解析UDF。
+
+Logical Plan: 应用各个Rules,如constant folding, predicate pushdown, projection pruning, null propagation, Boolean expression simplification
+
+Physical Plan: 生成多个物理可执行计划，选择其中成本最低的一个；还有join 的优化，见 https://www.slideshare.net/databricks/optimizing-apache-spark-sql-joins
+
+Code Generation: 生成经过scala编译器优化的 Java bytecode
+
+```
+
 参考：[Spark SQL Internals](https://www.slideshare.net/databricks/a-deep-dive-into-spark-sqls-catalyst-optimizer-with-yin-huai)
 
 参考：[Deep Dive into Spark SQL’s Catalyst Optimizer](https://databricks.com/blog/2015/04/13/deep-dive-into-spark-sqls-catalyst-optimizer.html)
