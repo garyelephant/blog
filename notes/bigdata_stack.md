@@ -344,7 +344,15 @@ A13: 底层计算优化(catalyst)：结构化的数据计算，DataFrame/DataSet
 
 Q14: Spark SQL 原理（执行流程，逻辑计划，物理计划，优化器）？
 
+![spark sql internals](./bigdata_stack_images/spark-sql-internals.png)
+
 Catalyst优化：优化处理查询语句的整个过程，包括解析、绑定、优化、物理计划等，主要由关系代数（relation algebra）、表达式（expression）以及查询优化（query optimization）组成。
+
+![spark sql catalyst](./bigdata_stack_images/spark-sql-catalyst.png)
+
+参考：[Spark SQL Internals](https://www.slideshare.net/databricks/a-deep-dive-into-spark-sqls-catalyst-optimizer-with-yin-huai)
+
+参考：[Deep Dive into Spark SQL’s Catalyst Optimizer](https://databricks.com/blog/2015/04/13/deep-dive-into-spark-sqls-catalyst-optimizer.html)
 
 Q15: Spark如何支持exactly-once的数据处理？
 
