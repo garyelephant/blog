@@ -42,7 +42,7 @@ JVM进程、线程模型
 
 jdk常用数据结构的实现方式(重点ArrayList, LinkedList, HashMap, ConcurrentHashMap)
 
-GC原理及调优
+GC原理及调优(包括常用参数)
 
 Java高并发程序的实现方法
 
@@ -166,9 +166,14 @@ Q2: 任务的调度？什么是DAG ? Spark DAG 的详细结构？
 
 ```
 核心：DAGScheduler, TaskScheduler
+
+DAGScheduler 负责划分Stage, 把不需要shuffle的transformations 合并到同一个Stage执行。
+
+https://stackoverflow.com/a/30685279/1145750
 ```
 
 ![spark DAGScheduler](./bigdata_stack_images/spark-dagscheduler.png)
+
  
 Q3: 如何做容错（失败的任务和执行慢的任务）？
 
@@ -204,7 +209,7 @@ However if we persist RDDS with replicated storage levels(such as MEMORY_ONLY_2,
 https://stackoverflow.com/questions/31624622/is-there-a-way-to-change-the-replication-factor-of-rdds-in-spark
 ```
 
-![rdd fault tolerate](./bigdata_stack_images/rdd-fault-tolerate.png)
+![rdd fault tolerant](./bigdata_stack_images/rdd-fault-tolerate.png)
     
     
 ```
@@ -254,13 +259,37 @@ A6: spark JVM 内存模型：
 
 [spark1.6+ 内存明星详细解释](https://0x0fff.com/spark-memory-management/)
 
+* Execution Memory
+    
+    * storage for data needed during tasks execution
+    
+    * shuffle-related data
+    
+* Storage Memory
+    
+    * storage of cached RDDs and broadcast variables
+    
+    * possible to borrow from execution memory (spill otherwise)
+    
+    * safeguard value is 50% of Spark Memory when cached blocks are immune to eviction
+    
+* User Memory
+    
+    * user data structures and internal metadata in Spark
+    
+    * safeguarding against OOM
+
+* Reserved memory
+    
+    * memory needed for running executor itself and not strictly related to Spark
+
 Q7: Spark SQL 长短作业的公平调度？
 
 Q8: Shuffle 原理和优化？
 
 [Spark Shuffle原理](https://0x0fff.com/spark-architecture-shuffle/)
 
-`TODO` shuffle 的过程是先写数据到本地磁盘，再由下一个stage的task读取？
+During the shuffle `ShuffleMapTask` writes blocks to local drive, and then the task in the next stages `fetches these blocks` (compared to reduce in hadoop) over the network.
 
 ```
 # shuffle 的策略：
@@ -271,7 +300,24 @@ hash shuffle:
 after spark 1.2
 
 sort shuffle:
+
+* Incoming records accumulated and sorted in memory according their target partition ids
+
+* Sorted records are written to file or multiple files if spilled and then merged
+
+* Index file stores offsets of the data blocks in the data file
+
+备注：Sort Shuffle 中的sort是指输出的文件内容，按照target rdd的partition id 排序，不是对数据进行排序。
+
 ```
+
+Sort Shuffle 原理图如下：
+
+![sort shuffle](./bigdata_stack_images/spark-sort-shuffle.png)
+
+参考：[Shuffle 原理1](http://datastrophic.io/core-concepts-architecture-and-internals-of-apache-spark/)
+
+参考：[Shuffle 原理2](https://github.com/JerryLead/SparkInternals/blob/master/markdown/4-shuffleDetails.md)
 
 Q9: Spark Join 优化?
 
@@ -305,6 +351,26 @@ Q15: Spark如何支持exactly-once的数据处理？
 输入时记录offset, 输出时，确保是幂等或者支持事务。
 
 幂等：输出多次，结果相同，比如生成文件覆盖上次生成的文件。
+
+Q16: 影响 Spark App 性能／并发能力的重要因素有哪些，如何调优?
+
+* Excutor Mem/Core size
+
+* task并行程度
+
+* cache常用的RDD
+
+* 尽量避免shuffle
+
+* GC / Kyro
+
+* HDFS 读写性能(如果是HDFS input)
+
+* 尽量用DataFrame 代替RDD (catalyst优化)
+
+Spark References:
+
+https://spark-summit.org/2014/wp-content/uploads/2014/07/A-Deeper-Understanding-of-Spark-Internals-Aaron-Davidson.pdf
 
 > 计算：Presto
 
