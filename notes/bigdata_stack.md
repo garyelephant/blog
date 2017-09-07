@@ -36,23 +36,7 @@ VLAN: http://network.51cto.com/art/201409/450885_all.htm
 
 ### Java
 
-JVM进程、线程模型
-
-线程同步和线程安全（重点ExecutorService, Future）, synchonized, volitoate
-
-jdk常用数据结构的实现方式(重点ArrayList, LinkedList, HashMap, HashTable, LinkedHashMap,ConcurrentHashMap)
-
-GC原理及调优(包括常用参数)
-
-Java高并发程序的实现方法
-
-反射和依赖注入
-
-Java8 Stream 并行计算实现的原理
-http://lvheyang.com/?p=87
-
-如何实现无锁的链表(CAS)
-
+参见[Java 关键技术点]()
 
 ### Python
 
@@ -431,3 +415,9 @@ Yarn与HDFS的笔记整理见[HDFS, Yarn关键技术点](./hdfs-yarn.md)
 Yarn与HDFS的笔记整理见[HDFS, Yarn关键技术点](./hdfs-yarn.md)
 
 > 分布式一致性：Zookeeper，分布式锁和主从选举
+
+Q1: 如何Failover, 如何选主？
+
+Q2: 如何保证数据一致性? 
+
+Q3: 如何基于Zookeeper 开发分布式程序的分布式锁、主从选举、成员管理？
