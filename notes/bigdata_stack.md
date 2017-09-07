@@ -424,45 +424,10 @@ https://spark-summit.org/2014/wp-content/uploads/2014/07/A-Deeper-Understanding-
 
 > 资源管理调度：Yarn(资源隔离方法，调度策略，HA)
 
-Q1: Yarn各节点的角色及功能？
-
-Q2: Yarn如何做资源隔离？
-
-Q3: Vcore vs cores ?
-
-Q4: Yarn如何做资源调度，有哪些调度算法, 如何配置？Yarn队列的作用？
-
-可以分两层，第一小层是YARN的队列，第二小层是队列内的调度。Spark作业提交到不同的队列，通过设置不同队列的minishare、weight等，来实现不同作业调度的优先级，
-这一点Spark应用跟其他跑在YARN上的应用并无二致，统一由YARN公平调度。比较好的做法是每个用户单独一个队列，这种配置FAIR调度就是针对用户的了，
-可以防止恶意用户提交大量作业导致拖垮所有人的问题。这个配置在hadoop的yarn-site.xml里。
-
-```
-<property>
-    <name>yarn.resourcemanager.scheduler.class</name>
-    <value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.fair.FairScheduler</value>
-</property>
-```
-
-Q5: Yarn如何做HA?
+Yarn与HDFS的笔记整理见[HDFS, Yarn关键技术点](./hdfs-yarn.md)
 
 > 存储：HDFS(namenode HA, fsimage)
 
-Q1: Hdfs各节点的角色及功能？
-
-Q2: Hdfs File的文件组成？
-
-Q3: Hdfs 文件读写的交互流程？
-
-Q4: HDFS 如何做HA?
-
-https://www.ibm.com/developerworks/cn/opensource/os-cn-hadoop-name-node/
-
-Q5: Hdfs文件block的放置策略？
-
-A5: 相同rack 2个，其他rack 1个
-
-Q6: Rack 感知？
-
-A6: 在core-site.xml中配置`net.topology.script.file.name`，指定rack感知脚本.
+Yarn与HDFS的笔记整理见[HDFS, Yarn关键技术点](./hdfs-yarn.md)
 
 > 分布式一致性：Zookeeper，分布式锁和主从选举
