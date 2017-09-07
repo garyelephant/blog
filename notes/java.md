@@ -153,6 +153,8 @@ http://www.jianshu.com/p/04c0d796d877
 
 http://www.blogjava.net/xylz/archive/2010/06/30/324915.html
 
+Java开发中的23种设计模式详解 http://www.cnblogs.com/maowang1991/archive/2013/04/15/3023236.html
+
 Java 并发编程总结 http://ginobefunny.com/post/java_concurrent_interview_questions/
 
 [《Java Concurrency In Practice》](./java_slides/Java_Concurrency_In_Practice.pdf)
