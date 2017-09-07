@@ -38,9 +38,9 @@ VLAN: http://network.51cto.com/art/201409/450885_all.htm
 
 JVM进程、线程模型
 
-线程同步和线程安全（重点ExecutorService, Future）
+线程同步和线程安全（重点ExecutorService, Future）, synchonized, volitoate
 
-jdk常用数据结构的实现方式(重点ArrayList, LinkedList, HashMap, ConcurrentHashMap)
+jdk常用数据结构的实现方式(重点ArrayList, LinkedList, HashMap, HashTable, LinkedHashMap,ConcurrentHashMap)
 
 GC原理及调优(包括常用参数)
 
@@ -257,7 +257,9 @@ A6: spark JVM 内存模型：
 
 ![spark jvm](./bigdata_stack_images/spark-heap-usage.png)
 
-[spark1.6+ 内存明星详细解释](https://0x0fff.com/spark-memory-management/)
+[spark1.6+ 内存模型详细解释1-part1](http://www.jianshu.com/p/3981b14df76b), [spark1.6+ 内存模型详细解释1-part2](http://www.jianshu.com/p/58288b862030)
+
+[spark1.6+ 内存模型详细解释 2](https://0x0fff.com/spark-memory-management/)
 
 * Execution Memory
     
