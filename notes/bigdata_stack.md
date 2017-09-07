@@ -36,7 +36,7 @@ VLAN: http://network.51cto.com/art/201409/450885_all.htm
 
 ### Java
 
-参见[Java 关键技术点]()
+参见[Java 关键技术点](./java.md)
 
 ### Python
 
