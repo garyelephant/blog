@@ -16,9 +16,9 @@ java.util.concurrent:
 
 ![java collections](./java_images/java-util-concurrent.jpg)
 
-由`ThreadPoolExecutor`衍生出来多个`ExecutorService`的实现。ThreadPoolExecutor源码分析参考：[ThreadPoolExecutor源码详解](https://my.oschina.net/xionghui/blog/494698)
+`ThreadPoolExecutor`, `ScheduledThreadPoolExecutor`是其中两个重要的线程池实现。ThreadPoolExecutor源码分析参考：[ThreadPoolExecutor源码详解](https://my.oschina.net/xionghui/blog/494698)
 
-3. BoundedThreadPool
+在生产环境下我们实现的`BoundedThreadPool`，特点是：
 
 4. 线程同步和线程安全
 
@@ -124,21 +124,19 @@ LinkedHashMap通过继承hashMap中的Entry,并添加两个属性Entry before,af
 volatile是一个特殊的修饰符，只有成员变量才能使用它。在Java并发程序缺少同步类的情况下，多线程对成员变量的操作对其它线程是透明的。
 `volatile变量可以保证下一个读取操作会在前一个写操作之后发生`。
 
-Q&A: CopyOnWriteArrayList, ConcurrentHashMap 不是强一致的？
+```
+TODO:
+CopyOnWriteArrayList, ConcurrentHashMap 不是强一致的？ 
 
-synchronized, volatile, 
-
-CAS: (CPU) AtomicBoolean, AtomicInteger..
-
-mvcc,
+什么是 CAS, mvcc,
 
 如何实现无锁的链表。
 
-Lock: wait, notify
-
 JVM4种锁的级别。
 
-nio 
+NIO
+ 
+```
 
 ---
 
@@ -150,6 +148,6 @@ http://www.blogjava.net/xylz/archive/2010/06/30/324915.html
 
 Java 并发编程总结 http://ginobefunny.com/post/java_concurrent_interview_questions/
 
-[Java Concurrency In Practice](./java_slides/Java_Concurrency_In_Practice.pdf)
+[《Java Concurrency In Practice》](./java_slides/Java_Concurrency_In_Practice.pdf)
 
 《Java8 函数式编程》
