@@ -41,6 +41,26 @@ java.util.concurrent:
 
 1. 实现线程安全的单例模式
 
+```
+public class Singleton {  
+  
+    /* 私有构造方法，防止被实例化 */  
+    private Singleton() {  
+    }  
+  
+    /* 此处使用一个内部类来维护单例 */  
+    private static class SingletonFactory {  
+        private static Singleton instance = new Singleton();  
+    }
+  
+    /* 获取实例 */  
+    public static Singleton getInstance() {  
+        return SingletonFactory.instance;  
+    }  
+}  
+```
+
+参考：[Java之美之设计模式](http://blog.csdn.net/zhangerqing/article/details/8194653), 其中也列举了几个错误的单例实现方式。
 
 
 ### JVM进程、线程模型、类的加载机制
@@ -124,19 +144,6 @@ LinkedHashMap通过继承hashMap中的Entry,并添加两个属性Entry before,af
 volatile是一个特殊的修饰符，只有成员变量才能使用它。在Java并发程序缺少同步类的情况下，多线程对成员变量的操作对其它线程是透明的。
 `volatile变量可以保证下一个读取操作会在前一个写操作之后发生`。
 
-```
-TODO:
-CopyOnWriteArrayList, ConcurrentHashMap 不是强一致的？ 
-
-什么是 CAS, mvcc,
-
-如何实现无锁的链表。
-
-JVM4种锁的级别。
-
-NIO
- 
-```
 
 ---
 
@@ -151,3 +158,32 @@ Java 并发编程总结 http://ginobefunny.com/post/java_concurrent_interview_qu
 [《Java Concurrency In Practice》](./java_slides/Java_Concurrency_In_Practice.pdf)
 
 《Java8 函数式编程》
+
+《深入理解Java虚拟机》
+
+### TODO
+
+CopyOnWriteArrayList, ConcurrentHashMap 不是强一致的？ 
+
+什么是 CAS, mvcc,
+
+如何实现无锁的链表。
+
+JVM4种锁的级别。
+
+NIO
+
+面试小结之IO篇: http://ginobefunny.com/post/java_nio_interview_questions/
+
+面试小结之JVM篇: http://ginobefunny.com/post/jvm_interview_questions/
+
+《深入理解Java虚拟机》读书笔记1：Java技术体系、Java内存区域和内存溢出异常: http://ginobefunny.com/post/deep_in_jvm_notes_part1/
+
+《深入理解Java虚拟机》读书笔记2：垃圾收集器与内存分配策略: http://ginobefunny.com/post/deep_in_jvm_notes_part2/
+
+《深入理解Java虚拟机》读书笔记3：虚拟机性能监控与调优实战: http://ginobefunny.com/post/deep_in_jvm_notes_part3/
+
+《Java 8函数式编程》读书笔记: http://ginobefunny.com/post/java8_lambda_notes/
+
+Guice简明教程: http://ginobefunny.com/post/learning_guice/
+ 
