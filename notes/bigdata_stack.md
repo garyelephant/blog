@@ -117,6 +117,8 @@ Q5: MySQL, Mongodb 如何实现HA ?
 
 > 搜索，多维分析：Elasticsearch
 
+参考笔记：[Elasticsearch关键技术点](./elasticsearch.md)
+
 > 数据仓库：Hive
 
 > 文件格式：Parquet, Carbondata, Lucene, Arrow, mmdb
@@ -416,8 +418,6 @@ Yarn与HDFS的笔记整理见[HDFS, Yarn关键技术点](./hdfs-yarn.md)
 
 > 分布式一致性：Zookeeper，分布式锁和主从选举
 
-Q1: 如何Failover, 如何选主？
+参考笔记：[Zookeeper关键技术点](./zookeeper.md)
 
-Q2: 如何保证数据一致性? 
 
-Q3: 如何基于Zookeeper 开发分布式程序的分布式锁、主从选举、成员管理？

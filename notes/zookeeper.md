@@ -49,6 +49,13 @@ TODO: 选主有两种方式？简单的判断Ephemeral node存活和这里介绍
 
 参考 [zookeeper适用场景：如何竞选Master及代码实现](http://www.cnblogs.com/likehua/p/4060301.html)
 
+
+4. 如何Failover, 如何选主？
+
+5. Zookeeper如何保证数据一致性? 
+
+6. 如何基于Zookeeper 开发分布式程序的分布式锁、主从选举、成员管理？
+
 --
 
 ## References
