@@ -6,6 +6,10 @@
 
 ![sort-overview](./data-structure-algorithms_images/sort-overview.jpg)
 
+各种排序的稳定性，时间复杂度和空间复杂度总结：
+
+![sort O(n)](./data-structure-algorithms_images/sort_o_n.jpg)
+
 ## 查找算法
 
 顺序查找，二分查找，分块查找，散列表，利用树形结构实现查找（二分查找树，红黑树，BTree）
