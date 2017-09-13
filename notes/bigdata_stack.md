@@ -270,6 +270,8 @@ A6: spark JVM 内存模型：
 * Reserved memory
     
     * memory needed for running executor itself and not strictly related to Spark
+    
+ 参考《图解Spark》第五章 Spark存储管理
 
 Q7: Spark 调度策略？
 
@@ -414,9 +416,80 @@ def persist(): this.type = persist(StorageLevel.MEMORY_ONLY)
 def cache(): this.type = persist()
 ```
 
+Q18: Spark Streaming 数据接收(Receiver)原理?
+
+* 在StreamingContext启动过程中，ReceiverTracker(Driver端)会把流数据接收器 Receiver分发到Executor上，在每个Executor上，
+由ReceiverSupervisor启动对应的Receiver。
+
+* Receiver接收到的数据生成Block, push 到Block队列，并通知BlockManager管理。
+
+* 在处理RDD时，Driver端的BlockManager负责Block元数据的维护，Executor负责读写数据。
+
+keyword: Receiver, Block Manager
+
+Q19: 如何解决Spark任务的数据倾斜？
+
+Q20: Map vs FlatMap ?
+
+```
+val textFile = sc.textFile("README.md") // create an RDD of lines of text
+
+// MAP:
+
+textFile.map(_.length)  // map over the lines:
+
+    res2: Array[Int] = Array(14, 0, 71, 0, 0, ...)
+
+          // -> one length per line
+
+// FLATMAP:
+
+textFile.flatMap(_.split(" "))   // split each line into words:
+
+    res3: Array[String] = Array(#, Apache, Spark, ...) 
+
+          // -> multiple words per line, and multiple lines
+          // - but we end up with a single output array of words
+```
+
+Q21: ReduceByKey vs GroupByKey ?
+
+```
+# word count example， 用reduceByKey, groupByKey都能实现。
+
+val words = Array("one", "two", "two", "three", "three", "three")
+val wordPairsRDD = sc.parallelize(words).map(word => (word, 1))
+
+# reduceByKey的用法
+val wordCountsWithReduce = wordPairsRDD
+  .reduceByKey(_ + _)
+  .collect()
+
+# groupByKey的用法
+val wordCountsWithGroup = wordPairsRDD
+  .groupByKey()
+  .map(t => (t._1, t._2.sum))
+  .collect()
+```
+
+word count example， 用`reduceByKey`, `groupByKey`都能实现，但是reduceByKey在大数据集上效率更高，
+原因是reduceByKey在shuffle之前会先将同一个executor中相同key的record合并(reduce),因此shuffle写磁盘和网络传输的数据更少。
+
+如下图reduceByKey的实现：
+
+![reduceByKey](./bigdata_stack_images/spark-reducebykey.png)
+
+如下图groupByKey的实现：
+
+![groupByKey](./bigdata_stack_images/spark-groupbykey.png)
+
+参考：[Prefer reduceByKey over groupByKey](https://databricks.gitbooks.io/databricks-spark-knowledge-base/content/best_practices/prefer_reducebykey_over_groupbykey.html)
+
 Spark References:
 
 https://spark-summit.org/2014/wp-content/uploads/2014/07/A-Deeper-Understanding-of-Spark-Internals-Aaron-Davidson.pdf
+
+https://databricks.gitbooks.io/databricks-spark-knowledge-base/
 
 《图解Spark 核心技术与案例实战》
 
