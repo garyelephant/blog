@@ -495,6 +495,8 @@ https://databricks.gitbooks.io/databricks-spark-knowledge-base/
 
 > 计算：Presto
 
+参考笔记 [Presto关键技术点](./presto.md)
+
 > NoSQL: HBase
 
 > 资源管理调度：Yarn(资源隔离方法，调度策略，HA)
