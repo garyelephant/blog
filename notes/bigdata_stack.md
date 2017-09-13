@@ -353,6 +353,8 @@ Q13: RDD vs DataFrame vs DataSet ?
 
 A13: 底层计算优化(catalyst)：结构化的数据计算，DataFrame/DataSet比RDD高很多。类型安全
 
+https://stackoverflow.com/a/39033308/1145750
+
 Q14: Spark SQL 原理（执行流程，逻辑计划，物理计划，优化器）？
 
 ![spark sql internals](./bigdata_stack_images/spark-sql-internals.png)
@@ -399,6 +401,18 @@ Q16: 影响 Spark App 性能／并发能力的重要因素有哪些，如何调�
 * HDFS 读写性能(如果是HDFS input)
 
 * 尽量用DataFrame 代替RDD (catalyst优化)
+
+Q17: RDD.cache(), RDD.persist() 有什么不同？
+
+With `cache()`, you use only the default storage level `MEMORY_ONLY`. With `persist()`, you can specify which storage level you want
+
+```
+/** Persist this RDD with the default storage level (`MEMORY_ONLY`). */
+def persist(): this.type = persist(StorageLevel.MEMORY_ONLY)
+
+/** Persist this RDD with the default storage level (`MEMORY_ONLY`). */
+def cache(): this.type = persist()
+```
 
 Spark References:
 
