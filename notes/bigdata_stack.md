@@ -418,6 +418,8 @@ Spark References:
 
 https://spark-summit.org/2014/wp-content/uploads/2014/07/A-Deeper-Understanding-of-Spark-Internals-Aaron-Davidson.pdf
 
+《图解Spark 核心技术与案例实战》
+
 > 计算：Presto
 
 > NoSQL: HBase
