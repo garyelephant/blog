@@ -72,6 +72,8 @@ HashMap, LinkedHashMap
 
 如何用java，python实现常用设计模式
 
+参考[设计模式学习笔记](./design-patterns.md)
+
 ## 架构知识
 
 数据仓库，流式计算，多维查询，搜索，日志收集，OLAP，OLTP，分布式锁和主从选举
