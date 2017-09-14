@@ -485,6 +485,22 @@ word count example， 用`reduceByKey`, `groupByKey`都能实现，但是reduceB
 
 参考：[Prefer reduceByKey over groupByKey](https://databricks.gitbooks.io/databricks-spark-knowledge-base/content/best_practices/prefer_reducebykey_over_groupbykey.html)
 
+Q22: Spark Tungsten(钨丝计划) ?
+
+https://databricks.com/blog/2015/04/28/project-tungsten-bringing-spark-closer-to-bare-metal.html
+
+https://www.slideshare.net/databricks/2015-0616-spark-summit
+
+https://spark-summit.org/2015/events/deep-dive-into-project-tungsten-bringing-spark-closer-to-bare-metal/
+
+https://spark-summit.org/east-2017/events/spark-sql-another-16x-faster-after-tungsten/
+
+https://community.hortonworks.com/articles/72502/what-is-tungsten-for-apache-spark.html
+
+http://blog.csdn.net/snail_gesture/article/details/50883980
+
+http://blog.csdn.net/sundujing/article/details/51424491
+
 Spark References:
 
 https://spark-summit.org/2014/wp-content/uploads/2014/07/A-Deeper-Understanding-of-Spark-Internals-Aaron-Davidson.pdf
