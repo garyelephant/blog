@@ -144,6 +144,11 @@ LinkedHashMap通过继承hashMap中的Entry,并添加两个属性Entry before,af
 volatile是一个特殊的修饰符，只有成员变量才能使用它。在Java并发程序缺少同步类的情况下，多线程对成员变量的操作对其它线程是透明的。
 `volatile变量可以保证下一个读取操作会在前一个写操作之后发生`。
 
+6. Java 异常机制? checked exceptions vs unchecked exceptions ?
+
+checked exceptions : instances or subclass of Exception
+
+unchecked exception: instances or subclass of RuntimeException
 
 ---
 
