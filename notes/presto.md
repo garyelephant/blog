@@ -4,9 +4,27 @@
 
 ![architecture](./presto_images/architecture.png)
 
+Presto查询引擎是一个Master-Slave的架构，由一个Coordinator节点，一个Discovery Server节点，多个Worker节点组成，Discovery Server通常内嵌于Coordinator节点中。
+Coordinator负责解析SQL语句，生成执行计划，分发执行任务给Worker节点执行。Worker节点负责实际执行查询任务。Worker节点启动后向Discovery Server服务注册，
+Coordinator从Discovery Server获得可以正常工作的Worker节点。如果配置了Hive Connector，需要配置一个Hive MetaStore服务为Presto提供Hive元信息，Worker节点与HDFS交互读取数据。
+
 ## MPP vs MapReduce
 
 ![presto vs mapreduce](./presto_images/presto-vs-mapreduce.png)
+
+## 概念
+ 
+Query -> Stage -> Task ?
+
+Split ? Operator ?
+
+Query Plan -> Plan Fragments ?
+
+## SQL 编译过程
+
+![presto vs mapreduce](./presto_images/query-plan.png)
+
+LocalExecutionPlan是在每个worker节点上执行。
 
 ---
 
