@@ -336,7 +336,11 @@ Sort Shuffle 原理图如下：
 
 Q9: Spark Join 优化?
 
-A9: https://www.slideshare.net/databricks/optimizing-apache-spark-sql-joins
+A9: 
+
+[Spark Join的3种实现](./bigdata_stack_slides/spark-joins.pdf)
+
+https://www.slideshare.net/databricks/optimizing-apache-spark-sql-joins
 
 Q10: 如何存储和调度非常大（内存不够）的RDD？
 
@@ -502,6 +506,23 @@ https://community.hortonworks.com/articles/72502/what-is-tungsten-for-apache-spa
 http://blog.csdn.net/snail_gesture/article/details/50883980
 
 http://blog.csdn.net/sundujing/article/details/51424491
+
+Q23: Spark的Driver与AM(Application Master)的关系? / Spark:Yarn-cluster和Yarn-client区别与联系?
+
+A23: Driver是Spark层面上的东西，AM是Yarn层面上的东西。当spark app以yarn client方式启动时，driver在spark-submit提交服务器上运行，不在yarn上，
+AM在yarn上的某个container中，通过yarn app监控界面的attempt node可以看到AM；当spark app以yarn cluster方式启动时，driver运行在AM(Application Master)中(相同yarn container)。
+
+Q24: 在spark streaming中，Kafka 高级 receiver 与 Kafka direct receiver有什么区别？
+
+yarn cluster: 
+
+![spark deploy mode: cluster](./bigdata_stack_images/spark-deploy-mode-cluster.png)
+
+yarn client:
+
+![spark deploy mode: client](./bigdata_stack_images/spark-deploy-mode-client.png)
+
+图片来源:[Spark:Yarn-cluster和Yarn-client区别与联系](https://www.iteblog.com/archives/1223.html)
 
 Spark References:
 
