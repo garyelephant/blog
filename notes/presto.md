@@ -50,10 +50,18 @@ A split is a part of a table.
 
 2. 为什么Presto快？
 
+3. Presto如何对SQL的逻辑计划进行拆分，以达到以较高的并行度来执行这个计划 ?
+
 
 ---
 
 ## References
+
+Presto实现原理和美团的使用实践 https://tech.meituan.com/presto.html
+
+Presto: Interacting with petabytes of data at Facebook https://www.facebook.com/notes/facebook-engineering/presto-interacting-with-petabytes-of-data-at-facebook/10151786197628920
+
+Presto overview https://www.slideshare.net/zhusx/presto-overview
 
 https://www.slideshare.net/GuorongLIANG/facebook-presto-presentation
 
@@ -64,8 +72,6 @@ http://prestodb.rocks/internals/the-fundamentals-data-distribution/
 ---
 
 ## TODO
-
-https://tech.meituan.com/presto.html
 
 https://www.slideshare.net/AGrishchenko/mpp-vs-hadoop
 
