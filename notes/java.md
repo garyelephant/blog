@@ -63,9 +63,70 @@ public class Singleton {
 参考：[Java之美之设计模式](http://blog.csdn.net/zhangerqing/article/details/8194653), 其中也列举了几个错误的单例实现方式。
 
 
-### JVM进程、线程模型、类的加载机制
+### JVM 类的加载机制
+
+从类被加载到虚拟机内存中开始，到卸御出内存为止，它的整个生命周期分为7个阶段，加载(Loading)、验证(Verification)、准备(Preparation)、
+解析(Resolution)、初始化(Initialization)、使用(Using)、卸御(Unloading)。其中验证、准备、解析三个部分统称为连接。
+7个阶段发生的顺序如下：
+
+!![classloader](./java_images/classloader.png)
+
+JVM提供了3种类加载器：
+
+1、启动类加载器（Bootstrap ClassLoader）：负责加载 JAVA_HOME\lib 目录中的，或通过-Xbootclasspath参数指定路径中的，且被虚拟机认可（按文件名识别，如rt.jar）的类。
+
+2、扩展类加载器（Extension ClassLoader）：负责加载 JAVA_HOME\lib\ext 目录中的，或通过java.ext.dirs系统变量指定路径中的类库。
+
+3、应用程序类加载器（Application ClassLoader）：负责加载用户路径（classpath）上的类库。
+
+![双亲委派加载机制](./java_images/classloader-delegation.png)
+
+双亲委派机制能很好地解决类加载的统一性问题。对一个 Class 对象来说，如果类加载器不同，即便是同一个字节码文件，生成的 Class 对象也是不等的。也就是说，类加载器相当于 Class 对象的一个命名空间。双亲委派机制则保证了基类都由相同的类加载器加载，这样就避免了同一个字节码文件被多次加载生成不同的 Class 对象的问题。但双亲委派机制仅仅是Java 规范所推荐的一种实现方式，它并不是强制性的要求。
+
+近年来，很多热部署的技术都已不遵循这一规则，如 OSGi 技术就采用了一种网状的结构，而非双亲委派机制。
+
+参见[JVM类加载的那些事](http://www.importnew.com/23650.html), [Java 类加载机制详解](http://www.jianshu.com/p/808a36134da5), [JVM 类加载机制深入浅出](http://www.jianshu.com/p/3cab74a189de)
+
+### JVM 进程、线程内存模型
+
+JVM内存模型：
+
+![jvm内存模型](./java_images/java-memory.jpg)
+
+堆内存模型：
+
+堆内存是所有线程共有的，可以分为两个部分：年轻代和老年代。下图中的Perm代表的是永久代，但是注意永久代并不属于堆内存中的一部分，同时jdk1.8之后永久代也将被移除。
+
+![jvm heap 内存模型](./java_images/jvm-heap.jpg)
+
+GC(垃圾回收器)对年轻代中的对象进行回收被称为Minor GC，用通俗一点的话说年轻代就是用来存放年轻的对象，年轻对象是什么意思呢？
+年轻对象可以简单的理解为没有经历过多次垃圾回收的对象，如果一个对象经历过了一定次数的Minor GC，JVM一般就会将这个对象放入到年老代，而JVM对年老代的对象的回收则称为Major GC。
+
+如上图所示，年轻代中还可以细分为三个部分，我们需要重点关注这几点：
+
+1. 大部分对象刚创建的时候，JVM会将其分布到Eden区域。
+
+2. 当Eden区域中的对象达到一定的数目的时候，就会进行Minor GC，经历这次垃圾回收后所有存活的对象都会进入两个Suvivor Place中的一个。
+
+3. 同一时刻两个Suvivor Place，即s0和s1中总有一个总是空的。
+
+4. 年轻代中的对象经历过了多次的垃圾回收就会转移到年老代中。
+
+参考[JVM内存模型解析](https://www.ziwenxie.site/2017/06/01/java-jvm-memory-model/)
 
 ### GC原理及调优(包括常用参数)
+
+G1 vs CMS:
+
+G1使内存空余空间更连续，GC导致的Pause时间更短，比CMS消耗更多的CPU资源，适合大Heap应用使用。
+
+参考：[淺談 Java GC 原理、調教和新發展](https://www.slideshare.net/leonjchen/java-gc-javadeveloperdaytw), 
+[Memory Management in the Java HotSpot™ Virtual Machine](http://www.oracle.com/technetwork/java/javase/memorymanagement-whitepaper-150215.pdf),
+[JVM垃圾回收算法及回收器详解](https://www.ziwenxie.site/2017/07/24/java-jvm-gc),
+[Getting Started with the G1 Garbage Collector](http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/G1GettingStarted/index.html),
+[Java Garbage Collection Basics](http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html),
+[JVM初探：内存分配、GC原理与垃圾收集器](http://www.importnew.com/23035.html),
+[理解Java垃圾回收机制](http://jayfeng.com/2016/03/11/%E7%90%86%E8%A7%A3Java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/)
 
 ### jdk常用数据结构的实现方式和比较(重点ArrayList, LinkedList, HashMap, HashTable, LinkedHashMap,ConcurrentHashMap)
 
