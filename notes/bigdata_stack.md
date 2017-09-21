@@ -414,6 +414,10 @@ Q16: 影响 Spark App 性能／并发能力的重要因素有哪些，如何调�
 
 * 尽量用DataFrame 代替RDD (catalyst优化)
 
+* 实践：避免数据倾斜
+
+* 实践：避免单个executor上的task执行慢，拖慢task所在的stage。
+
 Q17: RDD.cache(), RDD.persist() 有什么不同？
 
 With `cache()`, you use only the default storage level `MEMORY_ONLY`. With `persist()`, you can specify which storage level you want
@@ -527,6 +531,10 @@ yarn client:
 ![spark deploy mode: client](./bigdata_stack_images/spark-deploy-mode-client.png)
 
 图片来源:[Spark:Yarn-cluster和Yarn-client区别与联系](https://www.iteblog.com/archives/1223.html)
+
+Q25: spark推测执行(speculation)?
+
+A25:
 
 Spark References:
 
