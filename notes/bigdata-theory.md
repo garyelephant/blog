@@ -16,6 +16,10 @@ ACID
 
 ## mpp vs mapreduce
 
+http://www.jianshu.com/p/5191daa1a454
+
+http://www.cnblogs.com/yepei/p/6292440.html
+
 ## Paxos / 2PC / 3PC
 
 ## MVCC

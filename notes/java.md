@@ -223,6 +223,8 @@ Java开发中的23种设计模式详解 http://www.cnblogs.com/maowang1991/archi
 
 Java 并发编程总结 http://ginobefunny.com/post/java_concurrent_interview_questions/
 
+2016年Java 面试题总结 http://maosheng.iteye.com/blog/2270687
+
 [《Java Concurrency In Practice》](./java_slides/Java_Concurrency_In_Practice.pdf)
 
 《Java8 函数式编程》
