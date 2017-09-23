@@ -211,6 +211,12 @@ checked exceptions : instances or subclass of Exception
 
 unchecked exception: instances or subclass of RuntimeException
 
+7. abstract class是什么，interface是什么，分别在什么场景下使用？
+
+https://stackoverflow.com/questions/761194/interface-vs-abstract-class-general-oo?rq=1
+
+http://www.geeksforgeeks.org/difference-between-abstract-class-and-interface-in-java/
+
 ---
 
 ### References
