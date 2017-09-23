@@ -237,6 +237,7 @@ http://www.logicbig.com/tutorials/core-java-tutorial/java-se-api/service-loader/
 
 (4) 范型
 
+(5) OSGi Services
 
 ---
 
