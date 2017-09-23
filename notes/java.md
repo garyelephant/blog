@@ -130,7 +130,13 @@ G1使内存空余空间更连续，GC导致的Pause时间更短，比CMS消耗�
 
 ### jdk常用数据结构的实现方式和比较(重点ArrayList, LinkedList, HashMap, HashTable, LinkedHashMap,ConcurrentHashMap)
 
-### 反射和依赖注入
+### 反射
+
+https://www.journaldev.com/1789/java-reflection-example-tutorial
+
+### 依赖注入
+
+https://github.com/google/guice
 
 ### Java8 函数式编程与并行计算
 
@@ -216,6 +222,21 @@ unchecked exception: instances or subclass of RuntimeException
 https://stackoverflow.com/questions/761194/interface-vs-abstract-class-general-oo?rq=1
 
 http://www.geeksforgeeks.org/difference-between-abstract-class-and-interface-in-java/
+
+8. 【高级问题】如何实现模块化、插件化、易扩展，简洁、高效、松耦合的Java应用？
+
+有多种方案，如：
+
+(1) 反射机制：Class.forName()
+
+(2) ServiceLoader：`java.util.ServiceLoader`:
+
+http://www.logicbig.com/tutorials/core-java-tutorial/java-se-api/service-loader/
+
+(3) 注解
+
+(4) 范型
+
 
 ---
 
