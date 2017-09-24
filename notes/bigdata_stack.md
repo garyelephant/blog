@@ -213,6 +213,11 @@ https://stackoverflow.com/questions/31624622/is-there-a-way-to-change-the-replic
 https://www.slideshare.net/differentsachin/apache-spark-introduction-to-spark-streaming-and-deep-dive-57671774
 ```
 
+对于spark streaming中收到的数据，[默认保存2份](https://spark.apache.org/docs/latest/streaming-programming-guide.html#caching--persistence)：
+
+For input streams that receive data over the network (such as, Kafka, Flume, sockets, etc.), the default persistence level is set to replicate the data to two nodes for fault-tolerance.
+
+
 
 Q4: Job/Stage/Task的并行执行关系？
 

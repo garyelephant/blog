@@ -1,6 +1,12 @@
 # Scala 关键技术点
 
 
+## 基础数据结构用法
+
+Seq, List, Vector
+
+Tuple : https://alvinalexander.com/scala/scala-tuple-examples-syntax
+
 ## FAQ
 
 1. Scala vs Java ?
@@ -29,6 +35,10 @@ https://stackoverflow.com/questions/7637752/using-scala-traits-with-implemented-
 http://blog.muhuk.com/2016/06/04/how_to_call_scala_from_java_inheritance_singletons.html#.WcUgYdMjGRs
 
 https://www.artima.com/pins1ed/combining-scala-and-java.html
+
+4. List vs Seq vs Array vs Vector?
+
+https://stackoverflow.com/questions/10866639/difference-between-a-seq-and-a-list-in-scala
 
 ---
 
