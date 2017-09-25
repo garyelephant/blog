@@ -65,3 +65,5 @@ TODO: 选主有两种方式？简单的判断Ephemeral node存活和这里介绍
 2. ZooKeeper 选主流程: http://blog.csdn.net/liuyuehu/article/details/52136945
 
 3. zookeeper的选主流程(源码分析) http://blog.csdn.net/qinghua9/article/details/22858033
+
+4. 《从Paxos到Zookeeper : 分布式一致性原理与实践》
