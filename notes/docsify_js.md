@@ -20,3 +20,17 @@ alias: {
 (4) 希望引用外部的markdown文件
 
 在alias里面配置。
+
+(5) 如何在文档正文中创建指向站内的其他文档的链接
+
+```
+假设文档的结构如下：
+# docs是文档的根目录
+docs/
+docs/zh-cn/README.md
+docs/zh-cn/Guide.md
+
+# 如果要在README.md中创建一个指向Guide.md的链接，写法是：
+[Getting Started Guide](zh-cn/Guide.md)
+
+```
