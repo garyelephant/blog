@@ -1,27 +1,82 @@
-# Waterdrop 让Spark数据处理更简单
+# Waterdrop帮你快速玩转Spark数据处理
 
 > 屠龙宝刀，宝刀屠龙，踏遍天下，谁敢不从，倚天不出，谁与争锋！
 
 ![waterdrop logo](./images/waterdrop-release/logo.png)
 
+
+Databricks 开源的 Apache Spark 对于分布式数据处理来说是一个伟大的进步。我们在使用 Spark 时发现了很多可圈可点之处，我们在此与大家分享一下我们在简化Spark的开发逻辑以及加快生产环境落地方向上做的一些努力
+
+## 一个Spark Streaming读取Kafka的案例
+
+以一个线上案例为例，介绍如何使用Spark Streaming统计Nginx后端日志中每个域名下每个状态码每分钟出现的次数，并将结果数据输出到外部数据源Elasticsearch中。其中原始数据已经通过Rsyslog传输到了Kafka中。
+
+### 数据读取
+
+从Kafka中每隔一段时间读取数据，形成DStream
+```Scala
+val directKafkaStream = KafkaUtils.createDirectStream[
+     [key class], [value class], [key decoder class], [value decoder class] ](
+     streamingContext, [map of Kafka parameters], [set of topics to consume])
+```
+
+具体方法参考[Spark Streaming + Kafka Integration Guide](http://spark.apache.org/docs/latest/streaming-kafka-0-8-integration.html)
+
+### 数据清洗
+
+日志案例
+
+    192.168.0.1 interestinglab.github.io 127.0.0.1 0.001s [22/Feb/2018:22:12:15 +0800] "GET /waterdrop HTTP/1.1" 200 8938 "http://github.com/" - "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36"
+
+通过`Split`方法从非结构化的原始数据`message`中获取域名以及状态码字段，并组成方便聚合的结构化数据格式*Map(key -> value)*
+
+```Scala
+val splitList = message.split(" ")
+val domain = splitList(1)
+val httpCode = splitList(9)
+val item = Map((domain, httpCode) -> 1L)
+```
+
+### 数据聚合
+
+利用Spark提供的`reduceByKey`方法对数据进行聚合计算，统计每分钟每个域名下的每个错误码出现的次数，其中`mapRdd`是在清洗数据阶段组成的RDD
+
+```Scala
+val reduceRdd = mapRdd.reduceByKey((a:Long, b:Long) => (a + b))
+```
+
+### 数据输出
+
+利用Spark提供的`foreachRDD`方法将结果数据`reduceRdd`输出到外部数据源Elasticsearch
+```Scala
+reduceRdd.foreachRDD(rdd => {
+    rdd.saveToEs("es_index" + "/es_type", esCfg)
+})
+```
+
+### 总结
+
+我们的确可以利用Spark提供的API对数据进行任意处理，但是整套逻辑的开发是个不小的工程，需要一定的Spark基础以及使用经验才能开发出稳定高效的Spark代码。除此之外，项目的编译、打包、部署以及测试都比较繁琐，会带来不少得时间消耗。
+
+除了开发方面的问题，Spark使用过程中可能还会遇到以下问题：
+
+## Spark日常使用中会遇到的问题
+
+- 数据丢失与重复
+- 任务堆积与延迟
+- 吞吐量低
+- 应用到生产环境周期长
+- 缺少应用运行状态监控
+
+因此我们开始尝试更加高效简单的Spark方案，并试着解决以上问题
+
+## 更加高效的方式 -- Waterdrop
+
 Waterdrop 是一个`非常易用`，`高性能`，能够应对`海量数据`的`实时`数据处理产品，构建于Apache Spark之上。
 
 Waterdrop 项目地址：https://interestinglab.github.io/waterdrop
 
-
-## 为什么我们需要 Waterdrop
-
-Databricks 开源的 Apache Spark 对于分布式数据处理来说是一个伟大的进步。我们在使用 Spark 时发现了很多可圈可点之处，
-同时我们也发现了我们的机会 —— 通过我们的努力让Spark的使用更简单，更高效，并将业界和我们使用Spark的优质经验固化到Waterdrop这个产品中，
-明显减少学习成本，加快分布式数据处理能力在生产环境落地。
-
-除了大大简化分布式数据处理难度外，Waterdrop尽所能为您解决可能遇到的问题：
-
-* 数据丢失与重复
-* 任务堆积与延迟
-* 吞吐量低
-* 应用到生产环境周期长
-* 缺少应用运行状态监控
+Spark固然是一个优秀的分布式数据处理工具，但是正如上文所表达的，Spark在我们的日常使用中还是存在不小的问题。因此我们也发现了我们的机会 —— 通过我们的努力让Spark的使用更简单，更高效，并将业界和我们使用Spark的优质经验固化到Waterdrop这个产品中，明显减少学习成本，加快分布式数据处理能力在生产环境落地
 
 "Waterdrop" 的中文是“水滴”，来自中国当代科幻小说作家刘慈欣的《三体》系列，它是三体人制造的宇宙探测器，会反射几乎全部的电磁波，
 表面绝对光滑，温度处于绝对零度，全部由被强互作用力紧密锁死的质子与中子构成，无坚不摧。
@@ -166,7 +221,10 @@ Waterdrop 会分为3条路线，详细展开：
 
 Waterdrop 项目地址：https://interestinglab.github.io/waterdrop
 
+Waterdrop 项目由**Interesting Lab**开源
+
 ---
+
 
 Interesting Lab 介绍：
 
