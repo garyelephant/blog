@@ -8,7 +8,7 @@ markdown syntax is tested in [StackEdit](https://stackedit.io/)
 
 Contents
 ---
-* [Waterdrop-让Spark数据处理更简单](./waterdrop-release.md) 2018-02-16
+* [Waterdrop帮你快速玩转Spark数据处理](./waterdrop-release.md) 2018-02-16
 * [(超实用)大数据技术面试关键点整理](./notes/bigdata_stack.md) 2017-08-30
 * [每秒百万级流式日志处理架构的开发运维调优笔记]() 2017-08-01
 * [python coding style guide 的快速落地实践](./python_coding_style_guide_practice.md) 2016-01-02
