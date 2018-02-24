@@ -214,11 +214,11 @@ Step 4 : 启动 Waterdrop
 
 Waterdrop 会分为3条路线，详细展开：
 
-（1）支持Apache Flink / Apache Beam，支持Spark以外的分布式数据计算模型。
+（1）提供更多Input, Filter, Output插件，提高易用性、可靠性、数据一致性。
 
-（2）支持流式机器学习，能够通过简单的Pipeline和配置，完成常用流式机器学习模型的训练。
+（2）支持Apache Flink / Apache Beam，支持Spark以外的分布式数据计算模型。
 
-（3）提高可靠性和数据一致性。
+（3）支持流式机器学习，能够通过简单的Pipeline和配置，完成常用流式机器学习模型的训练。
 
 
 Waterdrop 项目地址：https://interestinglab.github.io/waterdrop
