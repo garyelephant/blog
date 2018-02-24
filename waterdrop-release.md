@@ -5,7 +5,7 @@
 ![waterdrop logo](./images/waterdrop-release/logo.png)
 
 
-Databricks 开源的 Apache Spark 对于分布式数据处理来说是一个伟大的进步。我们在使用 Spark 时发现了很多可圈可点之处，我们在此与大家分享一下我们在简化Spark的开发逻辑以及加快生产环境落地方向上做的一些努力
+Databricks 开源的 Apache Spark 对于分布式数据处理来说是一个伟大的进步。我们在使用 Spark 时发现了很多可圈可点之处，我们在此与大家分享一下我们在简化Spark使用和编程以及加快Spark在生产环境落地上做的一些努力。
 
 ## 一个Spark Streaming读取Kafka的案例
 
@@ -13,7 +13,7 @@ Databricks 开源的 Apache Spark 对于分布式数据处理来说是一个伟�
 
 ### 数据读取
 
-从Kafka中每隔一段时间读取数据，形成DStream
+从Kafka中每隔一段时间读取数据，生成DStream
 ```Scala
 val directKafkaStream = KafkaUtils.createDirectStream[
      [key class], [value class], [key decoder class], [value decoder class] ](
@@ -56,21 +56,23 @@ reduceRdd.foreachRDD(rdd => {
 
 ### 总结
 
-我们的确可以利用Spark提供的API对数据进行任意处理，但是整套逻辑的开发是个不小的工程，需要一定的Spark基础以及使用经验才能开发出稳定高效的Spark代码。除此之外，项目的编译、打包、部署以及测试都比较繁琐，会带来不少得时间消耗。
+我们的确可以利用Spark提供的API对数据进行任意处理，但是整套逻辑的开发是个不小的工程，需要一定的Spark基础以及使用经验才能开发出稳定高效的Spark代码。除此之外，项目的编译、打包、部署以及测试都比较繁琐，会带来不少得时间成本和学习成本。
 
-除了开发方面的问题，Spark使用过程中可能还会遇到以下问题：
-
-## Spark日常使用中会遇到的问题
+除了开发方面的问题，数据处理时可能还会遇到以下不可逃避的麻烦：
 
 - 数据丢失与重复
+
 - 任务堆积与延迟
+
 - 吞吐量低
+
 - 应用到生产环境周期长
+
 - 缺少应用运行状态监控
 
-因此我们开始尝试更加高效简单的Spark方案，并试着解决以上问题
+因此我们开始尝试更加简单高效的Spark方案，并试着解决以上问题
 
-## 更加高效的方式 -- Waterdrop
+## 一种简单高效的方式 -- Waterdrop
 
 Waterdrop 是一个`非常易用`，`高性能`，能够应对`海量数据`的`实时`数据处理产品，构建于Apache Spark之上。
 
@@ -221,11 +223,6 @@ Waterdrop 会分为3条路线，详细展开：
 
 Waterdrop 项目地址：https://interestinglab.github.io/waterdrop
 
-Waterdrop 项目由**Interesting Lab**开源
-
 ---
 
-
-Interesting Lab 介绍：
-
-Interesting Lab （https://github.com/InterestingLab）, 中文译名有趣实验室。成立于2016年，致力于让大数据变得更简单有价值。
+Waterdrop 项目由**Interesting Lab**开源。Interesting Lab （https://github.com/InterestingLab）, 中文译名有趣实验室。成立于2016年，致力于让大数据变得更简单有价值。
