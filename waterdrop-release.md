@@ -226,3 +226,6 @@ Waterdrop 项目地址：https://interestinglab.github.io/waterdrop
 ---
 
 Waterdrop 项目由**Interesting Lab**开源。Interesting Lab （https://github.com/InterestingLab）, 中文译名有趣实验室。成立于2016年，致力于让大数据变得更简单有价值。
+
+
+原文地址：https://github.com/garyelephant/blog/blob/master/waterdrop-release.md
