@@ -112,6 +112,12 @@ then in elasticsearch.yml:
 bootstrap.mlockall: true
 ```
 
+The mlockall property in ES allows the ES node not to swap its memory. In the 5.x releases, this has changed to: 
+
+```
+bootstrap.memory_lock: true
+```
+
 * discovery (elasticsearch.yml)
 
 ```
