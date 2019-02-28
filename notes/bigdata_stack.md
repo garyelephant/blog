@@ -1,20 +1,62 @@
 ## 大数据技术栈
 
-大数据技术栈：Zookeeper, Hdfs, Yarn, Spark, HBase, Hive, Presto, Elasticsearch, Kafka, Redis, Flume, Logstash，mapd,neo4j，mysql，mongodb，文件格式（Parquet, Carbondata, Lucene, Arrow）
+* 基础知识
+  * 数据结构与算法：排序、树、图基础算法，红黑树，BTree, skipList, HashMap, LinkedHashMap, 大数据算法
+  * 编程语言基础及核心知识：Java, Scala, Python
+  * 并发模型：actor, reactor, I/O多路复用（I/O Multiplexing）机制(select, epoll)
+  * 设计模式：
+  
+* 大数据技术栈(计算，存储，网络)：
+ 
+  * Hdfs, 
+  * Yarn, 
+  * Spark(+ Spark MLlib), 
+  * Kafka
+  * Azkaban
+  * Presto
+  * Elasticsearch,
+  * HBase,
+  * Zookeeper, 
+  * Hive, 
+  * Flume, 
+  * 文件格式（Parquet, Carbondata, Lucene, Arrow）
+  
+* 数据库技术
+  * mysql（索引，事务，锁）
+  * mongodb
 
-大数据与分布式系统重要理论：CAP, MapReduce, MPP, Paxos, 2PC, 3PC，MVCC
+* 大数据与分布式系统重要理论：
+  * 分布式系统理论：CAP, MapReduce, DAG, MPP
+  * 数据仓库理论, 数据仓库模型设计(分层建设、主题模型、元数据管理)
+  * OLAP，OLTP, Ad-hoc
+  * 一致性协议：Paxos
+  * 分布式事务: 2PC, 3PC，TCC
+  * MVCC
+  
 
-架构知识：数据仓库，流式计算，多维查询，搜索，日志收集，OLAP，OLTP，分布式锁和主从选举, Lambda
+* 架构知识：
+  * 数据仓库，
+  * 流式计算，
+  * 多维查询，
+  * 搜索，
+  * 日志收集，
+  * 分布式锁和主从选举, 
+  * Lambda架构
+  * 高可用
+  * 数据治理、元数据管理、数据质量监控
+  * 消息队列
+  * 集群管理
 
-设计模式：
+---
 
-数据结构与算法：排序、树、图基础算法，红黑树，BTree, skipList, HashMap, LinkedHashMap, 大数据算法
+参考：
 
-并发模型：actor, reactor, I/O多路复用（I/O Multiplexing）机制(select, epoll)
+1. 《石衫的架构笔记》 
+2. 《剑指offer》
+3. 《编程之美》
+4. 《编程珠玑》
+5. leetcode.com/牛客网
 
-编程语言：Java, Scala, Python
-
-纬度划分：计算，存储，网络
 
 ---
 
