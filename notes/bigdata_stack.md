@@ -3,9 +3,7 @@
 * 基础知识
   * 数据结构与算法：排序、树、图基础算法，红黑树，BTree, skipList, HashMap, LinkedHashMap, 大数据算法
   * 编程语言基础及核心知识：
-    * Java, Scala (反射，泛型
-    
-    , 注解，切面，ServiceLoader, CodeGeneration, Collections, ThreadPool) 
+    * Java, Scala (反射，泛型, 注解，切面，ServiceLoader, CodeGeneration, Collections, ThreadPool) 
     * Python
   * 并发模型：actor, reactor, I/O多路复用（I/O Multiplexing）机制(select, epoll)
   * 设计模式：
@@ -50,6 +48,11 @@
   * 数据治理、元数据管理、数据质量监控
   * 消息队列
   * 集群管理
+  
+* `大数据 + 业务` 的应用案例
+  * 推荐
+  * 用户画像
+  * 审计/风控
 
 ---
 
