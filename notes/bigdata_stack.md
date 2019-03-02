@@ -2,7 +2,11 @@
 
 * 基础知识
   * 数据结构与算法：排序、树、图基础算法，红黑树，BTree, skipList, HashMap, LinkedHashMap, 大数据算法
-  * 编程语言基础及核心知识：Java, Scala, Python
+  * 编程语言基础及核心知识：
+    * Java, Scala (反射，泛型
+    
+    , 注解，切面，ServiceLoader, CodeGeneration, Collections, ThreadPool) 
+    * Python
   * 并发模型：actor, reactor, I/O多路复用（I/O Multiplexing）机制(select, epoll)
   * 设计模式：
   
@@ -22,12 +26,12 @@
   * 文件格式（Parquet, Carbondata, Lucene, Arrow）
   
 * 数据库技术
-  * mysql（索引，事务，锁）
+  * mysql（索引，事务，事务隔离级别，锁, 范式, binlog）
   * mongodb
 
 * 大数据与分布式系统重要理论：
   * 分布式系统理论：CAP, MapReduce, DAG, MPP
-  * 数据仓库理论, 数据仓库模型设计(分层建设、主题模型、元数据管理)
+  * 数据仓库理论, 数据仓库模型设计(分层建设、主题模型、元数据管理), 参见[数据仓库模型](./datawarehouse-theory.md)
   * OLAP，OLTP, Ad-hoc
   * 一致性协议：Paxos
   * 分布式事务: 2PC, 3PC，TCC
