@@ -81,6 +81,8 @@ JVM提供了3种类加载器：
 
 https://www.baeldung.com/java-classloaders
 
+https://stackoverflow.com/questions/11759414/java-how-to-load-different-versions-of-the-same-class
+
 ![双亲委派加载机制](./java_images/classloader-delegation.png)
 
 双亲委派机制能很好地解决类加载的统一性问题。对一个 Class 对象来说，如果类加载器不同，即便是同一个字节码文件，生成的 Class 对象也是不等的。也就是说，类加载器相当于 Class 对象的一个命名空间。双亲委派机制则保证了基类都由相同的类加载器加载，这样就避免了同一个字节码文件被多次加载生成不同的 Class 对象的问题。但双亲委派机制仅仅是Java 规范所推荐的一种实现方式，它并不是强制性的要求。
@@ -143,6 +145,10 @@ https://github.com/google/guice
 ### Java8 函数式编程与并行计算
 
 http://lvheyang.com/?p=87
+
+### 依赖管理
+
+https://dzone.com/articles/solving-dependency-conflicts-in-maven
 
 
 ---
