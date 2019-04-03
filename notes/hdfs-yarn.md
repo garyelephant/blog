@@ -91,8 +91,6 @@ Q5: Yarn如何做资源调度，有哪些调度算法, 如何配置？Yarn队列
 </property>
 ```
 
-Q6: Yarn如何做HA?
-
 ---
 
 ## HDFS FAQ:
@@ -114,3 +112,5 @@ A5: 相同rack 2个，其他rack 1个
 Q6: Rack 感知？
 
 A6: 在core-site.xml中配置`net.topology.script.file.name`，指定rack感知脚本.
+
+Q7: Hdfs Federation
