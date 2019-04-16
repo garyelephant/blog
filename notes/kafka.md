@@ -4,9 +4,11 @@
 
 * 数据分片
 
-* 顺序写入磁盘
+* 端到端的数据压缩，减少了网络IO
 
-* NIO
+producer端发送数据前，使用snappy进行压缩。consumer消费数据后，使用snappy解压。
+
+* 顺序写入磁盘
 
 * zero-copy
 
@@ -30,6 +32,8 @@ https://www.jianshu.com/p/e76e3580e356
 https://www.cnblogs.com/f-ck-need-u/p/7615914.html
 
 * 文件系统缓存
+
+* NIO
 
 ---
 
