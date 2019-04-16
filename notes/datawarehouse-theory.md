@@ -69,7 +69,36 @@ Inmon用的比较少, 他的数仓是符合范式(3NF)的设计, 然后用于分
 
 ```
 
-另，参考：https://zhuanlan.zhihu.com/p/27426819
+然而在实际生产环境中，纬度模型的应用，其实有两种情况，一种是标准的纬度模型，即事实表，纬度表分开独立，另一种是维护一个纬度和事实在一起的大宽表：
+
+第一种情况如下：
+
+![small-table-cn](https://upload-images.jianshu.io/upload_images/3628612-9ba5e75ef761c292.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/741/format/webp)
+
+![small-table-en](https://upload-images.jianshu.io/upload_images/3628612-3f38a82dd67b42f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/681/format/webp)
+
+第二种情况（大宽表）如下：
+
+![big-table](https://upload-images.jianshu.io/upload_images/3628612-ba440fa3173ce0d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/263/format/webp)
+
+先说我们的维度模型：
+
+数据冗余小（因为很多具体的信息都存在相应的维度表中了，比如用户信息就只有一份）
+结构清晰（表结构一目了然）
+便于做OLAP分析（数据分析用起来会很开心）
+增加使用成本，比如查询时要关联多张表
+数据不一致，比如用户发起购买行为的时候的数据，和我们维度表里面存放的数据不一致
+
+再说我们这张大款表的优缺点：
+
+业务直观，在做业务的时候，这种表特别方便，直接能对到业务中。
+使用方便，写sql的时候很方便。
+数据冗余巨大，真的很大，在几亿的用户规模下，他的订单行为会很恐怖
+粒度僵硬，什么都写死了，这张表的可复用性太低。
+
+另，参考：
+https://www.jianshu.com/p/17baa9f96ca7
+https://zhuanlan.zhihu.com/p/27426819
 
 
 * 纬度模型(Kimball)：
