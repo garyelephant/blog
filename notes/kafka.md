@@ -21,6 +21,10 @@ java.nio.FileChannel.transferTo(
 
 https://www.jianshu.com/p/694443d87600
 
+https://www.jianshu.com/p/e76e3580e356
+
+https://www.cnblogs.com/f-ck-need-u/p/7615914.html
+
 * 文件系统缓存
 
 ---
