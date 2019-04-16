@@ -10,6 +10,17 @@
 
 * zero-copy
 
+java nio 调用了linux系统底层的sendfile system call，文件读取到内核态的read buffer后，不再复制到用户态的application buffer，而是直接给socket buffer，然后发送给consumer，减少了2次IO(read buffer -> app buffer, app buffer -> socket buffer)和用户态内核态切换，效率提升200%以上。
+
+``` 
+java.nio.FileChannel.transferTo(
+    long position, 
+    long count,                                
+    WritableByteChannel target)
+```
+
+https://www.jianshu.com/p/694443d87600
+
 * 文件系统缓存
 
 ---
