@@ -6,6 +6,8 @@
 
 * 顺序写入磁盘
 
+* NIO
+
 * zero-copy
 
 * 文件系统缓存
@@ -13,6 +15,8 @@
 ---
 
 ## TODO
+
+https://www.jianshu.com/p/d47de3d6d8ac
 
 https://www.iteblog.com/archives/2227.html?from=related
 
