@@ -92,6 +92,72 @@ Kimball模型数据仓库建模技巧：https://zhuanlan.zhihu.com/p/26908834
 * ODS/DW/DM
 
 
+* 拉链表/全量表/流量表
+
+举一个例子，一个支付系统，里面有账户余额表，交易流水表，订单表。有交易行为时，流程是先生成订单表，用户付款后，生成流水，修改用户账户余额（一般生成流水，修改账户余额要在一个事务中，此处不是重点，就不描述了）。
+
+流水表对应数据仓库中的概念就是流量表
+
+账户余额表对应的就是数据仓库中的全量表，是一个维护全量数据当前状态的表。
+
+那么拉链表是什么，如果你把账户余额的最初的数据，还有每一次账户余额的变化的binlog 都保存到另一张表里面，这个表就是拉链表，我们内部一般叫它镜像表。这个表的特点是，能够查到任意账户在任意时刻的账户余额，相当于是历史可追溯的。这个表与账户余额表的不同之处在于，账户余额表只有每个账户最新的余额状态。
+
+账户余额表的表结构可以如下：
+
+|accountid|currentcoin|updatetime|lastserialno|
+| --- | --- | --- | --- |
+| ac_123 | 30 | 2019-04-13 20:32:00 | mkrijhj2hj3h3g3 |
+
+拉链表的表结构与账户余额表完全相同。（还有一种不同的表结构，就是拉链表里面每条记录保存了变化前，变化后的所有字段）
+
+在财务上需求中，经常需要计算指定时刻的期初金额，期末金额，用拉链表计算就很方便了，一个SQL搞定，大致如下:
+
+```
+# v1
+select sum(coin_1) as coin_result from
+(
+    select sum(coin) as coin_1
+    from account
+    WHERE updatetime < cast(to_timestamp('${start_time}','yyyy-MM-dd') AS BIGINT) * 1000
+    AND accounttype = 'YH'
+    AND currency = '00'
+    AND accounttarget = '0'
+union all
+    select sum(t2.precoin) as coin_1 from
+    (select accountid, min(updatetime) as updatetime, min(preupdatetime) as preupdatetime
+    from account_snapshot
+    where time_day >= cast(to_timestamp('${start_time}','yyyy-MM-dd') AS BIGINT)
+    AND accounttype = 'YH'
+    AND currency = '00'
+    AND accounttarget = '0'
+    group by accountid) as t1
+    join account_snapshot as t2
+    on t1.accountid = t2.accountid and t1.updatetime = t2.updatetime and t1.preupdatetime = t2.preupdatetime
+) as ttx
+
+# v2
+select sum(coin_1) as coin_result from
+(
+    select sum(coin) as coin_1
+    from account
+    WHERE updatetime < cast(to_timestamp('${start_time}','yyyy-MM-dd') AS BIGINT) * 1000
+    AND accounttype = 'YH'
+    AND currency = '00'
+    AND accounttarget = '0'
+union all
+    -- 与 v1 的效果相同，并且免去了join
+    select sum(precoin) from account_snapshot
+    where preupdatetime < cast(to_timestamp('${start_time}','yyyy-MM-dd') AS BIGINT) * 1000
+    AND time_day >= cast(to_timestamp('${start_time}','yyyy-MM-dd') AS BIGINT)
+    AND accounttype = 'YH'
+    AND currency = '00'
+    AND accounttarget = '0'
+) as ttx
+```
+
+https://www.jianshu.com/p/799252156379
+
+
 ---
 
 参考：
