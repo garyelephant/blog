@@ -2,14 +2,31 @@
 
 ## 关键技术点
 
-### 索引数据的详细流程
+### 写入(索引)数据的详细流程
 
+* 路由策略
 
-### 搜索的详细流程
+* translog 机制, 异步sync
+
+### 查询(搜索)的详细流程
+
+* 路由策略
+
+* 普通查询原理
 
 ![searching](./elasticsearch_images/search.jpeg)
 
 参考：http://ginobefunny.com/post/elasticsearch_interview_questions/
+
+* 聚合查询原理
+
+### 集群管理
+
+### Lucene 原理
+
+* doc values / 文件系统缓存
+
+### ES 调优经验
 
 ---
 
