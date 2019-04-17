@@ -24,6 +24,14 @@
 
 ### 集群管理
 
+* 角色划分：master node / data node / coord node
+
+* master 选主 / cluster state
+
+* 跨集群查询
+
+* 多租户
+
 ### Lucene 原理
 
 * 倒排索引，相关性搜索：TF/IDF 原理
