@@ -74,6 +74,12 @@ TODO:
 (6) RM在收到AM的资源请求后，会根据调度策略，来分配container以满足AM的请求
 (7) AM向container所在机器的NM发送ContainerLaunchContext来启动container
 
+* Scheduler 
+
+FIFO/Capacity/Fair Scheduler:
+
+https://blog.csdn.net/zhanyuanlin/article/details/71516286
+
 
 ---
 
