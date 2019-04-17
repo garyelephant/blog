@@ -6,7 +6,7 @@
 
 * 路由策略
 
-* translog 机制, 异步sync
+* refresh / translog 机制, 异步sync
 
 * segment merge
 
@@ -44,6 +44,7 @@
 
 常见的调优策略：
 
+https://mp.weixin.qq.com/s/Fvf9JcOc5oSRlLdHB4tYxA
 
 ---
 
