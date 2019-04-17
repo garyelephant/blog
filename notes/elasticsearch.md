@@ -6,9 +6,15 @@
 
 * 路由策略
 
-* refresh / translog 机制, 异步sync
+```
+shard_id = hash(routing_id) % num_of_shards
+```
+
+* refresh / flush / translog 机制, 异步sync / 生成segment
 
 * segment merge
+
+参考：https://blog.csdn.net/jiaojiao521765146514/article/details/83753215
 
 ### 查询(搜索)的详细流程
 
