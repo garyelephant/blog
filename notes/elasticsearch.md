@@ -16,6 +16,8 @@ shard_id = hash(routing_id) % num_of_shards
 
 参考：https://blog.csdn.net/jiaojiao521765146514/article/details/83753215
 
+* 写并发控制
+
 ### 查询(搜索)的详细流程
 
 * 路由策略
