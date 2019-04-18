@@ -18,6 +18,10 @@ shard_id = hash(routing_id) % num_of_shards
 
 * 写并发控制
 
+* fsync
+
+fsync 使用的是 `java.nio.channels.FileChannel.force()`
+
 ### 查询(搜索)的详细流程
 
 * 路由策略
