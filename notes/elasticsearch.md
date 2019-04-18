@@ -38,6 +38,12 @@ By default, Elasticsearch fsyncs and commits the translog every 5 seconds if ind
 
 fsync 使用的是 `java.nio.channels.FileChannel.force()`, 详见：[FileChannle说明](http://ifeve.com/file-channel/)
 
+> 总结写入流程，如下图：
+
+![es indexing documents](elasticsearch_images/es_indexing_document_1.png)
+
+---
+
 ### 查询(搜索)的详细流程
 
 * 路由策略
@@ -49,6 +55,8 @@ fsync 使用的是 `java.nio.channels.FileChannel.force()`, 详见：[FileChannl
 参考：http://ginobefunny.com/post/elasticsearch_interview_questions/
 
 * 聚合查询原理
+
+---
 
 ### 节点管理
 
@@ -107,6 +115,8 @@ ES是分布式搜索引擎，搜索和聚合计算除了在各个data node并行
 
 来自：https://www.jianshu.com/p/f41b706db6c7
 
+---
+
 ### 集群管理
 
 * 角色划分：master node / data node / coord node
@@ -133,6 +143,8 @@ cluster state 是每个node上面都有吗？那如果发生了变更，如何�
 
 * 多租户
 
+---
+
 ### Lucene 原理
 
 * 倒排索引，相关性搜索：TF/IDF 原理
@@ -140,6 +152,8 @@ cluster state 是每个node上面都有吗？那如果发生了变更，如何�
 * 文件结构
 
 * doc values / 文件系统缓存
+
+---
 
 ### ES 调优经验
 
