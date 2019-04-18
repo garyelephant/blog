@@ -143,6 +143,8 @@ ES是分布式搜索引擎，搜索和聚合计算除了在各个data node并行
 
 * master 选主
 
+* 节点发现 Discovery
+
 * cluster state
 
 cluster state是全局性信息, 包含了整个群集中所有分片的元信息(规则, 位置, 大小等信息), 并保持每个每节的信息同步.
