@@ -171,6 +171,8 @@ doc values 是lucence写入倒排索引的同时构建的，文件后缀dvd 存�
 
 https://www.elastic.co/guide/en/elasticsearch/guide/current/docvalues.html
 
+https://blog.csdn.net/zteny/article/details/84627990
+
 ---
 
 ### ES 调优经验
