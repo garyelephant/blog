@@ -238,3 +238,8 @@ Lucene的索引文件格式(2): http://www.cnblogs.com/forfuture1978/archive/200
 ES内存那点事 https://elasticsearch.cn/article/32
 
 ES常见问题 https://www.jianshu.com/p/4e1154cbf86f
+
+ES 读写原理: https://www.cnblogs.com/licongyu/p/5466992.html
+
+ES 数据副本原理：https://www.jianshu.com/p/98d96964a45e
+
