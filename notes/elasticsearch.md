@@ -20,7 +20,7 @@ shard_id = hash(routing_id) % num_of_shards
 
 * fsync
 
-fsync 使用的是 `java.nio.channels.FileChannel.force()`
+fsync 使用的是 `java.nio.channels.FileChannel.force()`, 详见：[FileChannle说明](http://ifeve.com/file-channel/)
 
 ### 查询(搜索)的详细流程
 
