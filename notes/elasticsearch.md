@@ -12,6 +12,22 @@ shard_id = hash(routing_id) % num_of_shards
 
 * refresh / flush / translog 机制, 异步sync / 生成segment
 
+* Translog 机制
+
+Changes to Lucene are only persisted to disk during a Lucene commit, which is a relatively expensive operation and so cannot be performed after every index or delete operation. Changes that happen after one commit and before another will be removed from the index by Lucene in the event of process exit or hardware failure.
+
+Because Lucene commits are too expensive to perform on every individual change, each shard copy also has a transaction log known as its translog associated with it. All index and delete operations are written to the translog after being processed by the internal Lucene index but before they are acknowledged. In the event of a crash, recent transactions that have been acknowledged but not yet included in the last Lucene commit can instead be recovered from the translog when the shard recovers.
+
+An Elasticsearch flush is the process of performing a Lucene commit and starting a new translog. Flushes are performed automatically in the background in order to make sure the translog doesn’t grow too large, which would make replaying its operations take a considerable amount of time during recovery. The ability to perform a flush manually is also exposed through an API, although this is rarely needed.
+
+**Translog settings**
+
+The data in the translog is only persisted to disk when the translog is fsynced and committed. In the event of hardware failure, any data written since the previous translog commit will be lost.
+
+By default, Elasticsearch fsyncs and commits the translog every 5 seconds if index.translog.durability is set to async or if set to request (default) at the end of every index, delete, update, or bulk request. More precisely, if set to request, Elasticsearch will only report success of an index, delete, update, or bulk request to the client after the translog has been successfully fsynced and committed on the primary and on every allocated replica.
+
+参见：https://github.com/elastic/elasticsearch/blob/v6.7.1/docs/reference/index-modules/translog.asciidoc
+
 * segment merge
 
 参考：https://blog.csdn.net/jiaojiao521765146514/article/details/83753215
