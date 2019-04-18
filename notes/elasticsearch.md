@@ -58,6 +58,18 @@ fsync 使用的是 `java.nio.channels.FileChannel.force()`, 详见：[FileChannl
 
 * 聚合查询原理
 
+es将聚合分析主要分为如下4类：
+
+1. Bucket：分桶类型，类似SQL中的GROUP BY语法
+
+2. Metric：指标分析类型，如计算最大值、最小值、平均值等等
+
+3. Pipeline：管道分析类型，基于上一级的聚合分析结果进行在分析
+
+4. Matrix：矩阵分析类型
+
+https://blog.csdn.net/qq_34646817/article/details/82594726
+
 ---
 
 ### 节点管理
@@ -154,6 +166,10 @@ cluster state 是每个node上面都有吗？那如果发生了变更，如何�
 * 文件结构
 
 * doc values / 文件系统缓存
+
+doc values 是lucence写入倒排索引的同时构建的，文件后缀dvd 存储 doc values数据，dvm 存储doc values元数据。通过mmap的方式，加载到文件系统缓存中，不放在Es node jvm heap 中，适合用于排序，聚合，具体的例子见官方：
+
+https://www.elastic.co/guide/en/elasticsearch/guide/current/docvalues.html
 
 ---
 
