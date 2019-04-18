@@ -42,6 +42,8 @@ fsync 使用的是 `java.nio.channels.FileChannel.force()`, 详见：[FileChannl
 
 ![es indexing documents](elasticsearch_images/es_indexing_document_1.png)
 
+图片来自：https://www.processon.com/view/link/5cb7f942e4b08b66b9b020a2
+
 ---
 
 ### 查询(搜索)的详细流程
