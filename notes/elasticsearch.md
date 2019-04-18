@@ -50,6 +50,12 @@ fsync 使用的是 `java.nio.channels.FileChannel.force()`, 详见：[FileChannl
 
 * 路由策略
 
+假如现在我们有一份索引5个shard和3个副本，当一个查询请求过来的时候，查询操作如何执行，在没有使用路由的情况下5个shard的数据肯定都要查询，然后查询5个shard时候到底查的是主shard还是replia都是随机的。
+
+通过偏好查询，我们可以有更多的选择定制，比如我们可以设置只查询主shard，或者只查replia，或者仅仅查某几个节点的数据。
+
+参见：https://blog.csdn.net/u010454030/article/details/73609231
+
 * 普通查询原理
 
 ![searching](./elasticsearch_images/search.jpeg)
