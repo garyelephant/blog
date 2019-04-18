@@ -143,9 +143,13 @@ cluster state 是每个node上面都有吗？那如果发生了变更，如何�
 
 ### ES 调优经验
 
-常见的调优策略：
+* 常见的调优策略：
 
 https://mp.weixin.qq.com/s/Fvf9JcOc5oSRlLdHB4tYxA
+
+* 如何提高数据写入速度
+
+https://www.jianshu.com/p/5eeeeb4375d4
 
 ---
 
