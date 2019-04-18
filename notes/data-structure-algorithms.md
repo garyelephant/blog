@@ -39,6 +39,8 @@
 
 归并排序（MERGE-SORT）是利用归并的思想实现的排序方法，该算法采用经典的分治（divide-and-conquer）策略（分治法将问题分(divide)成一些小的问题然后递归求解，而治(conquer)的阶段则将分的阶段得到的各答案"修补"在一起，即分而治之)。
 
+![sort merge](data-structure-algorithms_images/sort-merge.png)
+
 代码参见：https://www.cnblogs.com/chengxiao/p/6194356.html
 
 
