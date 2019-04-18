@@ -151,6 +151,12 @@ https://mp.weixin.qq.com/s/Fvf9JcOc5oSRlLdHB4tYxA
 
 https://www.jianshu.com/p/5eeeeb4375d4
 
+https://qbox.io/blog/maximize-guide-elasticsearch-indexing-performance-part-1
+
+https://qbox.io/blog/maximize-guide-elasticsearch-indexing-performance-part-2
+
+https://qbox.io/blog/maximize-guide-elasticsearch-indexing-performance-part-3
+
 ---
 
 ## FAQ
