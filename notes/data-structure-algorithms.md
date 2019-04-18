@@ -16,7 +16,11 @@
 
 4. 快速排序
 
-https://www.jianshu.com/p/5f38dd54b11f
+快速排序流程如下：
+![quick-sort](data-structure-algorithms_images/quicksort.jpg)
+
+具体代码可参考：https://www.jianshu.com/p/5f38dd54b11f
+
 
 8大排序算法的实现，复杂度，稳定性。
 
