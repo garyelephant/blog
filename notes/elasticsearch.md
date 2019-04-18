@@ -143,6 +143,14 @@ ES是分布式搜索引擎，搜索和聚合计算除了在各个data node并行
 
 * master 选主
 
+https://blog.csdn.net/ailiandeziwei/article/details/87856210
+
+https://www.easyice.cn/archives/164
+
+https://blog.csdn.net/haixwang/article/details/80383942
+
+https://www.cnblogs.com/woniu4/p/9348664.html
+
 * 节点发现 Discovery
 
 * cluster state
