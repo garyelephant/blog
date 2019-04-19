@@ -208,6 +208,7 @@ B-树是一种多路平衡查找树，它的每个节点最多包含m个孩子�
 
 B-树的插入操作：[详细流程](https://github.com/garyelephant/The-Art-Of-Programming-By-July/blob/master/ebook/zh/03.02.md#41-插入insert操作)
 
+
 插入操作的要点整理：
 
 ```
@@ -276,6 +277,9 @@ B+树的删除操作：
 
 [图解B+树的插入和删除(一看就懂）](https://yq.aliyun.com/articles/9280)
 
+图解B-树的插入，删除操作：
+https://blog.csdn.net/Holmofy/article/details/79830773
+https://www.jianshu.com/p/cf7dba86c391
 
 建议参考：
 1. 从MySQL, MongoDB对B-Tree, B+Tree的实际应用中，研究B-Tree的原理
