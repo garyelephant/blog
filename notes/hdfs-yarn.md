@@ -122,7 +122,13 @@ Q3: Hdfs 文件读写的交互流程？
 
 Q4: HDFS 如何做HA?
 
+https://www.jianshu.com/p/3a6616630ad8
+
 https://www.ibm.com/developerworks/cn/opensource/os-cn-hadoop-name-node/
+
+https://www.cnblogs.com/dadadechengzi/p/6715906.html
+
+https://www.cnblogs.com/juncaoit/p/6003172.html
 
 Q5: Hdfs文件block的放置策略？
 
@@ -133,3 +139,5 @@ Q6: Rack 感知？
 A6: 在core-site.xml中配置`net.topology.script.file.name`，指定rack感知脚本.
 
 Q7: Hdfs Federation
+
+https://blog.csdn.net/yinglish_/article/details/76785210
