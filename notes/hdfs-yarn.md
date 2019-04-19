@@ -1,4 +1,4 @@
-## HDFS, Yarn关键技术点整理
+## Hadoop(HDFS, Yarn)关键技术点整理
 
 > 本文内容由 https://github.com/666666666666 整理
 
@@ -11,7 +11,7 @@ TODO:
 * The YARN Timeline Server
 
 
-### Hadoop
+### 1. HDFS
 
 * HDFS架构简介：https://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html
  
@@ -61,8 +61,10 @@ TODO:
 (5)Client请求一台datanode上传数据，构建pipeline，第一个datanode收到请求会继续调用第二个datanode，然后第二个调用第三个datanode，将整个pipeline建立完成，逐级返回客户端
 (6)Client以packet为单位传输文件
 (7)当一个block传输完成之后，client再次请求namenode上传第二个block的服务器 重复(4)-(6)
+
+#### 1.5 HDFS HA
  
-### Yarn
+### 2. Yarn
 
 * 提交任务的流程
 
@@ -79,6 +81,8 @@ TODO:
 FIFO/Capacity/Fair Scheduler:
 
 https://blog.csdn.net/zhanyuanlin/article/details/71516286
+
+#### 2.3 HDFS HA
 
 
 ---
