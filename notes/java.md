@@ -95,7 +95,8 @@ https://stackoverflow.com/questions/11759414/java-how-to-load-different-versions
 
 JVM内存模型：
 
-![jvm内存模型](./java_images/java-memory.jpg)
+![jvm内存模型](./java_images/jvm-memory.jpg)
+
 
 堆内存模型：
 
