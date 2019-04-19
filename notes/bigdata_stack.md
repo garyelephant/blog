@@ -398,6 +398,18 @@ A9:
 
 https://www.slideshare.net/databricks/optimizing-apache-spark-sql-joins
 
+http://hbasefly.com/2017/03/19/sparksql-basic-join/
+
+https://cloud.tencent.com/developer/article/1005502
+
+https://www.jianshu.com/p/97e76dddcbfb
+
+https://blog.csdn.net/wlk_328909605/article/details/82933552
+
+https://mp.weixin.qq.com/s/DAxI4gVsZjjSxHZ1-Pwkjw
+
+
+
 Q10: 如何存储和调度非常大（内存不够）的RDD？
 
 ```
