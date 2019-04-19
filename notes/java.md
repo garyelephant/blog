@@ -241,6 +241,8 @@ http://www.geeksforgeeks.org/difference-between-abstract-class-and-interface-in-
 
 http://www.logicbig.com/tutorials/core-java-tutorial/java-se-api/service-loader/
 
+https://www.jianshu.com/p/7601ba434ff4
+
 (3) 注解
 
 (4) 范型
