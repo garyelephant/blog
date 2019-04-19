@@ -157,6 +157,11 @@ https://dzone.com/articles/solving-dependency-conflicts-in-maven
 
 1. 如何判断一个对象是否存活?(或者GC对象的判定方法) ?
 
+（1）引用计数法[JVM 没有用]，
+（2）可达性分析[JVM 在用]，什么是GC ROOT ? 
+
+https://www.jianshu.com/p/108ddab3ad3f
+
 2. HashMap vs HashTable vs ConcurrentHashMap ?
 
 ```
