@@ -28,9 +28,26 @@ java.util.concurrent:
 
 JVM 可见性 
 
+https://www.cnblogs.com/fengzheng/p/9070268.html
+
+http://www.importnew.com/27002.html
+
+http://ifeve.com/how-to-use-volatile/
+
+https://www.cnblogs.com/paddix/p/5428507.html
+
+https://www.cnblogs.com/dolphin0520/p/3920373.html
+
+https://www.cnblogs.com/chengxiao/p/6528109.html
 
 
 * transient
+
+* CAS
+
+https://www.cnblogs.com/chengxiao/p/6789109.html
+
+https://mp.weixin.qq.com/s/VeHq-LFPTYbtO6DsHKwngw
 
 5. 线程通信
 
