@@ -363,7 +363,7 @@ A10:
 
 ## 动态规划
 
-http://www.sohu.com/a/153858619_466939
+漫画：什么是动态规划 https://mp.weixin.qq.com/s/TQQ7UYE5y-OEfstt6Q0mog
 
 http://cppblog.com/menjitianya/archive/2015/10/23/212084.html
 
