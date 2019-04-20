@@ -24,7 +24,11 @@ java.util.concurrent:
 
 * synchonized
 
-* volitoate
+* volatile
+
+JVM 可见性 
+
+
 
 * transient
 
@@ -300,4 +304,24 @@ NIO
 《Java 8函数式编程》读书笔记: http://ginobefunny.com/post/java8_lambda_notes/
 
 Guice简明教程: http://ginobefunny.com/post/learning_guice/
+
+---
+
+# References CAS 原理
+
+https://blog.csdn.net/mmoren/article/details/79185862
+
+https://www.cnblogs.com/javalyy/p/8882172.html
+
+https://blog.csdn.net/v123411739/article/details/79561458
+
+https://www.cnblogs.com/kisty/p/5408264.html
+
+https://www.jianshu.com/p/ae25eb3cfb5d
+
+https://www.jianshu.com/p/fb6e91b013cc
+
+http://ifeve.com/compare-and-swap/
+
+
  
