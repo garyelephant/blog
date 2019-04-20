@@ -341,16 +341,37 @@ A10:
 
 ### LSM Tree
 
+---
+
 ### 红黑树
 
+---
 
 ## 哈希表：HashMap, LinkedHashMap
+
+---
 
 ## 海量数据处理
 
 [海量数据处理](https://github.com/garyelephant/The-Art-Of-Programming-By-July/tree/master/ebook/zh)
 
+---
+
 ## 图的数据结构与常用算法
+
+---
+
+## 动态规划
+
+http://www.sohu.com/a/153858619_466939
+
+http://cppblog.com/menjitianya/archive/2015/10/23/212084.html
+
+https://blog.csdn.net/u013309870/article/details/75193592
+
+https://www.cnblogs.com/wuyuegb2312/p/3281264.html
+
+---
 
 ## References
 
