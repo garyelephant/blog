@@ -88,3 +88,5 @@ https://www.flydata.com/blog/introduction-to-massively-parallel-processing/
 http://datascientists.info/blog/2013/04/26/hadoop-mpp/
 
 http://www.zdnet.com/article/mapreduce-and-mpp-two-sides-of-the-big-data-coin/
+
+《Presto技术内幕》
