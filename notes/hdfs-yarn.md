@@ -63,8 +63,34 @@ TODO:
 (7)当一个block传输完成之后，client再次请求namenode上传第二个block的服务器 重复(4)-(6)
 
 #### 1.5 HDFS HA
+
+#### 1.6 写文件到HDFS如何保证数据一致性
+
+场景Spark 生成Parquet 写入 HDFS， 如何保证数据一致性：
+
+此场景利用了 Hadoop FileOutputCommitter 的 Rename 机制（Spark写文件还是调用Hadoop的相关库来完成的），
+
+我们只是想把数据写入到S3某个路径下，为什么会出现先写到temporary目录，再Rename到真实目录的情况？
+
+假设我们直接把数据写入到指定的路径下，会出现哪些问题？
+
+* 由于是多个Task并行写文件，如何保证所有Task写的所有文件要么同时对外可见，要么同时不可见？在下图示例中，三个Task的写入速度是不同的，那就会导致不同时刻看到的文件个数是不一样的。另外，如果有一个Task执行失败了，就会导致有2个文件残留在这个路径下。
+
+* 同一个Task可能因为Speculation或者其他极端原因导致某一时刻有多个Task Attempt同时执行，即同一个Task有多个实例同时写相同的数据到相同的文件中，势必会造成冲突。如何保证最终只有一个是成功的并且数据是正确的？
+
+* 某个spark executor中的task在执行过程中，executor挂了，原来在这个executor上面的task会自动在其他executor上重新执行，如果这些task的工作是生成parquet文件，写入hdfs，那么是否会导致数据重复？
+
+上述的问题都与数据一致性有关，为了应对这些问题，尽可能保证数据一致性，Hadoop FileOutputCommitter设计了Rename机制（Spark写文件还是调用Hadoop的相关库来完成的）。Rename机制先后有两个版本：v1和v2，二者在性能和保证数据一致性的粒度上有所区别。
+
+Rename 机制有2个版本:
+
+v1: 2次Rename, 步骤：(1) write _temporary dir for task in _temporary dir for job, (2) do `commitTask`, rename _temporary task dir (3) do `commitJob`, rename _temporary job dir (3) add `_SUCCESS` flag file
+
+v2[牺牲一定的一致性，提高性能]: 1次Rename, (1) write _temporary dir for task in _temporary dir for job, (2) do `commitTask`, rename _temporary task dir[直接rename到最终目录] (3) add `_SUCCESS` flag file
+
+来自: https://bruce.blog.csdn.net/article/details/87955023
  
-### 2. Yarn
+### 2. YARN
 
 * 提交任务的流程
 
@@ -82,7 +108,7 @@ FIFO/Capacity/Fair Scheduler:
 
 https://blog.csdn.net/zhanyuanlin/article/details/71516286
 
-#### 2.3 HDFS HA
+#### 2.3 YARN HA
 
 
 ---
