@@ -278,6 +278,26 @@ https://www.jianshu.com/p/7601ba434ff4
 
 ---
 
+#### Java 并发编程知识汇总
+
+1. volatile/synchronized
+
+[volatile关键词](http://mp.weixin.qq.com/s?__biz=MzU0OTk3ODQ3Ng==&mid=2247484058&idx=1&sn=d5c1533204ea655e65947ec57f924799&chksm=fba6ea99ccd1638f945c585cf3b2df6f4d4112b17ea3648730d50fdb5508555d5f30316f4186&mpshare=1&scene=24&srcid=#rd)
+
+2. nio
+
+3. 线程，进程同步机制
+
+4. 死锁
+
+5. java 并发库
+
+[线程池讲解](http://mp.weixin.qq.com/s?__biz=MzU0OTk3ODQ3Ng==&mid=2247484608&idx=1&sn=cf5d9f47cbdac1751565ee3448804de6&chksm=fba6ecc3ccd165d51426a04825d9ac35e16061ee81a9d3d7b85f526755938ad88e714f0dc74d&mpshare=1&scene=24&srcid=#rd)
+
+[ConcurrentHashMap](http://mp.weixin.qq.com/s?__biz=MzU0OTk3ODQ3Ng==&mid=2247484526&idx=1&sn=6783cd49c3c25e75de16aaa61bbf6ee7&chksm=fba6ec6dccd1657bcd57abaa68d15a8ad52b8011eaa751d637bf279f5a35ec21e80b7b81243d&mpshare=1&scene=24&srcid=#rd)
+
+---
+
 ### References
  
 http://www.jianshu.com/p/04c0d796d877
