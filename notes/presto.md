@@ -89,4 +89,4 @@ http://datascientists.info/blog/2013/04/26/hadoop-mpp/
 
 http://www.zdnet.com/article/mapreduce-and-mpp-two-sides-of-the-big-data-coin/
 
-《Presto技术内幕》
+《Presto技术内幕》 链接：https://pan.baidu.com/s/1zKtT_ETvG0QwRISkowYSSw  提取码：pbxl 
