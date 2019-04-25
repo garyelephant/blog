@@ -1,7 +1,5 @@
 ## Hadoop(HDFS, Yarn)关键技术点整理
 
-> 本文内容由 https://github.com/666666666666 整理
-
 TODO:
 
 * Scheduler/Queue http://www.corejavaguru.com/bigdata/hadoop-tutorial/yarn-scheduler
@@ -167,3 +165,22 @@ A6: 在core-site.xml中配置`net.topology.script.file.name`，指定rack感知�
 Q7: Hdfs Federation
 
 https://blog.csdn.net/yinglish_/article/details/76785210
+
+
+---
+
+Hadoop 架构分析：
+
+1. [Hadoop架构原理](http://mp.weixin.qq.com/s?__biz=MzU0OTk3ODQ3Ng==&mid=2247483809&idx=1&sn=a8d087c21171bf164fcda389ada9404a&chksm=fba6e9a2ccd160b4e1423c6d142b18849ded66cfdc1477e4d601e44f832d7026b64d80af8db1&mpshare=1&scene=24&srcid=#rd)
+
+2. [大规模集群下Hadoop NameNode如何承载每秒上千次的高并发访问](http://mp.weixin.qq.com/s?__biz=MzU0OTk3ODQ3Ng==&mid=2247483821&idx=1&sn=872dad184dc230a1988973d3023eb837&chksm=fba6e9aeccd160b80a5c4c7957f045057bfff64bf5769eac976a2191d42511f14ff4cdabb5db&mpshare=1&scene=24&srcid=#rd)
+
+3. [Hadoop如何将TB级大文件的上传性能优化上百倍？](http://mp.weixin.qq.com/s?__biz=MzU0OTk3ODQ3Ng==&mid=2247483830&idx=1&sn=ae6be8cf2f1361044de9577170afd887&chksm=fba6e9b5ccd160a3ca904630c2d634fbe5c302f6b5d8350de23eabbacd1f499c7d00bce47344&mpshare=1&scene=24&srcid=#rd)
+
+4. [看Hadoop底层算法如何优雅的将大规模集群性能提升10倍以上？](http://mp.weixin.qq.com/s?__biz=MzU0OTk3ODQ3Ng==&mid=2247483900&idx=1&sn=f7d66378d68306ee3732e1e7ba60561a&chksm=fba6e9ffccd160e9cd1f9843e2abcb411c67adfcafbab1715401da1bedbf6a010e6821508057&mpshare=1&scene=24&srcid=#rd)
+
+5. [大规模集群下的Hadoop高并发以及高性能架构原理总结](http://mp.weixin.qq.com/s?__biz=MzU0OTk3ODQ3Ng==&mid=2247483932&idx=1&sn=02849bfdb31d708df28a3f689b7a8ffc&chksm=fba6ea1fccd163096ba2fe2984444683308efb7b420e2174be225af4f709e47436dc63bc17dd&mpshare=1&scene=24&srcid=#rd)
+
+---
+
+
