@@ -487,7 +487,9 @@ select c1, sum(c2), count(distinct c3) from table group c1
 #### 4. Spark SQL Optimization --> CBO(Cost Based Optimization)
 
 
-#### 5. 数据倾斜的处理方案（业务层面解决）：
+#### 5. Spark SQL Optimization --> RBO(Rule Based Optimization)
+
+#### 6. 数据倾斜的处理方案（业务层面解决）：
 
 1. 无关数据过滤(比如过滤掉join关联字段是null的数据)
 
