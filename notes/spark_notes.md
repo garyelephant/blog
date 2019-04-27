@@ -459,6 +459,10 @@ http://blog.jobbole.com/103545/
 
 ### Spark SQL 深入
 
+#### 0. Spark SQL 基本原理
+
+https://blog.51cto.com/7741292/2320031
+
 #### 1. 用Spark SQL 做多维分析
 
 主要用到了
@@ -518,8 +522,13 @@ https://blog.csdn.net/wlk_328909605/article/details/82933552
 
 #### 4. Spark SQL Optimization --> CBO(Cost Based Optimization)
 
+一文搞懂spark sql中的CBO（基于代价的优化） https://mp.weixin.qq.com/s/AE4CRMj5jbei3yonGPdDTg
 
 #### 5. Spark SQL Optimization --> RBO(Rule Based Optimization)
+
+理解spark sql 优化策略的最好方法就是自己实现一个 https://mp.weixin.qq.com/s/TzzHGBzFgguujb1qWRVnHA
+
+Spark SQL 内部原理 RBO https://mp.weixin.qq.com/s/Hj4CeyxvHl-crhegEzSEfQ
 
 #### 6. 数据倾斜的处理方案（业务层面解决）：
 
