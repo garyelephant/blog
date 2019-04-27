@@ -458,6 +458,17 @@ https://databricks.gitbooks.io/databricks-spark-knowledge-base/
 
 #### 2. Spark SQL 聚合实现原理
 
+能够理解，在Spark SQL中，已下4个SQL是如何实现的：
+
+```
+select count(*) from table
+
+select count(distinct c1) from table
+
+select c1, sum(c2) from table group by c1
+
+select c1, sum(c2), count(distinct c3) from table group c1
+```
 
 #### 3. Spark SQL Join 的实现原理
 
@@ -472,6 +483,12 @@ https://databricks.gitbooks.io/databricks-spark-knowledge-base/
 * SortMerge Join (???)
 
 疑问：没理解这个算法是如何实现的？
+
+#### 4. Spark SQL Optimization --> CBO(Cost Based Optimization)
+
+
+#### 5. 
+
 
 ---
 
