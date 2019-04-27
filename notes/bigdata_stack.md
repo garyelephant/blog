@@ -31,7 +31,7 @@
   * mysql（索引，事务，事务隔离级别，锁, 范式, binlog）
   * mongodb
 
-* 大数据与分布式系统重要理论：
+* 大数据与分布式系统重要理论：参见[大数据关键理论的笔记](./bigdata-theory.md)
   * 分布式系统理论：CAP, MapReduce, DAG, MPP
   * 数据仓库理论, 数据仓库模型设计(分层建设、主题模型、元数据管理), 参见[数据仓库模型](./datawarehouse-theory.md)
   * OLAP，OLTP, Ad-hoc
