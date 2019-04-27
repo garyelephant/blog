@@ -439,6 +439,24 @@ https://databricks.gitbooks.io/databricks-spark-knowledge-base/
 
 ---
 
+### Shuffle 原理深入
+
+https://0x0fff.com/spark-architecture-shuffle/
+
+http://datastrophic.io/core-concepts-architecture-and-internals-of-apache-spark/
+
+https://github.com/JerryLead/SparkInternals/blob/master/markdown/4-shuffleDetails.md
+
+http://www.cnblogs.com/jcchoiling/p/6431969.html
+
+http://www.cnblogs.com/jcchoiling/p/6440102.html
+
+https://issues.apache.org/jira/browse/SPARK-2213
+
+http://blog.jobbole.com/103545/
+
+---
+
 ### Spark SQL 深入
 
 #### 1. 用Spark SQL 做多维分析
