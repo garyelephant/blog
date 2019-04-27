@@ -434,8 +434,30 @@ https://databricks.gitbooks.io/databricks-spark-knowledge-base/
 
 再参考一下 [写文件到HDFS如何保证数据一致性](https://github.com/garyelephant/blog/blob/master/notes/hdfs-yarn.md#16-%E5%86%99%E6%96%87%E4%BB%B6%E5%88%B0hdfs%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7)
 
+
 #### Spark Gracefully Shutdown
 
+---
+
+### Spark SQL 深入
+
+#### 1. 用Spark SQL 做多维分析
+
+主要用到了
+
+```
+* group by (普通分组)
+* grouping set (union 分组)
+* with rollup (上卷)
+* with cube (数据立方体)
+```
+
+参考：https://blog.csdn.net/u011622631/article/details/84786777
+
+#### 2. Spark SQL 聚合实现原理
+
+
+#### 3. Spark SQL Join 的实现原理
 
 
 ---
