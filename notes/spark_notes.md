@@ -452,6 +452,8 @@ https://databricks.gitbooks.io/databricks-spark-knowledge-base/
 * with cube (数据立方体)
 ```
 
+![图片来自<Spark SQL 内核剖析>](./spark_notes_images/SparkSQL多维分析.png)
+
 参考：https://blog.csdn.net/u011622631/article/details/84786777
 
 #### 2. Spark SQL 聚合实现原理
