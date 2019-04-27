@@ -12,9 +12,24 @@
 
 ACID
 
-## Olap vs Oltp
+---
 
-## mpp vs mapreduce
+## Olap, Oltp, Adhoc
+
+### 1. Olap vs Oltp vs Adhoc
+
+![olap vs oltp vs adhoc](bigdata-theory_images/olap_oltp_adhoc.png)
+
+### 2. Olap 细分
+
+![olap](bigdata-theory_images/olap_1.png)
+
+对MOlap, ROlap, HOlap 的区分。
+
+来自《Spark SQL　内核剖析》
+---
+
+## mpp vs mapreduce vs Spark DAG
 
 http://www.jianshu.com/p/5191daa1a454
 
