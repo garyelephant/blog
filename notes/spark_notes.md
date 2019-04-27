@@ -461,6 +461,17 @@ https://databricks.gitbooks.io/databricks-spark-knowledge-base/
 
 #### 3. Spark SQL Join 的实现原理
 
+* Broadcast Join (将小表广播到大表数据的每个partition所在的节点上)
+
+疑问：小表的大小是如何判断的？
+
+* ShuffleHash Join (根据grouping key 来对两个表做shuffle, 将相同的key shuffle到同一台机器上)
+
+疑问: shuffle 的 key 的算法，以及shuffle 目标机器的定位是怎么做的？是否会产生数据倾斜的情况？
+
+* SortMerge Join (???)
+
+疑问：没理解这个算法是如何实现的？
 
 ---
 
