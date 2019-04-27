@@ -474,15 +474,29 @@ select c1, sum(c2), count(distinct c3) from table group c1
 
 * Broadcast Join (将小表广播到大表数据的每个partition所在的节点上)
 
+Broadcast join   条件:
+
+(1) 被广播的表需要小于 `spark.sql.autoBroadcastJoinThreshold` 所配置的值，默认是10M （或者加了broadcast join的hint）
+
+(2) 基表不能被广播，比如 left outer join 时，只能广播右表
+
 疑问：小表的大小是如何判断的？
 
 * ShuffleHash Join (根据grouping key 来对两个表做shuffle, 将相同的key shuffle到同一台机器上)
+
+注意：两个表相同的Key hash到同一个节点后，在这个节点上进行join key时，需要预先将其中一个表在这个节点上的整个分区数据加载到内存中，再用另一个表逐条匹配join key，对大表来说，内存压力是很大的。
 
 疑问: shuffle 的 key 的算法，以及shuffle 目标机器的定位是怎么做的？是否会产生数据倾斜的情况？
 
 * SortMerge Join (???)
 
-疑问：没理解这个算法是如何实现的？
+仍然需要先将相同的key hash到相同的节点上，接下来对当前节点上的2个表的分区按照join key排序，之后进行类似归并排序的join key操作。这样就不需要将某个表的整个分区加载到内存中了。
+
+疑问：单节点内，分区按照join key排序是如何实现的？如果key特别多，内存放不下呢？
+
+http://www.cnblogs.com/duodushuduokanbao/p/9911256.html
+
+https://blog.csdn.net/wlk_328909605/article/details/82933552
 
 #### 4. Spark SQL Optimization --> CBO(Cost Based Optimization)
 
