@@ -124,8 +124,20 @@ Kimball模型数据仓库建模技巧：https://zhuanlan.zhihu.com/p/26908834
 
 ```
 
-* ODS/DW/DM
+* 数据仓库分层设计：ODS / ODS_PRODUCT / DW / DM
 
+数据分层的数据仓库: 
+
+第一层：ods[原始数据] --> 
+
+第二层：ods_product[主要做一些常见的数据转换，以及Join预先关联] --->
+Join预先关联指的是对于那些可以用某个或者多个字段关联在一起的数据源（必须是1:1:...:1 的关系），可以将关联字段设计为表的主键，然后用多个流式程序写入不同的数据源，即可实现了多个数据源预先关联到一张大宽表中。
+
+举个例子: 订单和流水是1：1关联，他们的关联字段是txn_id，那么可以设计一张大宽表[txn_id, (订单的其他字段)，(流水的其他字段)]，将订单和流水做预先的关联。 
+
+第三层：DW[基于主题的维度，指标的聚合表] ---> 
+
+第四层：DM[将多个DW表根据产品和运营的需求来组合到一起]
 
 * 拉链表/全量表/流量表
 
@@ -202,3 +214,6 @@ https://www.vertabelo.com/blog/technical-articles/data-warehouse-modeling-star-s
 https://www.computerweekly.com/tip/Inmon-or-Kimball-Which-approach-is-suitable-for-your-data-warehouse
 
 https://blog.csdn.net/sinat_28472983/article/details/80948943
+
+关于Kimball维度设计模型的实践，可以参考阿里巴巴数据技术及产品部出的《大数据之路》书中的数据模型（第八章到第十一章）部分，已经有较全面的介绍。可作为Kimball的 《数据仓库工具箱》这本书的缩减总结版来阅读。
+
