@@ -455,6 +455,32 @@ https://issues.apache.org/jira/browse/SPARK-2213
 
 http://blog.jobbole.com/103545/
 
+https://www.iteblog.com/archives/1672.html
+
+https://www.iteblog.com/archives/2527.html
+
+https://www.jianshu.com/p/93c2462ed9e4
+
+https://blog.csdn.net/tian_qing_lei/article/details/78002395
+
+https://blog.csdn.net/shuimofengyang/article/details/81534069
+
+https://student-lp.iteye.com/blog/2212442
+
+http://www.cnblogs.com/itboys/p/9226479.html
+
+https://blog.csdn.net/chenjieit619/article/details/53421202
+
+https://blog.csdn.net/qq_21835703/article/details/79104733
+
+https://www.cnblogs.com/itboys/p/9226461.html
+
+https://blog.csdn.net/quitozang/article/details/80904040
+
+https://www.zhihu.com/question/41997909?sort=created
+
+https://www.cnblogs.com/rxingyue/p/7113178.html
+
 ---
 
 ### Spark SQL 深入
