@@ -5,7 +5,7 @@
 * 基础知识
   * 数据结构与算法：排序、树、图基础算法，红黑树，BTree, skipList
   * 普通的技巧型面试题，参考《剑指offer》以及[在线题目](https://www.nowcoder.com/ta/coding-interviews?page=1)，《编程之美》，《编程珠玑》，《程序员代码面试指南—IT名企算法与数据结构题目最优解》, [leetcode](https://leetcode-cn.com/articles/)，[牛客网]()
-  * 海量数据算法面试题 [link1](https://blog.csdn.net/wypersist/article/details/80114709), [link2](https://www.jianshu.com/p/f56ef7b23686)
+  * 海量数据算法面试题 [link1](https://blog.csdn.net/wypersist/article/details/80114709), [link2](https://www.jianshu.com/p/f56ef7b23686), [Bloom Filter-1](https://www.cnblogs.com/zhxshseu/p/5289871.html), [Bloom Filter-2](https://www.jianshu.com/p/b0c0edf7686e)
   * 编程语言基础及核心知识：
     * Java, Scala (JVM, GC, ClassLoader, 反射，泛型, 注解，切面，ServiceLoader, CodeGeneration, Collections(HashMap, LinkedHashMap, TreeMap, ConcurrentHashMap, BlockingQueue), ThreadPool, concurrent库, NIO) 
     * Python(GIL, GC)
