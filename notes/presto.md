@@ -90,3 +90,19 @@ http://datascientists.info/blog/2013/04/26/hadoop-mpp/
 http://www.zdnet.com/article/mapreduce-and-mpp-two-sides-of-the-big-data-coin/
 
 《Presto技术内幕》 链接：https://pan.baidu.com/s/1zKtT_ETvG0QwRISkowYSSw  提取码：pbxl 
+
+Presto中的分组聚合查询流程 https://zhuanlan.zhihu.com/p/54385845
+
+Presto 数据如何进行shuffle https://zhuanlan.zhihu.com/p/61565957
+
+Presto 由Stage到Task的旅程 https://zhuanlan.zhihu.com/p/55785284
+
+Presto的ETL之路 https://zhuanlan.zhihu.com/p/53996153
+
+Presto Codegen简介与优化尝试 https://zhuanlan.zhihu.com/p/53469238
+
+Presto中的Hash Join https://zhuanlan.zhihu.com/p/54731892
+
+Presto 专栏 https://zhuanlan.zhihu.com/presto-cn
+
+
