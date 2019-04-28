@@ -546,7 +546,9 @@ Spark SQL 内部原理 RBO https://mp.weixin.qq.com/s/Hj4CeyxvHl-crhegEzSEfQ
 
 ![](./spark_notes_images/shuju_qingxie_2.png)
 
-参见：朱锋; 张韶全; 等. Spark SQL内核剖析 (Kindle 位置 4240-4242). 电子工业出版社.
+参见：朱锋; 张韶全; 等. Spark SQL内核剖析. 电子工业出版社.
+
+参见：阿里巴巴数据技术及产品部 《大数据之路》的第13章，任务优化：Map 倾斜，Join 倾斜，Reduce倾斜中关于任务的优化。
 
 ---
 
