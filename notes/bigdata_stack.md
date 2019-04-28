@@ -160,6 +160,14 @@ Q4: 为什么Mysql用的是B+tree, Mongodb用的是B-tree, Lucene用的是SkipLi
 
 Q5: MySQL, Mongodb 如何实现HA ?
 
+Q6: MySQL 的事务隔离级别？
+
+[MySQL的四种事务隔离级别](https://www.cnblogs.com/huanongying/p/7021555.html)
+
+[MySQL事务隔离级别的实现原理](https://www.cnblogs.com/cjsblog/p/8365921.html)
+
+[MySQL的事务隔离级别](http://blog.itpub.net/31559358/viewspace-2221931/)
+
 > 数据传输：Flume, Logstash
 
 参考笔记：[每秒百万级流式日志处理架构的开发运维调优笔记](https://cloudblog.github.io/2016/11/19/%E6%AF%8F%E7%A7%92%E7%99%BE%E4%B8%87%E7%BA%A7%E6%B5%81%E5%BC%8F%E6%97%A5%E5%BF%97%E5%A4%84%E7%90%86%E6%9E%B6%E6%9E%84%E7%9A%84%E5%BC%80%E5%8F%91%E8%BF%90%E7%BB%B4%E8%B0%83%E4%BC%98%E7%AC%94%E8%AE%B0/)
