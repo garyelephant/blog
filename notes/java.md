@@ -1,4 +1,11 @@
-## Java
+## [已废弃] Java
+
+
+---
+
+请移步至新总结的Java 笔记 [新java笔记](./java2.md)
+
+---
 
 ### collections 
 
