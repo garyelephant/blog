@@ -3,13 +3,21 @@
 ---
 
 
-spark 架构(Spark On Yarn):
+#### 1. spark 架构(Spark On Yarn):
 
 ![spark architectures](./bigdata_stack_images/spark-architecture.png)
 
 [spark 架构详细解释](https://0x0fff.com/spark-architecture/)
 
 备注：Application Master是Yarn上的概念，不是Spark里面的概念。
+
+---
+
+#### 2. Spark执行原理
+
+https://www.slideshare.net/datamantra/core-services-behind-spark-job-execution
+
+---
 
 FAQ
 
