@@ -19,6 +19,12 @@ https://www.slideshare.net/datamantra/core-services-behind-spark-job-execution
 
 ---
 
+#### 3. Spark Stateful Streaming Processing
+
+https://www.slideshare.net/datamantra/state-management-in-structured-streaming
+
+---
+
 FAQ
 
 Q1: RDD是什么？
