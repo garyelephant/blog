@@ -6,6 +6,11 @@ markdown content of garyelephant's blog.http://garyelephant.me
 markdown syntax is tested in [StackEdit](https://stackedit.io/)
 
 
+---
+
+如果你想要得到一点大数据，Java，Python的求职经验，或者希望我能够帮助你找到涨薪超过30%的技术岗位，欢迎加我微信：garyelephant(备注说明：“求职带练”)
+
+
 Contents
 ---
 * [Waterdrop帮你快速玩转Spark数据处理](./waterdrop-release.md) 2018-02-16
