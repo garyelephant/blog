@@ -219,4 +219,9 @@ Yarn与HDFS的笔记整理见[HDFS, Yarn关键技术点](./hdfs-yarn.md)
 
 参考笔记：[Zookeeper关键技术点](./zookeeper.md)
 
+---
 
+> 本人目前在国内某一线互联网从事大数据架构工作，这些考点大纲和资料整理都是之前面试的经验整理。
+> 如果有哪位同学，需要大数据求职面试辅导，请加微信 `garyelephant`。或者扫码加我微信：
+
+<img src="../images/garyelephant.jpeg" height="180" width="180">
